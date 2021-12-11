@@ -1,0 +1,37 @@
+.section-title {
+	h2 {
+		font-size: 30px;
+		font-weight: 600;
+		position: relative;
+		display: inline-block;
+		margin: 0;
+		color: $theme-colors;
+		
+    
+		&:before {
+			position: absolute;
+			top: 17px;
+			left: -100px;
+			width: 80px;
+			height: 2px;
+			content: "";
+			background-color: #000;
+		}
+		&:after {
+			position: absolute;
+			top: 17px;
+			right: -100px;
+			width: 80px;
+			height: 2px;
+			content: "";
+			background-color: #000;
+      
+		}
+	}
+
+	p {
+		font-size: 16px;
+		font-weight: 400;
+		margin-top: 10px;
+	}
+}
