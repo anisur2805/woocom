@@ -101,8 +101,11 @@
 			</div>
 			
 			<div class="row footer-bottom">
-				<div class="col-md-4">© <?php echo date('Y'); ?> WondersTech.
-					All Rights Reserved</div>
+				<!-- <div class="col-md-4">© <?php echo date('Y'); ?> WondersTech.
+					All Rights Reserved</div> -->
+					
+						<div class="col-md-4"><?php echo get_theme_mod('woocom_copyright') ?></div>
+					
 				<div class="col-md-8 payment"><img class="payment_methods"
 						src="<?php echo get_template_directory_uri() . "/assets/images/payment-accept.png" ?>"
 						alt="payment"></div>

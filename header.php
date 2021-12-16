@@ -56,7 +56,7 @@
 							</div>
 						</div>
 						
-						<div class="col-xl-8 col-lg-8 d-none d-lg-block">
+						<div class="col-xl-6 col-lg-6 d-none d-lg-block">
 							<div class="main-menu">
 								<?php
 									wp_nav_menu(
@@ -69,10 +69,29 @@
 							</div>
 						</div>
 						
-						<div class="col-xl-2 col-lg-2 col-md-6 col-8 ">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-8 ">
 							<div class="header-right-wrap ">
-							
+								
 								<div class="same-style account-setting d-none d-lg-block">
+									<?php echo get_search_form(); ?>
+								</div>
+								
+								<div class="same-style account-setting account d-none d-lg-block">
+								
+								
+								<?php if( class_exists('WooCommerce')): ?>
+								
+									<ul>
+								<?php if( is_user_logged_in()): ?>
+										<li><a href="<?php echo esc_url( get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">My Account</a></li>
+										<li><a href="<?php echo esc_url( wp_logout_url(get_permalink(get_option('woocommerce_myaccount_page_id')))); ?>">Logout</a></li>
+								<?php else: ?>
+								<li><a href="<?php echo esc_url( get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">Login/ Register</a></li>
+								<?php endif; ?>
+									</ul>
+								<?php endif; ?>
+								
+								
 									<button class="account-setting-active">
 										<i class="bi-person"></i>
 									</button>
@@ -98,20 +117,19 @@
 									</a>
 								</div>
 											
-								<div class="same-style cart-wrap d-none d -lg-block">
-									<button class="icon-cart"><i class="bi-heart"></i>
-										<span
-											class="count-style">0</span>
-									</button>
+								<!-- <div class="same-style cart-wrap d-none d -lg-block mt-8">
+									<a class="icon-cart"><i class="bi-heart"></i>
+										<span class="count-style"><?//php echo WC()->cart->get_cart_contents_count(); ?></span>
+									</a>
 									<div class="shopping-cart-content">
 										<p class="text-center">No items added to cart</p>
 									</div>
-								</div>
+								</div> -->
 								
 								<div class="same-style cart-wrap d-block d -lg-none">
-									<a class="icon-cart" href="/cart">
+									<a class="icon-cart" href="<?php echo wc_get_cart_url(); ?>" >
 										<i class="bi-basket"></i>
-										<span class="count-style">0</span>
+										<span class="count-style cart_count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
 									</a>
 								</div>
 											

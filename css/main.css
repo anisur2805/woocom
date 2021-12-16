@@ -15935,6 +15935,15 @@ ul.products li.product:hover .add_to_cart_button {
   color: #f3b632;
 }
 
+.same-style.account-setting.account, .same-style.account-setting.account ul {
+    display: flex !important;
+    align-items: center;
+}
+
+.same-style.account-setting.account li {
+    margin: 0 12px;
+}
+
 /* Dropdown Style */
 
 @media (min-width: 992px) {
@@ -16005,6 +16014,9 @@ ul.products li.product:hover .add_to_cart_button {
   margin-top: 32px;
 }
 
+.header-right-wrap .mt-8 {
+  margin-top: -8px;
+}
 .header-right-wrap .same-style:first-child {
   margin-left: 0;
 }
@@ -16496,4 +16508,23 @@ input, select {
 }
 .contact-form .contact-form-style button:hover {
     background-color: #f3b632;
+}
+
+/* Search Form */
+form.search-form.woocom-search-form {
+    display: flex;
+    align-items: center;
+}
+.woocom-search-form .search-field {
+  /* width: calc(100% - 40px); */
+  width: 100px;
+  padding-left: 12px;
+  box-sizing: border-box;
+}
+.woocom-search-form button.search-submit {
+    width: auto;
+    padding: 9px 5px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-left: 1px;
 }

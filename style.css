@@ -133,11 +133,7 @@ a {
  * 1. Remove the bottom border in Chrome 57-
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
-abbr[title] {
-	border-bottom: none;
-	text-decoration: underline;
-	text-decoration: underline dotted;
-}
+
 
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
@@ -931,6 +927,7 @@ textarea {
 	top: 5px;
 	width: auto;
 	z-index: 100000;
+	box-sizing: border-box;
 }
 
 /* Do not show the outline on the skip link target. */
