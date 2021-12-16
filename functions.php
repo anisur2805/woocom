@@ -110,6 +110,8 @@ if (! function_exists('woocom_setup')) :
         * WooCommerce support in theme
          */
         add_theme_support('woocommerce');
+        
+        add_image_size( 'woocom-slider', 1920, 800, array( 'center', 'center' ) ); // Hard crop left top
     }
 endif;
 add_action('after_setup_theme', 'woocom_setup');

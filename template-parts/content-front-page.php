@@ -10,7 +10,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <header class="entry-header">
 
-	<?php echo get_template_part('/template-parts/swiper', 'slider'); ?>
+	<?php echo get_template_part('/template-parts/hero', 'slider'); ?>
 	
 	<div class="support-area pt-100 pb-60">
 		<div class="container">

@@ -80,7 +80,7 @@
 								
 								
 								<?php if( class_exists('WooCommerce')): ?>
-								
+																																							
 									<ul>
 								<?php if( is_user_logged_in()): ?>
 										<li><a href="<?php echo esc_url( get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">My Account</a></li>
@@ -147,9 +147,7 @@
 				
 				<!-- M<obile menu -->
 				<div class="offcanvas-mobile-menu" id="offcanvas-mobile-menu">
-				<button class="offcanvas-menu-close"
-		id="mobile-menu-close-trigger"><i class="bi-x"></i>
-		</button>
+					<button class="offcanvas-menu-close" id="mobile-menu-close-trigger"><i class="bi-x"></i> </button>
 					<div class="offcanvas-wrapper">
 						<div class="offcanvas-inner-content">
 							<nav class="offcanvas-navigation" id="offcanvas-navigation">
@@ -182,8 +180,5 @@
 						</div>
 					</div>
 				</div>
-				
-				
 			</div>
-			
 			</header>
