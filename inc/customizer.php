@@ -72,7 +72,9 @@ add_action('customize_preview_init', 'woocom_customize_preview_js');
  */
 function woocom_customize( $wp_customize ) {
     
-    // Footer Copyright
+    /*
+    *   Footer Copyright
+    */
 	$wp_customize->add_section('woocom_footer_copyright_section', array(
 		'title'      => esc_html__('Footer Copyright Text', 'woocom'),
 		'description'      => esc_html__('Footer Copyright Text', 'woocom'),
@@ -93,7 +95,9 @@ function woocom_customize( $wp_customize ) {
 		'type'			=> 'textarea',
 	) );
     
-    // Hero Slider
+    /**
+     *  Hero Slider
+     */
     $wp_customize->add_section('woocom_hero_slider', array(
 		'title'      => esc_html__('Hero Slider', 'woocom'),
 		'description'      => esc_html__('Hero Slider Settings', 'woocom'),
@@ -215,6 +219,49 @@ function woocom_customize( $wp_customize ) {
 		'label'        => esc_html__('Hero Slider 3 Button Url', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'url',
+	) );
+    
+    /**
+     * WooCommerce Products
+     */
+    $wp_customize->add_section('woocom_woocommerce_product_section', array(
+		'title'      => esc_html__('WooCommerce Products', 'woocom'),
+		'description'      => esc_html__('WooCommerce Products', 'woocom'),
+		'priority'   => 32,
+	));
+    
+    //select sanitization function
+    function woocom_new_arrivals_sanitize_select( $input, $setting ){
+        
+        //input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+        $input = sanitize_key($input);
+
+        //get the list of possible select options 
+        $choices = $setting->manager->get_control( $setting->id )->choices;
+                            
+        //return input if valid or return default option
+        return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
+            
+    }
+
+	$wp_customize->add_setting('woocom_new_arrivals_columns', array(
+		'sanitize_callback' => 'woocom_new_arrivals_sanitize_select', //removes all HTML from content
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'transport'   => 'refresh',
+	));
+	
+	$wp_customize->add_control(  'woocom_new_arrivals_columns', array(
+		'label'        => esc_html__('WooCommerce New Arrivals Product per Columns', 'woocom'),
+		'section'    => 'woocom_woocommerce_product_section',
+		'settings'   => 'woocom_new_arrivals_columns',
+		'type'			=> 'select',
+        'choices' => array(
+            '' => esc_html__('Please select per columns','woocom'),
+            '2' => esc_html__('Two Columns','woocom'),
+            '3' => esc_html__('Three Columns','woocom'),
+            '4' => esc_html__('Four Columns','woocom'),
+        )
 	) );
 }
 

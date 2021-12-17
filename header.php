@@ -72,7 +72,7 @@
 						<div class="col-xl-4 col-lg-4 col-md-6 col-8 ">
 							<div class="header-right-wrap ">
 								
-								<div class="same-style account-setting d-none d-lg-block">
+								<div class="same-style account-setting d-none d -lg-block">
 									<?php echo get_search_form(); ?>
 								</div>
 								

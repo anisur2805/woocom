@@ -77,11 +77,16 @@
 						type="button" role="tab" aria-controls="contact" aria-selected="false">Sale Items</button>
 				</li>
 			</ul>
+			
+			<?php
+				$new_arrivals_columns = get_theme_mod('woocom_new_arrivals_columns');
+			?>
+			
 			<div class="tab-content" id="myTab">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 				<div class="row">
 					<div class="col-md-12">
-							<?php echo do_shortcode('[best_selling_products limit=4]'); ?>
+							<?php echo do_shortcode('[products orderby="date" columns="'. $new_arrivals_columns .'" limit=4]'); ?>
 					</div>
 				</div>
 				</div>
