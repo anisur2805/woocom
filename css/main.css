@@ -16561,6 +16561,9 @@ aside h2{
   font-size: 25px;
   line-height: 34px;
 }
+.widget.woocommerce widget_price_filter{
+  margin-top: 35px;
+}
 
 /* WooCommerce Main Content */
 .woocommerce-ordering select.orderby {
@@ -16585,4 +16588,24 @@ header.woocommerce-products-header {
 }
 nav.woocommerce-breadcrumb a {
     color: #1fe9e6;
+}
+
+ul.products.columns-4 {
+    margin-top: 25px;
+}
+
+form.woocommerce-ordering {}
+
+p.woocommerce-result-count, form.woocommerce-ordering {
+    display: inline-flex;
+    width: 49%;
+}
+
+form.woocommerce-ordering { 
+    justify-content: flex-end;
+}
+
+.products-wrapper .woocommerce-loop-product__title {
+    font-size: 18px;
+    margin: 10px 0;
 }

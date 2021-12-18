@@ -1,0 +1,26 @@
+.slider {
+    padding: 0 0 5px;
+
+    .slides {
+
+        img {
+            height: 80vh;
+            width: auto;
+            padding: 2vh;
+        }
+    }
+
+    // Fix selectable bug.
+    &.is-admin {
+        &:before {
+            display: block;
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            position: absolute;
+            z-index: 1;
+        }
+    }
+}
