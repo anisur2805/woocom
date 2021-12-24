@@ -105,11 +105,6 @@
     )
    );
 
-   /**
-    * WooCommerce support in theme
-    */
-   add_theme_support( 'woocommerce' );
-
   }
 
  endif;
