@@ -29,3 +29,9 @@ function woocom_product_rating(){
 	
 	<?php 
 }
+
+// WooCommerce Change Per Row Products 
+add_filter('loop_shop_columns', 'woocom_loop_columns', 999);
+function woocom_loop_columns( ) {
+	return 3;
+}
