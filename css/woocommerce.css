@@ -565,3 +565,7 @@ p.no-comments {
 .widget_price_filter .ui-slider-horizontal .ui-slider-range {
 	height: 100%;
 }
+.woocom_add_to_cart_wrapper {
+	display: flex;
+	align-items: center;
+}

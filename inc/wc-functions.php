@@ -36,3 +36,18 @@ function woocom_loop_columns( ) {
 	return 3;
 }
 
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30); 
+add_filter('woocommerce_single_product_summary', 'woocom_single_product_summery');
+function woocom_single_product_summery(){
+	echo "<div class='woocom_add_to_cart_wrapper'>";
+	woocommerce_template_single_add_to_cart();
+	echo do_shortcode('[yith_wcwl_add_to_wishlist]');
+	echo "</div>";
+}
+
+// add_filter('yith_wcwl_add_to_wishlist_params', 'woocom_yith_wcwl_add_to_wishlist_params');
+function woocom_yith_wcwl_add_to_wishlist_params( $text ) {
+	$text = '';
+	return $text;
+}
+ 
