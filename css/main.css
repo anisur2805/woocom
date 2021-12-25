@@ -15624,6 +15624,33 @@ a.default-btn {
 }
 
 /* .slider-height-1.swiper-slide { height: 750px; } */
+
+.header-top-area {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.lang-car-dropdown {
+  position: absolute;
+  transform: translateY(10px);
+  top: 100%;
+  opacity: 0;
+  margin-top: 10px;
+  transition: all 0.4s;
+}
+.same-language-currency + .same-language-currency {
+  margin-left: 20px;
+  border-left: 1px solid #ddd;
+  padding-left: 15px;
+}
+.same-language-currency.language-style{
+  position: relative;
+}
+.same-language-currency.language-style:hover .lang-car-dropdown{
+  transform: translateY(-10px);
+  opacity: 1;
+
+}
 /* Header Menu */
 .main-menu nav ul {
   display: block;
@@ -16260,7 +16287,9 @@ aside .woocom-search-form button.search-submit {
   max-width: 60px;
   width: 100%;
 }
-
+aside .widget {
+    margin: 35px 0 0;
+}
 /* WooCommerce Pagination */
 nav.woocommerce-pagination {
   clear: both;
@@ -16493,4 +16522,32 @@ section.related.products ul.products .woocommerce-loop-product__title {
 
 .single_product_summery {
     margin-top: 100px;
+}
+
+/* WooCommerce Single Product Gallery Slick Slider */
+.product-gallery-image {
+    margin-top: 30px;
+}
+.product-gallery-image .slick-track .slick-slide {
+    padding: 0 5px;
+}
+
+.product-gallery-image button.slick-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    opacity: 0.85;
+    border: 0;
+}
+
+.product-gallery-image button.slick-arrow:hover {
+    background: #222;
+    color: #fff;
+    opacity: 1;
+}
+
+.product-gallery-image button.slick-next {
+    right: 0;
 }

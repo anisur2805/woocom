@@ -35,6 +35,7 @@ if ( post_password_required() ) {
 	<div class="single_product_wrapper">
 		<div class="container">
 			<div class="row">
+			
 				<div class="col-md-6">
 					<?php
 						/**
@@ -43,8 +44,58 @@ if ( post_password_required() ) {
 						* @hooked woocommerce_show_product_sale_flash - 10
 						* @hooked woocommerce_show_product_images - 20
 						*/
-						do_action( 'woocommerce_before_single_product_summary' );
+						//do_action( 'woocommerce_before_single_product_summary' );
 					?>
+					
+					<?php $attachment_ids = $product->get_gallery_image_ids();
+						if ( !empty( $attachment_ids ) ) {?>
+
+						<script>
+							jQuery(document).ready(function($){
+								 $('.product-large-image').slick({
+									slidesToShow: 1,
+									slidesToScroll: 1,
+									arrows: false,
+									fade: true,
+									asNavFor: '.product-gallery-image'
+								});
+								$('.product-gallery-image').slick({
+									slidesToShow: 3,
+									slidesToScroll: 1,
+									asNavFor: '.product-large-image',
+									dots: false,
+									centerMode: true,
+									focusOnSelect: true
+								});
+							});
+						</script>
+
+						<div class="product-large-image">
+							<?php foreach ( $attachment_ids as $large_img ) { ?>
+								<div class="product-large-single-image">
+									<img src="<?php echo wp_get_attachment_image_url( $large_img, 'large' ) ?>" />
+								</div>
+							<?php } ?>
+						</div>
+
+
+						<div class="product-gallery-image">
+							<?php foreach ( $attachment_ids as $small_img ) { ?>
+								<div class="product-gallery-single-image">
+									<img src="<?php echo wp_get_attachment_url( $small_img, 'large' ) ?>" />
+								</div>
+							<?php } ?>
+						</div>
+						
+						<?php } else { ?>
+						
+						<div class="product-large-image">
+							<div class="product-large-single-image">
+									<?php echo woocommerce_get_product_thumbnail( get_the_ID() ); ?>
+							</div>
+						</div>
+					
+					<?php } ?>
 				</div>
 				
 				<div class="col-md-6">

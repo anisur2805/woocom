@@ -50,4 +50,22 @@ function woocom_yith_wcwl_add_to_wishlist_params( $text ) {
 	$text = '';
 	return $text;
 }
- 
+
+
+add_action('woocommerce_before_single_product', 'woocom_woocommerce_before_single_product');
+function woocom_woocommerce_before_single_product() { 
+	if( is_singular() ) {
+	echo '<header class="woocommerce-products-header">';
+		if ( apply_filters( 'woocommerce_show_page_title', true ) ): ?>
+			<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title();?></h1>
+		<?php endif;
+			echo woocommerce_breadcrumb(); 
+	echo '</div>';
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'woocom_woo_enqueue_scripts' );
+function woocom_woo_enqueue_scripts() {
+	wp_enqueue_style( 'slick-style', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+	wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
+}
