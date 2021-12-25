@@ -44,14 +44,15 @@
 						<div class="footer-title">
 							<h3>USEFUL LINKS</h3>
 						</div>
-						<div class="footer-list">
-							<ul>
-								<li><a href="/#/">Returns</a></li>
-								<li><a href="/#/">Support Policy</a></li>
-								<li><a href="/#/">Size guide</a></li>
-								<li><a href="/#/">FAQs</a></li>
-							</ul>
-						</div>
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'useful-menu',
+									'menu_id'        => 'useful-menu',
+									'container_class'			 => 'footer-list'
+								)
+							);
+						?>
 					</div>
 				</div>
 				
