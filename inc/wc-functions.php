@@ -35,3 +35,4 @@ add_filter('loop_shop_columns', 'woocom_loop_columns', 999);
 function woocom_loop_columns( ) {
 	return 3;
 }
+
