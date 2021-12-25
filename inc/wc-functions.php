@@ -69,3 +69,49 @@ function woocom_woo_enqueue_scripts() {
 	wp_enqueue_style( 'slick-style', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
 	wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
+
+add_action('woocommerce_before_cart', 'woocom_woocommerce_before_cart');
+function woocom_woocommerce_before_cart() {
+	echo '<div class="container"><div class="row">';
+}
+
+add_action('woocommerce_after_cart', 'woocom_woocommerce_after_cart');
+function woocom_woocommerce_after_cart() {
+	echo '</div></div>';
+}
+
+// Clear Cart 
+// add_action( 'woocommerce_cart_coupon', 'custom_woocommerce_empty_cart_button' );
+// function custom_woocommerce_empty_cart_button() {
+// 	echo '<a href="' . esc_url( add_query_arg( 'empty_cart', 'yes' ) ) . '" class="button" title="' . esc_attr( 'Empty Cart', 'woocommerce' ) . '">' . esc_html( 'Empty Cart', 'woocommerce' ) . '</a>';
+// }
+
+add_action( 'wp_loaded', 'custom_woocommerce_empty_cart_action', 18);
+function custom_woocommerce_empty_cart_action() {
+	if ( isset( $_GET['empty_cart'] ) && 'yes' === esc_html( $_GET['empty_cart'] ) ) {
+		WC()->cart->empty_cart();
+
+		$referer  = wp_get_referer() ? esc_url( remove_query_arg( 'empty_cart' ) ) : wc_get_cart_url();
+		wp_safe_redirect( $referer );
+	}
+}
+
+
+/**
+ * @snippet       Add Content to Empty Cart Page - WooCommerce
+ * @how-to        Get CustomizeWoo.com FREE 
+ * @compatible    WooCommerce 4.5 
+ */
+   
+add_action( 'woocommerce_cart_is_empty', 'woocom_add_content_empty_cart' );
+  
+function woocom_add_content_empty_cart() {
+   ?>
+	<div class="empty_cart_content">
+		<i class="bi-basket"></i>
+		<h3>No items found in cart</h3>
+		<a href="<?php echo esc_url('/shop') ?>">Shop Now</a>
+	</div>
+   
+   <?php 
+}

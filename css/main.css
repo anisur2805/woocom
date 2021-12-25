@@ -16551,3 +16551,110 @@ section.related.products ul.products .woocommerce-loop-product__title {
 .product-gallery-image button.slick-next {
     right: 0;
 }
+
+
+/* Cart Page */
+.cart__col input {
+  padding-left: 15px;
+}
+.woocommerce-cart-form table {
+    border: 1px solid #ddd;
+}
+
+.woocommerce-cart-form th {
+    background: #ebeaea;
+    text-transform: uppercase;
+}
+
+.woocommerce-cart-form th, .woocommerce-cart-form td {
+    padding: 12px;
+}
+.woocommerce-cart-form tr + tr {
+  border-top: 1px solid #ddd;
+}
+.woocommerce-cart-form td.product-quantity input {
+    width: auto;
+    max-width: 80px;
+    text-align: center;
+}
+
+.woocommerce-cart-form td.product-remove {
+    padding-left: 35px;
+    font-size: 30px;
+}
+
+.cart-collaterals,
+.coupons-wrapper {
+  padding: 45px 30px 50px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.cart__col .cart_totals  h2,
+.cart__col .coupon label {
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0;
+    padding-right: 18px;
+    margin-bottom: 15px;
+}
+.cart__col button.button {
+  margin-top: 20px;
+}
+.cart__col button.button,
+.cart__col .checkout-button{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    padding: 18px 10px 17px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 50px;
+    background-color: #f3b632;
+    border:0;
+    outline: 0;
+}
+
+.cart__actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 25px;
+}
+.cart__actions a {
+  font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-block;
+    padding: 18px 63px 17px;
+    text-transform: uppercase;
+    color: #363f4d;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    transition: all 0.4s;
+}
+.cart__actions a:hover {
+  color: #fff;
+  background-color: #f3b632;
+}
+
+/* Empty Cart */
+.empty_cart_content {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0;
+    align-items: center;
+}
+
+.empty_cart_content h3 {
+    margin: 30px;
+}
+
+.empty_cart_content i {
+    font-size: 40px;
+} 
