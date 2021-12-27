@@ -127,9 +127,22 @@ function woocom_add_content_empty_cart() {
 
 // Wishlist 
 add_action('yith_wcwl_before_wishlist_form', function(){
-	echo '<div class="test">';
+	echo '<div class="woocom_wishlist_wrapper"><div class="container"><div class="row">';
 } );
 
 add_action('yith_wcwl_after_wishlist_form', function(){
-	echo '</div>';
+	echo '</div></div></div>';
 } );
+
+
+// Wishlist Action header text change
+function woocom_wishlist_view_remove_heading( $wishlist ) {
+	return __('Action', 'woocom');
+}
+add_filter( 'yith_wcwl_wishlist_view_remove_heading', 'woocom_wishlist_view_remove_heading');
+
+// Wishlist Add to Cart header text change
+function woocom_wishlist_view_cart_heading( $wishlist ) {
+	return __('Add to Cart', 'woocom');
+}
+add_filter( 'yith_wcwl_wishlist_view_cart_heading', 'woocom_wishlist_view_cart_heading');

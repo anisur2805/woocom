@@ -16672,4 +16672,15 @@ section.related.products ul.products .woocommerce-loop-product__title {
     color: #fff;
     background-color: #363f4d;
 }
-
+/* Wishlist */
+.woocom_wishlist_wrapper table.wishlist_table {
+    font-size: 100%;
+   border: 1px solid #ddd;
+}
+.woocom_wishlist_wrapper table.wishlist_table th{
+  background: #ebeaea;
+  padding: 12px;
+}
+.woocom_wishlist_wrapper table.wishlist_table tr + tr {
+   border-top: 1px solid #ddd;
+}
