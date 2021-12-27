@@ -109,12 +109,16 @@ add_action( 'woocommerce_cart_is_empty', 'woocom_add_content_empty_cart' );
 function woocom_add_content_empty_cart() {
    ?>
 	<div class="container">
-		<div class="row">
-			<div class="empty_cart_content">
-				<i class="bi-basket"></i>
-				<h3>No items found in cart</h3>
-				<a href="<?php echo esc_url('/shop') ?>">Shop Now</a>
-			</div>
+		<div class="row">		
+			<div class="item-empty-area text-center">
+				<div class="item-empty-area__icon mb-30">
+					<i class="bi-basket"></i>
+				</div>
+				<div class="item-empty-area__text">
+					<h3><?php _e('No items found in cart', 'woocom'); ?></h3>
+					<a href="<?php echo esc_url('/shop') ?>">Shop Now</a>
+				</div>
+			</div> 
 		</div>
 	</div>
    

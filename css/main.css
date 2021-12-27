@@ -16650,11 +16650,26 @@ section.related.products ul.products .woocommerce-loop-product__title {
     padding: 60px 0;
     align-items: center;
 }
-
-.empty_cart_content h3 {
-    margin: 30px;
+.item-empty-area__text {
+    font-size: 20px;
+}
+.item-empty-area__text h3 {
+   font-size: inherit;
 }
 
 .empty_cart_content i {
-    font-size: 40px;
-} 
+   font-size: 140px;
+    line-height: 1;
+}
+
+.item-empty-area__text a {
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 30px;
+    transition: .3s;
+    color: #fff;
+    background-color: #363f4d;
+}
+
