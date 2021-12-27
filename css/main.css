@@ -16131,7 +16131,6 @@ a.default-btn {
 .breadcrumb-content {
   font-size: 15px;
   font-weight: 500;
-  text-transform: uppercase;
 }
 
 .breadcrumb-content a {
@@ -16404,14 +16403,14 @@ span.onsale {
   padding: 4px 12px;
 }
 
-header.woocommerce-products-header {
+.breadcrumb_wrapper {
   padding: 45px;
   background: #1fe9e61f;
   margin-bottom: 40px;
   text-align: center;
 }
 
-nav.woocommerce-breadcrumb a {
+.breadcrumb_wrapper a {
   color: #1fe9e6;
 }
 
@@ -16683,4 +16682,114 @@ section.related.products ul.products .woocommerce-loop-product__title {
 }
 .woocom_wishlist_wrapper table.wishlist_table tr + tr {
    border-top: 1px solid #ddd;
+}
+
+
+/* Checkout page */
+.woocom_checkout_wrapper {
+  padding: 40px 0;
+}
+.woocom_checkout_wrapper div#customer_details {
+    display: flex;
+    gap: 30px;
+}
+
+.woocom_checkout_wrapper div#customer_details div[class^="col-"] {
+    flex: 1;
+}
+
+/* Checkout - Error */
+.woocommerce-NoticeGroup ul {
+  margin-bottom: 30px;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+/* Checkout - Order */
+.woocom_form_coupon_wrapper .checkout_coupon,
+.woocom_before_order_review {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.woocom_form_coupon_wrapper .checkout_coupon input,
+.woocom_checkout_wrapper input, .woocom_checkout_wrapper select {
+    padding: 0 12px;
+}
+
+.woocom_checkout_wrapper .select2-selection__rendered {
+    padding: 8.5px 12px !important;
+}
+
+.woocom_checkout_wrapper .select2-container .select2-selection--single {
+    height: auto;
+}
+
+.woocom_checkout_wrapper .wc_payment_methods li {
+    padding: 6px;
+    border: 1px solid #fff;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.woocom_checkout_wrapper .wc_payment_methods li + li {
+    margin-top: 6px;
+}
+.woocom_checkout_wrapper .wc_payment_methods li input {
+    width: auto !important;
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+}
+
+.woocom_checkout_wrapper .wc_payment_methods {
+    margin: 20px 0;
+}
+.woocom_checkout_wrapper button#place_order {
+    margin: 40px 0 0;
+    background: #f3b632;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    line-height: 35px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+button#place_order:hover {
+    background: #000;
+}
+.woocom_form_coupon_wrapper .checkout_coupon button,
+.woocom_checkout_wrapper button#place_order {
+    margin: 40px 0 0;
+    background: #f3b632;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    line-height: 35px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+.woocom_form_coupon_wrapper .checkout_coupon button:hover,
+button#place_order:hover {
+    background: #000;
+}
+
+/* Checkout - Coupon */
+.woocom_form_coupon_wrapper .checkout_coupon {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+}
+
+.woocom_form_coupon_wrapper .checkout_coupon button {
+  margin: 0;
+}
+
+.woocom_form_coupon_wrapper p.form-row.form-row-last {
+  margin: 0;
 }

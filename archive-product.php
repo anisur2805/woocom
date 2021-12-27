@@ -30,7 +30,10 @@
 
 ?>
 
-<header class="woocommerce-products-header">
+<?php
+	if( is_shop() ):
+ ?>
+<header class="woocommerce-products-header breadcrumb_wrapper">
 	<?php
 
 	if ( apply_filters( 'woocommerce_show_page_title', true ) ): ?>
@@ -51,6 +54,8 @@
 		do_action( 'woocommerce_archive_description' );
 	?>
 </header>
+
+<?php endif; ?>
 
 <div class="products-wrapper">
 	<div class="container">

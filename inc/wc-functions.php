@@ -146,3 +146,25 @@ function woocom_wishlist_view_cart_heading( $wishlist ) {
 	return __('Add to Cart', 'woocom');
 }
 add_filter( 'yith_wcwl_wishlist_view_cart_heading', 'woocom_wishlist_view_cart_heading');
+
+// Checkout Page
+function woocom_before_checkout_form() {
+	echo '<div class="woocom_checkout_wrapper"><div class="container"><div class="row">';
+}
+add_action('woocommerce_before_checkout_form', 'woocom_before_checkout_form');
+
+function woocom_after_checkout_form() {
+	echo '</div></div></div>';
+}
+add_action('woocommerce_after_checkout_form', 'woocom_after_checkout_form');
+
+// Checkout - Order before
+function woocom_checkout_before_order_review_heading() {
+	echo '<div class="woocom_before_order_review">';
+}
+add_action('woocommerce_checkout_before_order_review_heading', 'woocom_checkout_before_order_review_heading');
+
+function woocom_checkout_after_order_review() {
+	echo '</div>';
+}
+add_action('woocommerce_checkout_after_order_review', 'woocom_checkout_after_order_review');
