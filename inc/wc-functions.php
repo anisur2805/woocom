@@ -103,14 +103,19 @@ function custom_woocommerce_empty_cart_action() {
  * @compatible    WooCommerce 4.5 
  */
    
+remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message' );
 add_action( 'woocommerce_cart_is_empty', 'woocom_add_content_empty_cart' );
   
 function woocom_add_content_empty_cart() {
    ?>
-	<div class="empty_cart_content">
-		<i class="bi-basket"></i>
-		<h3>No items found in cart</h3>
-		<a href="<?php echo esc_url('/shop') ?>">Shop Now</a>
+	<div class="container">
+		<div class="row">
+			<div class="empty_cart_content">
+				<i class="bi-basket"></i>
+				<h3>No items found in cart</h3>
+				<a href="<?php echo esc_url('/shop') ?>">Shop Now</a>
+			</div>
+		</div>
 	</div>
    
    <?php 
