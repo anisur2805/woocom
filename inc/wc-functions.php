@@ -124,3 +124,12 @@ function woocom_add_content_empty_cart() {
    
    <?php 
 }
+
+// Wishlist 
+add_action('yith_wcwl_before_wishlist_form', function(){
+	echo '<div class="test">';
+} );
+
+add_action('yith_wcwl_after_wishlist_form', function(){
+	echo '</div>';
+} );
