@@ -111,5 +111,6 @@
 	<?php get_template_part('/template-parts/promotion'); ?>
 	
 	<?php get_template_part('/template-parts/featured', 'cat'); ?>
+	<?php get_template_part('/template-parts/inspirational', 'post'); ?>
 	
 </article> 
