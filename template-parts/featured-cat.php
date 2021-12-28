@@ -4,8 +4,8 @@
 			<div class="col-md-6">
 				<div class="featured_cat_box">
 					<div class="featured_cat_content">
-						<h3 class="rtin-title">Glamour<br>Long Sweater</h3>
-						<p class="rtin-subtitle">The timeless designs jeans</p>
+						<h3 class="featured_cat_title">Glamour<br>Long Sweater</h3>
+						<p class="featured_cat_subtitle">The timeless designs jeans</p>
 						<a class="featured_cat_btn" href="#">SHOP NOW</a>
 					</div>
 				</div>
@@ -14,13 +14,8 @@
 			<div class="col-md-6">
 				 
 				 <?php 
-				 	global $product;
-					echo "<pre>";
-						var_dump(
-							 $product
-						);
-					die();	
-				 
+				 	echo do_shortcode('[product_categories ids=19,24]');
+				 	
 				  ?>
 			</div>
 

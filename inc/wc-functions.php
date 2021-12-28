@@ -168,3 +168,36 @@ function woocom_checkout_after_order_review() {
 	echo '</div>';
 }
 add_action('woocommerce_checkout_after_order_review', 'woocom_checkout_after_order_review');
+
+
+function woocom_before_subcategory() {
+	echo '<div class="featured_cat_box">';
+}
+add_action('woocommerce_before_subcategory', 'woocom_before_subcategory');
+
+function woocom_after_subcategory() {
+	echo "</div>";
+}
+add_action('woocommerce_after_subcategory', 'woocom_after_subcategory');
+remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+
+function woocom_template_loop_category_title_override( $category ) { ?>
+    <h2 class="featured_cat_title woocommerce-loop-category__title">
+        <?php
+        echo esc_html( $category->name ); //Update your title which you want to update here
+		
+		// Remove Count from Cat - Formula 1
+        if ( $category->count > 0 ) {
+            echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . esc_html( $category->count ) . ')</mark>', $category );
+        }
+		 ?>
+        </h2><?php
+}
+add_action( 'woocommerce_shop_loop_subcategory_title', 'woocom_template_loop_category_title_override', 10 );
+
+
+// Remove Count from Cat - Formula 2
+add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
+add_filter( 'woocommerce_shop_loop_subcategory_title', function( $subtitle){
+	return strtoupper( $subtitle ) ;
+} );

@@ -16838,3 +16838,38 @@ button#place_order:hover {
     background-color: #111;
     color: #fff;
 }
+
+/* Product Cat */
+
+.featured_cat_box .featured_cat_title {
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 600; 
+    color: #444;
+    margin: 5px 0 0;
+}
+.featured_cat_box .featured_cat_btn {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.featured_cat_box .featured_cat_btn::after { 
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    background-color: #f26c4f;
+    left: 0;
+    bottom: 0;
+    z-index: 1; 
+    transition: all .3s ease-out;
+}
+
+.featured_cat_box .featured_cat_btn:hover::after {
+    width: 100%;
+}
