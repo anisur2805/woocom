@@ -67,6 +67,8 @@ function woocom_woocommerce_before_single_product() {
 add_action( 'wp_enqueue_scripts', 'woocom_woo_enqueue_scripts' );
 function woocom_woo_enqueue_scripts() {
 	wp_enqueue_style( 'slick-style', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+	wp_enqueue_style( 'josefin-fonts', '//fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap' );
 	wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
 
@@ -199,5 +201,16 @@ add_action( 'woocommerce_shop_loop_subcategory_title', 'woocom_template_loop_cat
 // Remove Count from Cat - Formula 2
 add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
 add_filter( 'woocommerce_shop_loop_subcategory_title', function( $subtitle){
-	return strtoupper( $subtitle ) ;
+	return $subtitle;
 } );
+
+
+remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+add_action( 'woocommerce_archive_description', 'ts_add_to_category_description' );
+    function ts_add_to_category_description() {
+        // if ( is_product_category()) {
+            $cat_desc = term_description( 17, 'product_cat' );
+			echo '<p class="featured_cat_subtitle">'.$cat_desc.'</p>';    
+    // }
+	}
