@@ -16617,8 +16617,11 @@ section.related.products ul.products .woocommerce-loop-product__title {
     background-color: #f3b632;
     border:0;
     outline: 0;
+    transition: all 0.4s ease-in-out;
 }
-
+.cart__col button.button:hover, .cart__col .checkout-button:hover {
+    background: #111;
+}
 .cart__actions{
   display: flex;
   align-items: center;
@@ -16843,7 +16846,6 @@ button#place_order:hover {
 .featured_cat {
   padding: 80px 0 50px;
 }
-
 .featured_cat_box {
     padding-left: 100px;
     padding-right: 80px;
@@ -16902,4 +16904,103 @@ button#place_order:hover {
 
 .featured_cat .featured_cat_btn:hover::after {
     width: 100%;
-} 
+}
+
+/* Inspirational Post */
+.inspirational_post_wrapper {
+  padding: 60px 0;
+  background: #f8f8f8;
+}
+.inspiration_title {
+    color: #111; 
+    font-size: 28px;
+    line-height: 1.3;
+    margin: 0 0 25px;
+}
+
+.inspiration_item .inspiration_thumb_area {
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.inspiration_item .inspiration_thumb_area img {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    
+    height: auto;
+    max-width: 100%;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.inspiration_item .inspiration_thumb_area:hover img {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+}
+.inspiration_item .inspiration_thumb_area .inspiration_date {
+    color: #111; 
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    line-height: 20px;
+    min-width: 70px;
+    min-height: 70px;
+    color: #f26c4f;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+
+.inspiration_item .inspiration_thumb_area:hover .inspiration_date {
+    background-color: #111;
+    color: #fff;
+}
+
+
+.inspiration_item .inspiration_thumb_area .inspiration_date .inspiration_d1 {
+    font-weight: 400;
+}
+.inspiration_item .inspiration_thumb_area .inspiration_date .inspiration_d2 {
+    font-weight: 700;
+}
+
+.inspiration_item .inspiration_cats {
+    margin-top: 20px;
+}
+.inspiration_item .inspiration_cats a {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+.inspiration_item .inspiration_cats a + a{
+  margin-left: 5px;
+}
+
+.inspiration_item .inspiration_title {
+    margin: 10px 0 0;
+    font-family: 'Josefin Sans',sans-serif;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    font-style: normal;
+}
+

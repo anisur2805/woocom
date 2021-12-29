@@ -79,7 +79,7 @@
 			</ul>
 			
 			<?php
-				$new_arrivals_columns = get_theme_mod('woocom_new_arrivals_columns');
+				$new_arrivals_columns = get_theme_mod('woocom_new_arrivals_columns', 4);
 			?>
 			
 			<div class="tab-content" id="myTab">

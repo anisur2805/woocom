@@ -21,24 +21,29 @@
 			?>
 			<div class="col-md-4 col-12">
 					<div class="inspiration_item">
-						<div class="inspiration_thumb-area">
+						<div class="inspiration_thumb_area">
 							<a class="inspiration_thumb metro-scale-animation" href="<?php echo get_the_permalink(); ?>">
 								<?php if(has_post_thumbnail()): the_post_thumbnail(); endif;?>
 							</a>
-							<div class="inspiration_date"><div class="inspiration_d1">23</div><div class="inspiration_d2">Dec</div></div>
+							<div class="inspiration_date"><div class="inspiration_d1"><?php echo get_the_date('j') ?></div><div class="inspiration_d2"><?php echo get_the_date('M') ?></div></div>
 						</div>
 						<div class="inspiration_content">
 							<div class="inspiration_cats">
-							<?php
-								if(is_array($tags )) {
-									foreach ($tags as $tag) {
-										printf('<a href="%s">%s</a>', get_term_link($tag->term_id), $tag->name);
+								<?php
+																
+									$posttags = get_the_tags();
+									if ($posttags) {
+										foreach($posttags as $tag) {
+											// $tag_names[] = $tag->name;
+											printf('<a href="%s">%s</a>', $tag->slug, $tag->name, ',');
+										}
+										
+										// echo implode(',', $tag_names);
 									}
-								}
-							 ?> 
-							
-						 
-						</div>
+
+								?> 
+								
+							</div>
 							<h3 class="inspiration_title"><a href="<?php echo get_the_permalink(); ?>"> <?php echo get_the_title(); ?></a></h3>
 						</div>
 					</div>
