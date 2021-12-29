@@ -112,5 +112,6 @@
 	
 	<?php get_template_part('/template-parts/featured', 'cat'); ?>
 	<?php get_template_part('/template-parts/inspirational', 'post'); ?>
+	<?php get_template_part('/template-parts/subscribe'); ?>
 	
 </article> 

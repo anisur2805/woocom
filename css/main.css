@@ -17004,3 +17004,71 @@ button#place_order:hover {
     font-style: normal;
 }
 
+/* Subscribe Forms */
+.subscribe_wrapper {
+  padding: 70px 0;
+}
+.subscribe_title {
+      -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto; 
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.subscribe_wrapper .wpforms-container .wpforms-form .wpforms-field input[type="email"] {
+      padding: 8px 25px;
+      margin: 0 10px !important;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 30px;
+    background-color: #f3f3f3;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #6a6a6a;
+    height: 50px;
+    max-width: 100%;
+}
+.subscribe_wrapper .wpforms-form button.wpforms-submit {
+    background-color: #111 !important;
+    color: #fff !important;
+    font-size: 17px !important;
+    line-height: 1.3;
+    font-weight: 700;
+    height: 50px;
+    padding: 0 40px !important;
+    cursor: pointer;
+    border: 0 !important;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+.subscribe_wrapper form.wpforms-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subscribe_wrapper form.wpforms-form * {
+  margin: 0 !important;
+}
+
+.subscribe_wrapper div.wpforms-container .wpforms-form .wpforms-field {
+  padding: 0;
+}
+
+.subscribe_wrapper div.wpforms-container .wpforms-form .wpforms-submit-container {
+  padding: 0;
+}
+
+.subscribe_wrapper div.wpforms-container {
+  margin: 0;
+  flex: 1;
+}
