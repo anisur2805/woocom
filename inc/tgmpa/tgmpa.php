@@ -62,6 +62,11 @@ function my_theme_register_required_plugins() {
 			'slug'      => 'classic-widgets',
 			'required'  => true,
 		),
+		array(
+			'name'      => 'Wpforms',
+			'slug'      => 'wpforms',
+			'required'  => true,
+		),
 		
 		// <snip />
 	);
