@@ -12,6 +12,17 @@ var swiper = new Swiper(".mySwiper", {
 	},
 });
 
+
+var swiper = new Swiper(".mySwiper", {
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+		renderBullet: function (index, className) {
+		return '<span class="' + className + '">' + (index + 1) + "</span>";
+		},
+	},
+});
+
 const hamburgerIcon = document.querySelector('.mobile-off-canvas');
 const closeIcon = document.querySelector('.offcanvas-menu-close');
 const mobileMenu = document.querySelector('.offcanvas-mobile-menu');
