@@ -28,4 +28,6 @@
 	
 	<?php get_template_part('/template-parts/hero', 'slider2'); ?>
 	
+	<?php get_template_part('/template-parts/product', 'gallery'); ?>
+	
 </article> 

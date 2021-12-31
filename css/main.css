@@ -17211,3 +17211,38 @@ button#place_order:hover {
   line-height: 1;
   color: #111;
 }
+
+/* Product Gallery */
+.product_gallery {
+  padding: 45px 0;
+}
+
+.product_gallery .pg_item {
+    flex: 1;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+.product_gallery .pg_item i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    transition: all 0.4s ease;
+    opacity: 0;
+    color: #fff;
+}
+
+.product_gallery .pg_item::before {content: '';position: absolute;left: 0;top: 0;display: block;width: 100%;height: 100%;background: #00000061;transition: all 0.4s ease;opacity: 0;}
+
+.product_gallery .pg_item:hover::before {
+    opacity: 1;
+}
+
+.product_gallery .pg_item:hover i {
+    opacity: 1;
+    font-size: 70px;
+}
