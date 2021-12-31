@@ -66,6 +66,11 @@ function my_theme_register_required_plugins() {
 			'name'      => 'Wpforms',
 			'slug'      => 'wpforms',
 			'required'  => true,
+		),	
+		array(
+			'name'      => 'Smash Balloon Social Photo Feed',
+			'slug'      => 'sb-instagram-feed',
+			'required'  => true,
 		),
 		
 		// <snip />

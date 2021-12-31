@@ -17084,7 +17084,9 @@ button#place_order:hover {
     margin: 0;
     font-weight: 700;
 }
-
+.swiper-slide {
+    background: #f1f1f1;
+}
 .featured_cat_slider_content span {
       background-color: #111;
     color: #fff;

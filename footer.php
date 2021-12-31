@@ -5,6 +5,11 @@
  *
  * @package woocom */
 ?>
+
+	<section class="ig_feed">
+		<?php echo do_shortcode('[instagram-feed]'); ?>
+	</section>
+	
 	<footer class="footer-area bg-gray pt-100 pb-70 d -none  ">
 		<div class="container">
 			<div class="row">
