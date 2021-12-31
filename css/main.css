@@ -17149,3 +17149,65 @@ button#place_order:hover {
     color: #aaa;
     font-size: 16px;
 }
+
+/* New Arrivals */
+.new-arrivals {
+  padding: 60px 0;
+  background: #f3f3f3;
+}
+.new-arrivals .customize-container-fluid{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.new-arrivals .img_col img {
+  transition: all 0.4s ease;
+}
+
+.new-arrivals .img_col:hover img {
+  filter: brightness(100%) contrast(100%) saturate(100%) blur(4px) hue-rotate(
+0deg);
+}
+.new-arrivals h5 {
+  font-size: 22px;
+  line-height: 1;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.new-arrivals h3 {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.16em;
+  color: #111;
+  margin: 30px 0 40px;
+  text-transform: capitalize;
+  max-width: 440px;
+}
+
+.new-arrivals .order-btn {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #111;
+    background: transparent; 
+    border-style: solid;
+    border-width: 2px;
+    border-color: #111;
+    border-radius: 0 0 0 0;
+    padding: 16px 41px;
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+}
+
+.new-arrivals .order-btn:hover {
+    background-color: transparent;
+    color:#cd8f5c;
+    border-color: #cd8f5c;
+}
+
+.na_featured_price {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1;
+  color: #111;
+}
