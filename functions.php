@@ -337,6 +337,7 @@
 //    add_image_size( 'small-thumb', 60, 60, true );
 
 //    add_image_size( 'team-thumb', 60, 60, true );
+   add_image_size( 'product-thumbnail', 233, 233 );
 //   }
 
 
