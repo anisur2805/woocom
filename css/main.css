@@ -15587,6 +15587,9 @@ a.default-btn {
 }
 
 /* Swiper Slider */
+.swiper-slide {
+  background: #f5e5d7;
+}
 .swiper-slide .slider-content h3 {
   font-size: 24px;
   font-weight: 500;
