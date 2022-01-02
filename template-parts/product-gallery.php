@@ -27,7 +27,7 @@
 						?>
 						<div class="pg_item">
 							<?php echo woocommerce_get_product_thumbnail( 'medium' ); ?>
-							<i class="bi-plus"></i>
+							<i class="custom_plus"></i>
 						</div>
 					
 						<?php
