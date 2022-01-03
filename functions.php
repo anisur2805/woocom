@@ -343,6 +343,7 @@ define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
 //    add_image_size( 'small-thumb', 60, 60, true );
 
 //    add_image_size( 'team-thumb', 60, 60, true );
+   add_image_size( 'product-thumbnail', 233, 233 );
 //   }
 
 
@@ -352,3 +353,8 @@ define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
  remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
  
  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
+
+// Remove responsive media sizes 
+add_filter('wp_calculate_image_srcset', '__return_null');
+add_filter('wp_calculate_image_sizes', '__return_null');
