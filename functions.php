@@ -1,4 +1,10 @@
 <?php
+
+require_once get_template_directory() .'/lib/cs/codestar-framework.php';
+require_once get_template_directory() . '/inc/cs.php';
+
+define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
+
  /**
   * woocom functions and definitions
   *
