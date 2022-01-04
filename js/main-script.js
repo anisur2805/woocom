@@ -1,7 +1,12 @@
 var swiper = new Swiper(".slider-area", {
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
+	// navigation: {
+	// 	nextEl: ".swiper-button-next",
+	// 	prevEl: ".swiper-button-prev",
+	// },
+	direction: "vertical",
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
 	},
 });
 

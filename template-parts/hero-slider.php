@@ -2,7 +2,9 @@
 		<div class="swiper-wrapper">
 			<?php
 				for ( $i = 1; $i < 4; ++$i ):
-					$woocom_slider_page[$i]        = get_theme_mod( 'woocom_hero_slider_page' . $i );
+					$woocom_hero_logo[$i]        = get_theme_mod( 'woocom_hero_logo' . $i );
+					$woocom_hero_feature_img[$i]        = get_theme_mod( 'woocom_hero_feature_img' . $i );
+					$woocom_hero_title[$i]        = get_theme_mod( 'woocom_hero_title' . $i );
 					$woocom_slider_button_text[$i] = get_theme_mod( 'woocom_hero_slider_button_text' . $i );
 					$woocom_slider_button_url[$i]  = get_theme_mod( 'woocom_hero_slider_button_url' . $i );
 
@@ -11,7 +13,7 @@
 				$args = array(
 					'post_type'      => 'page',
 					'posts_per_page' => 3,
-					'post__in'       => $woocom_slider_page,
+					//'post__in'       => $woocom_slider_page,
 					'orderby'        => 'post__in',
 				);
 
@@ -28,14 +30,19 @@
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6 mb-5">
 							<div class="slider-content slider-animated-1">
 								<!-- <p><?php the_title(); ?></p> -->
-								<h3 class="animated">Wonders Tech SmartShop</h3>
-								<h1 class="animated">Explore Modern Gadget </h1>
-								<div class="slider-btn btn-hover"><a class="animated" href="<?php echo esc_url($woocom_slider_button_url[$j]); ?>"><?php echo $woocom_slider_button_text[$j]; ?></a></div>
+								<!-- <h3 class="animated">Wonders Tech SmartShop</h3> -->
+								<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
+								<h1 class="animated"><?php echo $woocom_hero_title[$j]; ?></h1>
+								<div class="slider-btn btn-hover">
+									<a class="animated" href="<?php echo esc_url($woocom_slider_button_url[$j]); ?>">
+										<?php echo $woocom_slider_button_text[$j]; ?>
+									</a>
+								</div>
 							</div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
 							<div class="slider-single-img slider-animated-1">
-								<?php the_post_thumbnail( 'woocom-slider' ); ?>
+								<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_feature_img[$j], 'full' ); ?>" />
 							</div>
 						</div>
 					</div>
@@ -50,7 +57,9 @@
 
 			?>
 		</div>
-		<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+		<div class="swiper-pagination"></div>
+		<div class="carousel-pagination"></div>
+		<!-- <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
 		<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
-		<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+		<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span> -->
 	</div>

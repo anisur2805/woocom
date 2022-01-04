@@ -99,25 +99,46 @@ function woocom_customize( $wp_customize ) {
      *  Hero Slider
      */
     $wp_customize->add_section('woocom_hero_slider', array(
-		'title'      => esc_html__('Hero Slider', 'woocom'),
+		'title'      => esc_html__('Home Page Hero Slider', 'woocom'),
 		'description'      => esc_html__('Hero Slider Settings', 'woocom'),
-		'priority'   => 31,
+		'priority'   => 20,
 	));
     
-    // Field 1 - Slider Page Number 1
-	$wp_customize->add_setting('woocom_hero_slider_page1', array(
+    // Field Group 1 - Home Page Hero Slider 
+	$wp_customize->add_setting('woocom_hero_logo1', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
-		'sanitize_callback' => 'absint',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_logo1', array(
+		'label' => __( 'Home Page Hero Logo', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+	
+	$wp_customize->add_setting('woocom_hero_feature_img1', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_feature_img1', array(
+		'label' => __( 'Home Page Hero Image', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+	
+	$wp_customize->add_setting('woocom_hero_title1', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
 	));
 	
-	$wp_customize->add_control(  'woocom_hero_slider_page1', array(
-		'label'        => esc_html__('Hero Slider Page 1', 'woocom'),
+	$wp_customize->add_control(  'woocom_hero_title1', array(
+		'label'        => esc_html__('Hero Slider Title 1', 'woocom'),
 		'section'    => 'woocom_hero_slider',
-		'type'			=> 'dropdown-pages',
+		'type'			=> 'text',
 	) );
     
-    // Field 2 - Slider Page Number 1
 	$wp_customize->add_setting('woocom_hero_slider_button_text1', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -125,12 +146,11 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_text1', array(
-		'label'        => esc_html__('Hero Slider Button Text 1', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Text', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'text',
 	) );
     
-    // Field 3 - Slider Page Number 1
 	$wp_customize->add_setting('woocom_hero_slider_button_url1', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -138,25 +158,46 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_url1', array(
-		'label'        => esc_html__('Hero Slider Button Url 1', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Url', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'url',
 	) );
-    
-     // Field 1 - Slider Page Number 2
-	$wp_customize->add_setting('woocom_hero_slider_page2', array(
+	
+	// Field Group 2 - Home Page Hero Slider 
+	$wp_customize->add_setting('woocom_hero_logo2', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
-		'sanitize_callback' => 'absint',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_logo2', array(
+		'label' => __( 'Home Page Hero Logo', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+
+	$wp_customize->add_setting('woocom_hero_feature_img2', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_feature_img2', array(
+		'label' => __( 'Home Page Hero Image', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+		
+	$wp_customize->add_setting('woocom_hero_title2', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
 	));
 	
-	$wp_customize->add_control(  'woocom_hero_slider_page2', array(
-		'label'        => esc_html__('Hero Slider Page 2', 'woocom'),
+	$wp_customize->add_control(  'woocom_hero_title2', array(
+		'label'        => esc_html__('Hero Slider Title', 'woocom'),
 		'section'    => 'woocom_hero_slider',
-		'type'			=> 'dropdown-pages',
+		'type'			=> 'text',
 	) );
     
-    // Field 2 - Slider Page Number 2
 	$wp_customize->add_setting('woocom_hero_slider_button_text2', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -164,12 +205,11 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_text2', array(
-		'label'        => esc_html__('Hero Slider 2 Button Text', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Text', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'text',
 	) );
     
-    // Field 3 - Slider Page Number 2
 	$wp_customize->add_setting('woocom_hero_slider_button_url2', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -177,25 +217,47 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_url2', array(
-		'label'        => esc_html__('Hero Slider 2 Button Url', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Url Test', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'url',
+		'allow_addition' => true,
 	) );
-    
-     // Field 1 - Slider Page Number 3
-	$wp_customize->add_setting('woocom_hero_slider_page3', array(
+	
+	// Field Group 3 - Home Page Hero Slider 
+	$wp_customize->add_setting('woocom_hero_logo3', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
-		'sanitize_callback' => 'absint',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_logo3', array(
+		'label' => __( 'Home Page Hero Logo', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+
+	$wp_customize->add_setting('woocom_hero_feature_img3', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'woocom_hero_feature_img3', array(
+		'label' => __( 'Home Page Hero Image', 'woocom' ),
+		'section' => 'woocom_hero_slider',
+		'mime_type' => 'image',
+	) ) );
+		
+	$wp_customize->add_setting('woocom_hero_title3', array(
+		'type'			  => 'theme_mod',
+		'default'     => '',
+		'sanitize_callback' => 'sanitize_text_field',
 	));
 	
-	$wp_customize->add_control(  'woocom_hero_slider_page3', array(
-		'label'        => esc_html__('Hero Slider Page 3', 'woocom'),
+	$wp_customize->add_control(  'woocom_hero_title3', array(
+		'label'        => esc_html__('Hero Slider Title', 'woocom'),
 		'section'    => 'woocom_hero_slider',
-		'type'			=> 'dropdown-pages',
+		'type'			=> 'text',
 	) );
     
-    // Field 2 - Slider Page Number 3
 	$wp_customize->add_setting('woocom_hero_slider_button_text3', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -203,12 +265,11 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_text3', array(
-		'label'        => esc_html__('Hero Slider 3 Button Text', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Text', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'text',
 	) );
     
-    // Field 3 - Slider Page Number 3
 	$wp_customize->add_setting('woocom_hero_slider_button_url3', array(
 		'type'			  => 'theme_mod',
 		'default'     => '',
@@ -216,10 +277,12 @@ function woocom_customize( $wp_customize ) {
 	));
 	
 	$wp_customize->add_control(  'woocom_hero_slider_button_url3', array(
-		'label'        => esc_html__('Hero Slider 3 Button Url', 'woocom'),
+		'label'        => esc_html__('Hero Slider Button Url', 'woocom'),
 		'section'    => 'woocom_hero_slider',
 		'type'			=> 'url',
 	) );
+    
+    
     
     /**
      * WooCommerce Products
