@@ -1,6 +1,8 @@
 	<div class="slider-area d- none swiper">
 		<div class="swiper-wrapper">
 			<?php
+			
+			echo "HEllo world " . get_theme_mod('woocom_hero_feature_img01');
 				for ( $i = 1; $i < 4; ++$i ):
 					$woocom_hero_logo[$i]        = get_theme_mod( 'woocom_hero_logo' . $i );
 					$woocom_hero_feature_img[$i]        = get_theme_mod( 'woocom_hero_feature_img' . $i );
@@ -29,15 +31,26 @@
 					<div class="row">
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6 mb-5">
 							<div class="slider-content slider-animated-1">
+							
 								<!-- <p><?php the_title(); ?></p> -->
 								<!-- <h3 class="animated">Wonders Tech SmartShop</h3> -->
-								<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
-								<h1 class="animated"><?php echo $woocom_hero_title[$j]; ?></h1>
-								<div class="slider-btn btn-hover">
-									<a class="animated" href="<?php echo esc_url($woocom_slider_button_url[$j]); ?>">
-										<?php echo $woocom_slider_button_text[$j]; ?>
-									</a>
-								</div>
+								
+								<?php if($woocom_hero_logo[$i]) : ?>
+									<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
+								<?php endif; ?>
+
+								<?php if($woocom_hero_title[$i]) : ?>
+									<h1 class="animated"><?php echo $woocom_hero_title[$j]; ?></h1>
+								<?php endif; ?>
+								
+								<?php if($woocom_slider_button_text[$i]) : ?>
+									<div class="slider-btn btn-hover">
+										<a class="animated" href="<?php echo esc_url($woocom_slider_button_url[$j]); ?>">
+											<?php echo $woocom_slider_button_text[$j]; ?>
+										</a>
+									</div>
+								<?php endif; ?>
+								
 							</div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
