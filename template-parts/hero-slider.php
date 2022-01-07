@@ -35,15 +35,15 @@
 								<!-- <p><?php the_title(); ?></p> -->
 								<!-- <h3 class="animated">Wonders Tech SmartShop</h3> -->
 								
-								<?php if($woocom_hero_logo[$i]) : ?>
+								<?php if(!empty( $woocom_hero_logo[$i] )) : ?>
 									<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
 								<?php endif; ?>
 
-								<?php if($woocom_hero_title[$i]) : ?>
+								<?php if( !empty( $woocom_hero_title[$i] ) ) : ?>
 									<h1 class="animated"><?php echo $woocom_hero_title[$j]; ?></h1>
 								<?php endif; ?>
 								
-								<?php if($woocom_slider_button_text[$i]) : ?>
+								<?php if( !empty( $woocom_slider_button_text[$i] )) : ?>
 									<div class="slider-btn btn-hover">
 										<a class="animated" href="<?php echo esc_url($woocom_slider_button_url[$j]); ?>">
 											<?php echo $woocom_slider_button_text[$j]; ?>
