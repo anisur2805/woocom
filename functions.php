@@ -184,6 +184,14 @@ define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
   wp_enqueue_style( 'woocom-style', get_stylesheet_uri(), array(), _S_VERSION );
 
   wp_enqueue_style( 'woocom-main', get_template_directory_uri() . '/css/main.css' );
+  
+  $woocom_hero_slider_bg_color = get_theme_mod('woocom_hero_slider_bg_color', '#f5e5d7');
+  $hero_slider_style = <<<EOD
+  .slider-area .swiper-slide {
+    background: {$woocom_hero_slider_bg_color};
+}
+EOD;
+wp_add_inline_style( 'woocom-main', $hero_slider_style );
 
   wp_style_add_data( 'woocom-style', 'rtl', 'replace' );
 
@@ -358,3 +366,8 @@ define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
 // Remove responsive media sizes 
 add_filter('wp_calculate_image_srcset', '__return_null');
 add_filter('wp_calculate_image_sizes', '__return_null');
+
+function woocom_customize_preview_init() {
+  wp_enqueue_script('woocom-customizer-script', get_theme_file_uri('/js/woocom-customizer.js'), array( 'jquery', 'customize-preview' ), time(), true );
+}
+add_action( 'customize_preview_init', 'woocom_customize_preview_init' );

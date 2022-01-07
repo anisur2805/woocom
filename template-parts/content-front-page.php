@@ -12,6 +12,8 @@
 
 	<?php echo get_template_part('/template-parts/hero', 'slider'); ?>
 	
+	<?php echo get_template_part('/template-parts/about' ); ?>
+	
 	<?php get_template_part('/template-parts/support', 'area'); ?>
 	
 	<?php get_template_part('/template-parts/product', 'area'); ?>

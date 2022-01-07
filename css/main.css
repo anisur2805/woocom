@@ -100,7 +100,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
-
+.text-right {
+  text-align: right;
+}
 @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.5rem;
@@ -15594,6 +15596,14 @@ a.default-btn {
 .slider-area .swiper-slide {
   background: #f5e5d7;
 }
+.slider-area img.woocom_hero_logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid #9d9d9d;
+}
+
 .swiper-slide .slider-content h3 {
   font-size: 24px;
   font-weight: 500;
