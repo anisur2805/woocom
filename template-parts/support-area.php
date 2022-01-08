@@ -1,44 +1,29 @@
+<?php 
+	$woocom_support_items = get_theme_mod( 'woocom_support_items' );
+	$woocom_support_items_per_row = get_theme_mod( 'woocom_support_items_per_row' );
+?>
+
 	<div class="support-area pt-100 pb-60">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="support-wrap mb-30">
-						<div class="support-icon">
-							<img class="animated" src="<?php echo get_template_directory_uri() . "/assets/images/support-1.png"?>" alt="">
-						</div>
-						<div class="support-content">
-							<h5>Free Shipping</h5>
-							<p>Free shipping on all order</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="support-wrap mb-30">
-						<div class="support-icon"><img class="animated" src="<?php echo get_template_directory_uri() . "/assets/images/support-2.png"?>" alt=""></div>
-						<div class="support-content">
-							<h5>Support 24/7</h5>
-							<p>Free shipping on all order</p>
+			
+				<?php foreach( $woocom_support_items as $woocom_support_item): ?>
+					<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>">
+						<div class="support-wrap mb-30">
+							<div class="support-icon">
+								<?php 
+									$woocom_support_icon = $woocom_support_item['woocom_support_item_icon'];
+									echo wp_get_attachment_image( $woocom_support_icon );
+								?>
+							</div>
+							<div class="support-content">
+								<h5><?php echo $woocom_support_item['woocom_support_item_title'] ?></h5>
+								<p><?php echo $woocom_support_item['woocom_support_item_subtitle'] ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="support-wrap mb-30">
-						<div class="support-icon"><img class="animated" src="<?php echo get_template_directory_uri() . "/assets/images/support-3.png" ?>" alt=""></div>
-						<div class="support-content">
-							<h5>Money Return</h5>
-							<p>Free shipping on all order</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="support-wrap mb-30">
-						<div class="support-icon"><img class="animated" src="<?php echo get_template_directory_uri() . "/assets/images/support-4.png"?>" alt=""></div>
-						<div class="support-content">
-							<h5>Order Discount</h5>
-							<p>Free shipping on all order</p>
-						</div>
-					</div>
-				</div>
+				<?php endforeach; ?>
+				
 			</div>
 		</div>
 	</div>

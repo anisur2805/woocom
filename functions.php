@@ -3,6 +3,10 @@
 require_once get_template_directory() .'/lib/cs/codestar-framework.php';
 require_once get_template_directory() . '/inc/cs.php';
 
+locate_template('/lib/kirki/kirki.php', true, true);
+require_once get_template_directory(  ) . '/inc/kirki-customizer.php';
+
+
 define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
 
  /**

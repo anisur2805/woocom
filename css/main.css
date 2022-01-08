@@ -15578,12 +15578,12 @@ a.default-btn {
   width: 100%;
 }
 
-.support-wrap .support-content h5 {
+.support-content h5 {
   font-size: 18px;
   margin: 0 0 5px;
 }
 
-.support-wrap .support-content p {
+.support-content p {
   margin: 0;
   color: #666;
 }
