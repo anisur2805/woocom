@@ -40,12 +40,23 @@ function woocom_product_rating(){
  */
 function woocom_loop_columns( $wc_nc ) {
 	if( isset( $_GET['wc_nc']) && $_GET['wc_nc'] > 0 ) {
-		$wc_nc = $_GET['wc_nc'];
+		$wc_nc = sanitize_text_field( $_GET['wc_nc'] );
 	}
 	
 	return $wc_nc;
 }
 add_filter('loop_shop_columns', 'woocom_loop_columns');
+
+function woocom_product_query( $wc_sidebar ) {
+	if( isset( $_GET['shop_right_sidebar'] ) ) {
+		$wc_sidebar = sanitize_text_field( 'shop-right-sidebar' );
+	} else {
+		$wc_sidebar = sanitize_text_field( 'shop-left-sidebar' );
+	}
+	
+	return $wc_sidebar;
+}
+// add_action('woocommerce_product_query', 'woocom_product_query');
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30); 
 add_filter('woocommerce_single_product_summary', 'woocom_single_product_summery');

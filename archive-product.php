@@ -51,7 +51,7 @@
 		 * @hooked woocommerce_taxonomy_archive_description - 10
 		 * @hooked woocommerce_product_archive_description - 10
 		 */
-		do_action( 'woocommerce_archive_description' );
+		// do_action( 'woocommerce_archive_description' );
 	?>
 </header>
 
@@ -60,8 +60,16 @@
 <div class="products-wrapper">
 	<div class="container">
 		<div class="row">
-		
-			<div class="col-md-4">
+			<?php 
+			
+				if( isset( $_GET['shop_right_sidebar'] ) ) {
+					$wc_sidebar = 'shop-right-sidebar';
+				} else {
+					$wc_sidebar = 'shop-left-sidebar';
+				}
+				
+			?>
+			<div class="col-md-4 <?php echo $wc_sidebar; ?>">
 				<?php
 
 					/**

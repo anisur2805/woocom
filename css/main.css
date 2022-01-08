@@ -16446,6 +16446,10 @@ form.woocommerce-ordering {
   justify-content: flex-end;
 }
 
+.products-wrapper .shop-right-sidebar {
+    order: 1;
+}
+
 .products-wrapper .woocommerce-loop-product__title {
   font-size: 16px;
   margin: 10px 0;
