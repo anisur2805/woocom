@@ -30,11 +30,22 @@ function woocom_product_rating(){
 	<?php 
 }
 
-// WooCommerce Change Per Row Products 
-add_filter('loop_shop_columns', 'woocom_loop_columns', 999);
-function woocom_loop_columns( ) {
-	return 3;
+/**
+ * WooCommerce Change Per Row Products
+ * 
+ * /shop/?wc_nc=3
+ *
+ * @param [type] $wc_nc
+ * @return void
+ */
+function woocom_loop_columns( $wc_nc ) {
+	if( isset( $_GET['wc_nc']) && $_GET['wc_nc'] > 0 ) {
+		$wc_nc = $_GET['wc_nc'];
+	}
+	
+	return $wc_nc;
 }
+add_filter('loop_shop_columns', 'woocom_loop_columns');
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30); 
 add_filter('woocommerce_single_product_summary', 'woocom_single_product_summery');

@@ -15717,7 +15717,7 @@ a.default-btn {
     left: 0;
     display: block;
     visibility: hidden;
-    width: 210px;
+    width: 220px;
     padding: 20px 0 22px;
     transition: all .5s ease 0s;
     transform: rotateX(90deg);
