@@ -16544,6 +16544,20 @@ section.related.products ul.products .woocommerce-loop-product__title {
     margin-top: 100px;
 }
 
+.vertical_product .product-large-image.slick-slider {
+    order: 2;
+    display: flex;
+    width: calc( 100% - 300px );
+    margin-left: auto;
+}
+
+.vertical_product .product-gallery-image.slick-slider {
+width: 300px;position: absolute;left: 0;top: 0;}
+
+.vertical_product {
+    position: relative;
+}
+
 /* WooCommerce Single Product Gallery Slick Slider */
 .product-gallery-image {
     margin-top: 30px;

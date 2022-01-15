@@ -31,7 +31,12 @@ if ( post_password_required() ) {
 	return;
 }
 
-
+		$vertical_layout = isset( $_GET['single_product_gallery_layout'] ) ? $_GET['single_product_gallery_layout'] : '';
+		if( 'vertical' == $vertical_layout ) {
+			$vertical_layout = "vertical_product";
+		}else {
+			$vertical_layout = "";
+		}
 
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
@@ -39,7 +44,7 @@ if ( post_password_required() ) {
 		<div class="container">
 			<div class="row">
 			
-				<div class="col-md-6">
+				<div class="col-md-6 <?php echo esc_html( $vertical_layout ); ?>">
 					<?php
 						/**
 						* Hook: woocommerce_before_single_product_summary.

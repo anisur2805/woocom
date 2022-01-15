@@ -29,11 +29,6 @@ get_header( 'shop' ); ?>
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
 		do_action( 'woocommerce_before_main_content' );
-		
-		$vertical_layout = $_GET['single_product_gallery_layout'];
-		
-		$vertical_layout = isset( $vertical_layout ) ? 'vertical' : '';
-		
 	?>
 
 		<?php while ( have_posts() ) : ?>
