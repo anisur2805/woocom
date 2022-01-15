@@ -76,85 +76,83 @@
 					<div class="row">
 
 						<div class="col-xl-2 col-lg-2 col-md-6 col-4">
-							<div class="logo"><a href="/"><img alt=""
-										src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>"></a>
+							<div class="logo">
+								<a href="/">
+									<img alt="" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>">
+								</a>
 							</div>
 						</div>
 
 						<div class="col-xl-6 col-lg-6 d-none d-lg-block">
-							<div class="main-menu d-none">
+							<div class="main-menu">
 								<?php
 									wp_nav_menu(
 										array(
 											'theme_location' => 'primary-menu',
 											'menu_id'        => 'main-menu',
 											'container'      => 'nav',
-										) );
+										) 
+									);
 								?>
 							</div>
 							
 							<?php 
-							   $menu_name = 'primary-menu';
-$locations = get_nav_menu_locations();
-$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+							    $menu_name = 'primary-menu';
+								$locations = get_nav_menu_locations();
+								$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+								$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 
-// echo "<pre>";
-// print_r($menuitems);
-// wp_die();
+								// echo "<pre>";
+								// print_r($menuitems);
+								// wp_die();
+								
+								
 							
 							 ?>
-							<div class="main-menu">
+							<div class="main-menu d-none">
 								<nav class="menu-woocom-primary-menu-container">
 								
 								<?php if( !empty( $menuitems ) && is_array( $menuitems )): ?>
 								
 									<ul id="main-menu" class="menu">
 									
-									<?php foreach ($menuitems as $v) : $pid = $v->ID; //var_dump( $v);
-									
-									?>
-										<li id="menu-item-<?php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?php echo esc_attr($v->post_type); ?> menu-item-object-<?php echo esc_attr($v->object); ?> menu-item-<?php esc_attr($v->post_name) ?> menu-item-<?php echo esc_attr( $v->ID ) ?>">
-											<a href="<?php echo esc_url($v->url); ?>"><?php echo esc_html($v->title) ?></a>
-											<?php if( !$pid == $v->menu_item_parent ): ?>
-											<ul class="sub-menu">
-												<li id="menu-item-<?php echo $v; ?>" class="menu-item menu-item-type-<?php echo esc_attr($v->post_type); ?> menu-item-object-custom menu-item-"><a href="/shop/?wc_nc=2"><?php echo $v; ?></a></li>
-											</ul>
-											<?php endif; ?>
-										</li>
-											<?php endforeach; ?>
-<!-- <li id="menu-item-4111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current-menu-item current_page_item menu-item-4111">
-<a href="http://wp.local/shop/" aria-current="page">Shop<i class="bi-chevron-down"></i></a>
-<ul class="sub-menu">
-	<li id="menu-item-4263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4263"><a href="/shop/?wc_nc=2">Shop – Two Columns</a></li>
-	<li id="menu-item-4264" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4264"><a href="/shop/?wc_nc=3">Shop – Three Columns</a></li>
-	<li id="menu-item-4265" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4265"><a href="/shop/?wc_nc=4">Shop – Four Columns</a></li>
-	<li id="menu-item-4266" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4266"><a href="/shop/?shop_left_sidebar">Shop Left Sidebar</a></li>
-	<li id="menu-item-4267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4267"><a href="/shop/?shop_right_sidebar">Shop Right Sidebar</a></li>
-</ul>
-</li>
-<li id="menu-item-4112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4112"><a href="#">Collections</a></li>
-<li id="menu-item-4113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4113"><a href="#">Pages<i class="bi-chevron-down"></i></a>
-<ul class="sub-menu">
-	<li id="menu-item-4115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4115"><a href="http://wp.local/cart/">Cart</a></li>
-	<li id="menu-item-4116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4116"><a href="http://wp.local/checkout/">Checkout</a></li>
-</ul>
-</li>
-<li id="menu-item-4114" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4114"><a href="/contact">Contact</a></li>
-<li id="menu-item-4268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4268"><a href="#">Products<i class="bi-chevron-down"></i></a>
-<ul class="sub-menu">
-	<li id="menu-item-4269" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4269"><a href="/product/album">Horizontal Thumbnail</a></li>
-	<li id="menu-item-4270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4270"><a href="/product/polo">Vertical Thumbnail</a></li>
-	<li id="menu-item-4271" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4271"><a href="/product/cap">Gallery Thumbnail</a></li>
-	<li id="menu-item-4272" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4272"><a href="/product/belt">Sticky Thumbnail</a></li>
-</ul>
-</li> -->
-</ul>
+										<?//php foreach ($menuitems as $v) : // $pid = $v->ID; var_dump( $pid); 
+										// echo "<pre>";
+										// print_r( $v);
+										
+										// if( !$v->menu_item_parent) {
+										// 	$child_menu_items = $v->get_child_menu_items($menuitems, $v->ID );
+										// 	$has_children = !empty( $child_menu_items) && is_array( $child_menu_items);
+										// 	$has_submenu_class = !empty( $has_children) ? 'test-menu' : '';
+											
+										// 	if( !$has_children) { ?>
+											
+											<!-- <li id="menu-item-<?php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?php echo esc_attr($v->post_type); ?> menu-item-object-<?php echo esc_attr($v->object); ?> menu-item-<?php esc_attr($v->post_name) ?> menu-item-<?php echo esc_attr( $v->ID ) ?>">
+												<a href="<?php echo esc_url($v->url); ?>"><?php echo esc_html($v->title) ?></a> 
+											</li> -->
+											
+											<?//php } else { ?>
+												<!-- <li id="menu-item-<?php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?php echo esc_attr($v->post_type); ?> menu-item-object-<?php echo esc_attr($v->object); ?> menu-item-<?php esc_attr($v->post_name) ?> menu-item-<?php echo esc_attr( $v->ID ) ?>">
+												<a href="<?php echo esc_url($v->url); ?>"><?php echo esc_html($v->title) ?></a>
+													<ul class="sub-menu">
+														<li id="menu-item-<?php echo $v; ?>" class="menu-item menu-item-type-<?php echo esc_attr($v->post_type); ?> menu-item-object-custom menu-item-"><a href="/shop/?wc_nc=2"><?php echo $v; ?></a></li>
+													</ul>
+											</li> -->
+												
+											<?//php }
+										// }
+										
+										//?>
+											
+										<?//php endforeach; ?>
+									</ul>
 
-<?php endif; ?>
-</nav>							</div>
+								<?php endif; ?>
+								</nav>						
+							</div>
 
 						</div>
+						
 
 						<div class="col-xl-4 col-lg-4 col-md-6 col-8 ">
 							<div class="header-right-wrap ">
