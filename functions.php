@@ -375,3 +375,7 @@ function woocom_customize_preview_init() {
   wp_enqueue_script('woocom-customizer-script', get_theme_file_uri('/js/woocom-customizer.js'), array( 'jquery', 'customize-preview' ), time(), true );
 }
 add_action( 'customize_preview_init', 'woocom_customize_preview_init' );
+
+@ini_set( 'upload_max_size' , '120M' );
+@ini_set( 'post_max_size', '120M');
+@ini_set( 'max_execution_time', '300' );

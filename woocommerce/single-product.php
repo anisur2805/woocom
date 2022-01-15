@@ -30,7 +30,10 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 		
-		echo "Before Content";
+		$vertical_layout = $_GET['single_product_gallery_layout'];
+		
+		$vertical_layout = isset( $vertical_layout ) ? 'vertical' : '';
+		
 	?>
 
 		<?php while ( have_posts() ) : ?>
