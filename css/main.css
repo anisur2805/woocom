@@ -17354,3 +17354,37 @@ button#place_order:hover {
 .control-section-default .customize-control-url + .customize-control-media {
     margin-top: 10px;
 }
+
+/* Contact Page */
+.contact_two .custom-row-2 {
+    order: 0;
+    margin-bottom: 20px;
+}
+
+.contact_two .contact-map {
+    order: 1;
+    display: flex;
+}
+.conditional_contact_3 .elementor-icon-box-title {
+    margin-bottom: 16px;
+    color: var(--e-global-color-accent);
+    font-size: 22px;
+    line-height: 1.3636363636;
+}
+.conditional_contact_3 .elementor-icon-box-content {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+} 
+
+.conditional_contact_3 {
+    padding: 60px 0;
+}
+/* .conditional_contact_3 .elementor-column-gap-no {
+    display: flex;
+    column-gap: 60px;
+} */
+
+.conditional_contact_3 .elementor-column:first-child .elementor-element + .elementor-element {
+    margin-top: 40px;
+}
