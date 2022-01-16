@@ -76,14 +76,14 @@ function woocom_yith_wcwl_add_to_wishlist_params( $text ) {
 
 add_action('woocommerce_before_single_product', 'woocom_woocommerce_before_single_product');
 function woocom_woocommerce_before_single_product() { 
-	if( is_singular() ) {
-	echo '<header class="woocommerce-products-header">';
+	// if( is_singular() || is_shop() ) {
+	echo '<header class="woocommerce-products-header breadcrumb_wrapper">';
 		if ( apply_filters( 'woocommerce_show_page_title', true ) ): ?>
 			<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title();?></h1>
 		<?php endif;
 			echo woocommerce_breadcrumb(); 
 	echo '</div>';
-	}
+	// }
 }
 
 add_action( 'wp_enqueue_scripts', 'woocom_woo_enqueue_scripts' );

@@ -16547,15 +16547,56 @@ section.related.products ul.products .woocommerce-loop-product__title {
 .vertical_product .product-large-image.slick-slider {
     order: 2;
     display: flex;
-    width: calc( 100% - 300px );
+    width: calc( 100% - 135px );
     margin-left: auto;
 }
 
 .vertical_product .product-gallery-image.slick-slider {
-width: 300px;position: absolute;left: 0;top: 0;}
+  width: 130px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.vertical_product .product-gallery-image .slick-list.draggable {
+    height: 460px !important;
+    padding: 0 !important;
+}
+
+.vertical_product .product-gallery-image.slick-slider {
+    margin-top: 0 !important;
+}
 
 .vertical_product {
     position: relative;
+}
+
+.conditional_layout.gallery .product-large-image.slick-initialized.slick-slider {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.conditional_layout.gallery .product-large-image {
+    display: none !important;
+}
+
+.conditional_layout.gallery .product-gallery-image {
+    width: 100%;
+    max-width: 600px;
+}
+
+.conditional_layout.gallery .product-gallery-image .slick-track {
+    width: 100% !important;
+}
+
+.conditional_layout.gallery .product-gallery-image .slick-track .product-gallery-single-image {
+    width: 50% !important;
+    padding: 5px;
+}
+
+.conditional_layout.gallery .product-gallery-image .slick-list {
+    padding: 0 !important;
 }
 
 /* WooCommerce Single Product Gallery Slick Slider */
