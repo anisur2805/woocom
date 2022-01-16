@@ -15602,6 +15602,16 @@ a.default-btn {
   border-radius: 50%;
   padding: 5px;
   border: 1px solid #9d9d9d;
+  animation: logo_rotate 8s infinite linear;
+}
+
+@keyframes logo_rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .swiper-slide .slider-content h3 {
