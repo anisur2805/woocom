@@ -376,6 +376,33 @@ function woocom_customize_preview_init() {
 }
 add_action( 'customize_preview_init', 'woocom_customize_preview_init' );
 
-@ini_set( 'upload_max_size' , '120M' );
-@ini_set( 'post_max_size', '120M');
-@ini_set( 'max_execution_time', '300' );
+/**
+ * Parent Child Relationship with two different CPT 
+ * One is 'book', Another is 'chapter'
+ *
+ * the previous link was: 
+ * @link http://wp.local/book/%book%/chapter/chapter-two/
+ *
+ * the current link is: 
+ * @link http://wp.local/book/the-great-gatsby/chapter/chapter-two/
+ *
+ * Here is the true expectation:: combine two post types
+ *
+ * @param string $post_link
+ * @param object $id
+ * @return $post_link
+ */
+function woocom_book_post_type_link( $post_link, $id ) {
+  $p = get_post( $id );
+  if ( is_object( $p ) && 'chapter' == get_post_type( $p ) ) {
+    $parent_id = get_field( 'parent_book' );
+    $parent_post = get_post( $parent_id );
+    if( $parent_post ) {
+      $post_link = str_replace("%book%", $parent_post->post_name, $post_link );
+    }
+    
+    return $post_link;
+    
+  }
+}
+add_filter( 'post_type_link', 'woocom_book_post_type_link', 1, 2 );
