@@ -1,90 +1,69 @@
 <?php 
 
+require_once get_theme_file_path('/lib/class-tgm-plugin-activation.php');
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
-
-/**
- * Register the required plugins for this theme.
- *
- *  <snip />
- *
- * This function is hooked into tgmpa_init, which is fired within the
- * TGM_Plugin_Activation class constructor.
- */
 function my_theme_register_required_plugins() {
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
+
 	$plugins = array(
 
-		// This is an example of how to include a plugin bundled with a theme.
-		array(
-			'name'               => 'TGM Example Plugin', // The plugin name.
-			'slug'               => 'tgm-example-plugin', // The plugin slug (typically the folder name).
-			'source'             => get_stylesheet_directory() . '/plugins/tgm-example-plugin.zip', // The plugin source within current theme.
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
 			'name'      => 'Advanced Custom Fields',
 			'slug'      => 'advanced-custom-fields',
 			'required'  => true,
 		),
+		
 		array(
 			'name'      => 'YITH WooCommerce Wishlist',
-			'slug'      => 'yith_woocompare_panel',
+			'slug'      => 'yith-woocommerce-wishlist',
 			'required'  => true,
 		),	
+		
 		array(
 			'name'      => 'YITH WooCommerce Compare',
 			'slug'      => 'yith-woocommerce-compare',
 			'required'  => true,
 		),
+		
 		array(
 			'name'      => 'Show Current Template',
 			'slug'      => 'show-current-template',
 			'required'  => true,
 		),
+		
 		array(
 			'name'      => 'WooCommerce',
 			'slug'      => 'woocommerce',
 			'required'  => true,
 		),
+		
 		array(
 			'name'      => 'Classic Widgets',
 			'slug'      => 'classic-widgets',
 			'required'  => true,
 		),
+		
 		array(
 			'name'      => 'Wpforms',
-			'slug'      => 'wpforms',
+			'slug'      => 'wpforms-lite',
 			'required'  => true,
 		),	
+		
 		array(
 			'name'      => 'Smash Balloon Social Photo Feed',
-			'slug'      => 'sb-instagram-feed',
+			'slug'      => 'instagram-feed',
 			'required'  => true,
+		),
+		
+		array(
+			'name'      => 'CMB2 Attached Posts Field',
+			'slug'      => 'cmb2-attached-posts',
+			'required'  => true,
+			'external_url'	=> 'https://github.com/CMB2/cmb2-attached-posts/archive/refs/heads/master.zip',
 		),
 		
 		// <snip />
 	);
 
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 *
-	 * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-	 * strings available, please help us make TGMPA even better by giving us access to these translations or by
-	 * sending in a pull-request with .po file(s) with the translations.
-	 *
-	 * Only uncomment the strings in the config array if you want to customize the strings.
-	 */
 	$config = array(
 		'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
@@ -109,3 +88,5 @@ function my_theme_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
+
+add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );

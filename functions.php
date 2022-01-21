@@ -6,6 +6,9 @@ require_once get_template_directory() . '/inc/cs.php';
 locate_template('/lib/kirki/kirki.php', true, true);
 require_once get_template_directory(  ) . '/inc/kirki-customizer.php';
 
+require_once get_theme_file_path( '/inc/tgmpa.php' );
+require_once get_template_directory(  ) . '/inc/cmb2-attached-posts.php';
+
 
 define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
 
