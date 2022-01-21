@@ -2366,19 +2366,16 @@ progress {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
+  box-sizing: border-box;  
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
-  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .form-control {
-    -webkit-transition: none;
     transition: none;
   }
 }
@@ -2442,15 +2439,12 @@ progress {
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: all 0.4s;
+
 }
 
 @media (prefers-reduced-motion: reduce) {
   .form-control::file-selector-button {
-    -webkit-transition: none;
     transition: none;
   }
 }
@@ -2472,15 +2466,11 @@ progress {
   border-width: 0;
   border-inline-end-width: 1px;
   border-radius: 0;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+ transition: all 0.4s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-control::-webkit-file-upload-button {
-    -webkit-transition: none;
+  .form-control::-webkit-file-upload-button { 
     transition: none;
   }
 }
@@ -2596,18 +2586,13 @@ textarea.form-control-lg {
   background-size: 16px 12px;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -webkit-appearance: none;
+  transition: all 0.4s; 
   -moz-appearance: none;
   appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-select {
-    -webkit-transition: none;
+  .form-select { 
     transition: none;
   }
 }
@@ -2736,14 +2721,12 @@ textarea.form-control-lg {
   margin-left: -2.5em;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
   background-position: left center;
-  border-radius: 2em;
-  -webkit-transition: background-position 0.15s ease-in-out;
+  border-radius: 2em; 
   transition: background-position 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-switch .form-check-input {
-    -webkit-transition: none;
+  .form-switch .form-check-input { 
     transition: none;
   }
 }
@@ -2809,17 +2792,12 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -webkit-appearance: none;
+ transition: all 0.4s; 
   appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-range::-webkit-slider-thumb {
-    -webkit-transition: none;
+  .form-range::-webkit-slider-thumb { 
     transition: none;
   }
 }
@@ -2844,17 +2822,12 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   border: 0;
   border-radius: 1rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -moz-appearance: none;
+ transition: all 0.4s; 
   appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-range::-moz-range-thumb {
-    -webkit-transition: none;
+  .form-range::-moz-range-thumb { 
     transition: none;
   }
 }
@@ -2901,18 +2874,14 @@ textarea.form-control-lg {
   height: 100%;
   padding: 1rem 0.75rem;
   pointer-events: none;
-  border: 1px solid transparent;
-  -webkit-transform-origin: 0 0;
+  border: 1px solid transparent; 
   transform-origin: 0 0;
-  -webkit-transition: opacity 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
-  transition: opacity 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
-  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+  transition: all 0.4s;
+  box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-floating>label {
-    -webkit-transition: none;
+  .form-floating>label { 
     transition: none;
   }
 }
@@ -2953,14 +2922,12 @@ textarea.form-control-lg {
 }
 
 .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
-  opacity: 0.65;
-  -webkit-transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  opacity: 0.65; 
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
 .form-floating>.form-control:-webkit-autofill~label {
-  opacity: 0.65;
-  -webkit-transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  opacity: 0.65; 
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
 
@@ -3851,14 +3818,12 @@ textarea.form-control-lg {
   border-radius: 0.2rem;
 }
 
-.fade {
-  -webkit-transition: opacity 0.15s linear;
+.fade { 
   transition: opacity 0.15s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade {
-    -webkit-transition: none;
+  .fade { 
     transition: none;
   }
 }
@@ -3873,28 +3838,24 @@ textarea.form-control-lg {
 
 .collapsing {
   height: 0;
-  overflow: hidden;
-  -webkit-transition: height 0.35s ease;
+  overflow: hidden; 
   transition: height 0.35s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .collapsing {
-    -webkit-transition: none;
+  .collapsing { 
     transition: none;
   }
 }
 
 .collapsing.collapse-horizontal {
   width: 0;
-  height: auto;
-  -webkit-transition: width 0.35s ease;
+  height: auto; 
   transition: width 0.35s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .collapsing.collapse-horizontal {
-    -webkit-transition: none;
+  .collapsing.collapse-horizontal { 
     transition: none;
   }
 }
@@ -4359,14 +4320,12 @@ textarea.form-control-lg {
   display: block;
   padding: 0.5rem 1rem;
   color: #0d6efd;
-  text-decoration: none;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  text-decoration: none; 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-link {
-    -webkit-transition: none;
+  .nav-link { 
     transition: none;
   }
 }
@@ -4540,15 +4499,11 @@ textarea.form-control-lg {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+transition: all 0.4s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .navbar-toggler {
-    -webkit-transition: none;
+  .navbar-toggler { 
     transition: none;
   }
 }
@@ -4634,10 +4589,8 @@ textarea.form-control-lg {
     visibility: visible !important;
     background-color: transparent;
     border-right: 0;
-    border-left: 0;
-    -webkit-transition: none;
-    transition: none;
-    -webkit-transform: none;
+    border-left: 0; 
+    transition: none; 
     transform: none;
   }
 
@@ -4714,10 +4667,8 @@ textarea.form-control-lg {
     visibility: visible !important;
     background-color: transparent;
     border-right: 0;
-    border-left: 0;
-    -webkit-transition: none;
-    transition: none;
-    -webkit-transform: none;
+    border-left: 0; 
+    transition: none; 
     transform: none;
   }
 
@@ -4795,9 +4746,7 @@ textarea.form-control-lg {
     background-color: transparent;
     border-right: 0;
     border-left: 0;
-    -webkit-transition: none;
     transition: none;
-    -webkit-transform: none;
     transform: none;
   }
 
@@ -4875,9 +4824,7 @@ textarea.form-control-lg {
     background-color: transparent;
     border-right: 0;
     border-left: 0;
-    -webkit-transition: none;
     transition: none;
-    -webkit-transform: none;
     transform: none;
   }
 
@@ -4955,9 +4902,7 @@ textarea.form-control-lg {
     background-color: transparent;
     border-right: 0;
     border-left: 0;
-    -webkit-transition: none;
     transition: none;
-    -webkit-transform: none;
     transform: none;
   }
 
@@ -5034,9 +4979,7 @@ textarea.form-control-lg {
   background-color: transparent;
   border-right: 0;
   border-left: 0;
-  -webkit-transition: none;
   transition: none;
-  -webkit-transform: none;
   transform: none;
 }
 
@@ -5334,15 +5277,11 @@ textarea.form-control-lg {
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease, -webkit-box-shadow 0.15s ease-in-out;
+ transition: all 0.4s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .accordion-button {
-    -webkit-transition: none;
+  .accordion-button { 
     transition: none;
   }
 }
@@ -5356,7 +5295,6 @@ textarea.form-control-lg {
 
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
@@ -5370,15 +5308,11 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-size: 1.25rem;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+ transition: all 0.4s;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .accordion-button::after {
-    -webkit-transition: none;
+  .accordion-button::after { 
     transition: none;
   }
 }
@@ -5502,15 +5436,12 @@ textarea.form-control-lg {
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: all 0.4s;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page-numbers {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -5723,11 +5654,7 @@ textarea.form-control-lg {
   color: #101214;
 }
 
-@-webkit-keyframes progress-bar-stripes {
-  0% {
-    background-position-x: 1rem;
-  }
-}
+ 
 
 @keyframes progress-bar-stripes {
   0% {
@@ -5762,13 +5689,13 @@ textarea.form-control-lg {
   text-align: center;
   white-space: nowrap;
   background-color: #0d6efd;
-  -webkit-transition: width 0.6s ease;
+  
   transition: width 0.6s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -5779,13 +5706,13 @@ textarea.form-control-lg {
 }
 
 .progress-bar-animated {
-  -webkit-animation: 1s linear infinite progress-bar-stripes;
+  
   animation: 1s linear infinite progress-bar-stripes;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar-animated {
-    -webkit-animation: none;
+    
     animation: none;
   }
 }
@@ -6210,7 +6137,7 @@ textarea.form-control-lg {
 }
 
 .btn-close {
-  -webkit-box-sizing: content-box;
+  
   box-sizing: content-box;
   width: 1em;
   height: 1em;
@@ -6329,28 +6256,26 @@ textarea.form-control-lg {
 }
 
 .modal.fade .modal-dialog {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
+  
   transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  -webkit-transform: translate(0, -50px);
+  transition: all 0.4s;
   transform: translate(0, -50px);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .modal.fade .modal-dialog {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
 
 .modal.show .modal-dialog {
-  -webkit-transform: none;
+  
   transform: none;
 }
 
 .modal.modal-static .modal-dialog {
-  -webkit-transform: scale(1.02);
+ 
   transform: scale(1.02);
 }
 
@@ -6672,8 +6597,7 @@ textarea.form-control-lg {
   font-family: var(--bs-font-sans-serif);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
+  line-height: 1.5; 
   text-align: start;
   text-decoration: none;
   text-shadow: none;
@@ -6956,7 +6880,7 @@ textarea.form-control-lg {
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -6981,7 +6905,7 @@ textarea.form-control-lg {
   opacity: 0;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transform: none;
+  
   transform: none;
 }
 
@@ -6999,7 +6923,7 @@ textarea.form-control-lg {
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-fade .active.carousel-item-start, .carousel-fade .active.carousel-item-end {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -7031,7 +6955,7 @@ textarea.form-control-lg {
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-control-prev, .carousel-control-next {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -7089,7 +7013,7 @@ textarea.form-control-lg {
 }
 
 .carousel-indicators [data-bs-target] {
-  -webkit-box-sizing: content-box;
+  
   box-sizing: content-box;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
@@ -7113,7 +7037,7 @@ textarea.form-control-lg {
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-indicators [data-bs-target] {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -7194,7 +7118,7 @@ textarea.form-control-lg {
 
   50% {
     opacity: 1;
-    -webkit-transform: none;
+    
     transform: none;
   }
 }
@@ -7207,7 +7131,7 @@ textarea.form-control-lg {
 
   50% {
     opacity: 1;
-    -webkit-transform: none;
+    
     transform: none;
   }
 }
@@ -7260,7 +7184,7 @@ textarea.form-control-lg {
 
 @media (prefers-reduced-motion: reduce) {
   .offcanvas {
-    -webkit-transition: none;
+    
     transition: none;
   }
 }
@@ -7356,7 +7280,7 @@ textarea.form-control-lg {
 }
 
 .offcanvas.show {
-  -webkit-transform: none;
+  
   transform: none;
 }
 
@@ -15271,8 +15195,7 @@ a.default-btn {
   right: -30px;
   width: 16px;
   height: 2px;
-  content: "";
-  -webkit-transform: translateY(-50%);
+  content: ""; 
   transform: translateY(-50%);
   background-color: #7c7b7b;
 }
@@ -15898,10 +15821,8 @@ a.default-btn {
   visibility: hidden;
   width: 340px;
   padding: 10px 35px;
-  transition: all .5s ease 0s;
-  -webkit-transform: rotateX(90deg);
-  transform: rotateX(90deg);
-  -webkit-transform-origin: center top 0;
+  transition: all .5s ease 0s; 
+  transform: rotateX(90deg); 
   transform-origin: center top 0;
   opacity: 0;
   border: 1px solid #ebebeb;
@@ -15910,8 +15831,7 @@ a.default-btn {
 }
 
 /* Mobile Menu */
-.offcanvas-mobile-menu.active {
-  -webkit-transform: translateX(0);
+.offcanvas-mobile-menu.active { 
   transform: translateX(0);
 }
 
@@ -15924,8 +15844,7 @@ a.default-btn {
   max-width: 100%;
   height: 100vh;
   padding-left: 60px;
-  transition: .6s;
-  -webkit-transform: translateX(100%);
+  transition: .6s; 
   transform: translateX(100%);
 }
 
@@ -15949,8 +15868,7 @@ a.default-btn {
   font-size: 40px;
   line-height: 1;
   margin-top: 12px;
-  transition: .3s;
-  -webkit-transform: rotate(0);
+  transition: .3s; 
   transform: rotate(0);
 }
 
@@ -16093,12 +16011,14 @@ a.default-btn {
 }
 
 /* Tab Style */
+.product-area {
+  padding-top: 2em;
+}
 .product-area .product-tab-list {
   justify-content: center;
 }
 
 .product-area .product-tab-list button {
-  margin: 0 11px;
   display: block;
   padding: 0.5rem 1rem;
   border: 0;
@@ -16918,7 +16838,7 @@ button#place_order:hover {
     line-height: 1;
     color: #000;
     font-weight: 600;
-    -webkit-transition: all .3s ease-out;
+    
     transition: all .3s ease-out;
     font-family: 'Poppins';
 }
@@ -17011,9 +16931,9 @@ button#place_order:hover {
 }
 
 .inspiration_item .inspiration_thumb_area img {
-    -webkit-transform: scale(1) rotate(0);
+    
     transform: scale(1) rotate(0);
-    -webkit-transition: all .5s ease-in-out;
+    
     transition: all .5s ease-in-out;
     
     height: auto;
@@ -17025,7 +16945,7 @@ button#place_order:hover {
     box-shadow: none;
 }
 .inspiration_item .inspiration_thumb_area:hover img {
-    -webkit-transform: scale(1.1) rotate(3deg);
+   
     transform: scale(1.1) rotate(3deg);
 }
 .inspiration_item .inspiration_thumb_area .inspiration_date {
@@ -17200,7 +17120,7 @@ button#place_order:hover {
     z-index: 2;
     bottom: 0;
     left: 0;
-    -webkit-transition: all .3s ease-out;
+    
     transition: all .3s ease-out;
     right: 0;
     margin: 0 auto;
@@ -17300,6 +17220,10 @@ button#place_order:hover {
   padding: 45px 0;
 }
 
+.product-area ul.products li.product {
+    margin-bottom: 0;
+}
+
 .product_gallery .pg_item {
     flex: 1;
     padding: 0;
@@ -17397,4 +17321,40 @@ button#place_order:hover {
 
 .conditional_contact_3 .elementor-column:first-child .elementor-element + .elementor-element {
     margin-top: 40px;
+}
+
+/* Pagination */
+.woocom_pg {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.woocom_pg .page-numbers {
+    border-radius: 50%;
+    padding: 8px;
+    background: #f1f1f1c7;
+    margin: 0 2px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.woocom_pg .page-numbers.current {
+    background: #f3b632;
+    color: #fff;
+}
+
+.woocom-tags a {
+  background: #101214;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 6px;
+  margin: 2px;
+}
+
+
+/* Instagram/ Ig Feed */
+#sb_instagram {
+    height: auto !important;
 }

@@ -6,6 +6,33 @@
  * @package woocom */
 ?>
 
+	<div class="tags-area bg-gray py-4 mb-4">
+		<div class="container">
+			<div class="row text-center">
+				<?php
+					$woocom_footer_tags_title = apply_filters( 'woocom_footer_tags_title', __('Tags', 'woocom') );
+					$woocom_footer_tags_items = apply_filters( 'woocom_footer_tags_items', get_tags() );
+				
+				?>
+				<h3>
+					<?php echo esc_html( $woocom_footer_tags_title ); ?>
+				</h3>
+				<?php
+				echo '<div class="woocom-tags">';
+				
+					if( is_array( $woocom_footer_tags_items ) ) {
+						foreach( $woocom_footer_tags_items as $wc_item ) {
+							printf( '<a href="%s">%s</a>', get_term_link( $wc_item->term_id ), $wc_item->name );
+						}
+					}
+					
+				echo "</div>";
+				
+				?>
+			</div>
+		</div>
+	</div>
+
 	<section class="ig_feed">
 		<?php echo do_shortcode('[instagram-feed]'); ?>
 	</section>

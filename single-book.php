@@ -66,17 +66,24 @@ get_header();
 						wp_reset_postdata();
 						
 						$attached = get_post_meta( get_the_ID(), 'attached_cmb2_attached_posts', true );
-						
+						if( $attached ):
 						echo '<ul>';
-						foreach ( $attached as $attached_post ) {
+						foreach ( $attached as $attached_post ) :
 							$post = get_post( $attached_post );
 							$woocom_title = get_the_title( $post );
 							$woocom_link = get_the_permalink( $post );
 							// echo $title . "<br />";
 							printf( '<li><a href="%s">%s</a></li>', $woocom_link, $woocom_title );
 							
-						}
-						echo '</ul>'
+						endforeach;
+						echo '</ul>';
+						
+						endif;
+						wp_reset_postdata();
+						
+						echo '<div class="woocom-tags"><h4> Languages </h4>';
+							the_terms( get_the_ID(), 'language', '', '', '' );
+						echo '</div>';
 
 					?>
 				</div>

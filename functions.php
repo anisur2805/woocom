@@ -1,16 +1,15 @@
 <?php
 
-require_once get_template_directory() .'/lib/cs/codestar-framework.php';
-require_once get_template_directory() . '/inc/cs.php';
+ require_once get_template_directory() . '/lib/cs/codestar-framework.php';
+ require_once get_template_directory() . '/inc/cs.php';
 
-locate_template('/lib/kirki/kirki.php', true, true);
-require_once get_template_directory(  ) . '/inc/kirki-customizer.php';
+ locate_template( '/lib/kirki/kirki.php', true, true );
+ require_once get_template_directory() . '/inc/kirki-customizer.php';
 
-require_once get_theme_file_path( '/inc/tgmpa.php' );
-require_once get_template_directory(  ) . '/inc/cmb2-attached-posts.php';
+ require_once get_theme_file_path( '/inc/tgmpa.php' );
+ require_once get_template_directory() . '/inc/cmb2-attached-posts.php';
 
-
-define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
+ define( 'CS_ACTIVE_LIGHT_THEME', true ); // default false
 
  /**
   * woocom functions and definitions
@@ -191,14 +190,14 @@ define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
   wp_enqueue_style( 'woocom-style', get_stylesheet_uri(), array(), _S_VERSION );
 
   wp_enqueue_style( 'woocom-main', get_template_directory_uri() . '/css/main.css' );
-  
-  $woocom_hero_slider_bg_color = get_theme_mod('woocom_hero_slider_bg_color', '#f5e5d7');
-  $hero_slider_style = <<<EOD
+
+  $woocom_hero_slider_bg_color = get_theme_mod( 'woocom_hero_slider_bg_color', '#f5e5d7' );
+  $hero_slider_style           = <<<EOD
   .slider-area .swiper-slide {
     background: {$woocom_hero_slider_bg_color};
 }
 EOD;
-wp_add_inline_style( 'woocom-main', $hero_slider_style );
+  wp_add_inline_style( 'woocom-main', $hero_slider_style );
 
   wp_style_add_data( 'woocom-style', 'rtl', 'replace' );
 
@@ -270,7 +269,7 @@ wp_add_inline_style( 'woocom-main', $hero_slider_style );
   */
  if ( class_exists( 'WooCommerce' ) ) {
   require get_template_directory() . '/inc/woocommerce.php';
-  
+
   require get_template_directory() . '/inc/wc-functions.php';
  }
 
@@ -352,60 +351,98 @@ wp_add_inline_style( 'woocom-main', $hero_slider_style );
    return $fragments;
   }
 
-//   add_action( 'after_setup_theme', 'woocom_after_setup_theme' );
-//   function woocom_after_setup_theme() {
-//    add_image_size( 'woocom-slider', 1920, 800, ); // Hard crop left top
-//    add_image_size( 'small-thumb', 60, 60, true );
+  //   add_action( 'after_setup_theme', 'woocom_after_setup_theme' );
+  //   function woocom_after_setup_theme() {
+  //    add_image_size( 'woocom-slider', 1920, 800, ); // Hard crop left top
+  //    add_image_size( 'small-thumb', 60, 60, true );
 
-//    add_image_size( 'team-thumb', 60, 60, true );
-   add_image_size( 'product-thumbnail', 233, 233 );
-//   }
+  //    add_image_size( 'team-thumb', 60, 60, true );
+  add_image_size( 'product-thumbnail', 233, 233 );
+  //   }
 
+  /**
+   * Remove WooCommerce default breadcrumb
+   */
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
-/**
-* Remove WooCommerce default breadcrumb
- */
- remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
- 
- remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+  // Remove responsive media sizes
+  add_filter( 'wp_calculate_image_srcset', '__return_null' );
+  add_filter( 'wp_calculate_image_sizes', '__return_null' );
 
-// Remove responsive media sizes 
-add_filter('wp_calculate_image_srcset', '__return_null');
-add_filter('wp_calculate_image_sizes', '__return_null');
-
-function woocom_customize_preview_init() {
-  wp_enqueue_script('woocom-customizer-script', get_theme_file_uri('/js/woocom-customizer.js'), array( 'jquery', 'customize-preview' ), time(), true );
-}
-add_action( 'customize_preview_init', 'woocom_customize_preview_init' );
-
-/**
- * Parent Child Relationship with two different CPT 
- * One is 'book', Another is 'chapter'
- *
- * the previous link was: 
- * @link http://wp.local/book/%book%/chapter/chapter-two/
- *
- * the current link is: 
- * @link http://wp.local/book/the-great-gatsby/chapter/chapter-two/
- *
- * Here is the true expectation:: combine two post types
- *
- * @param string $post_link
- * @param object $id
- * @return $post_link
- */
-function woocom_book_post_type_link( $post_link, $id ) {
-  $p = get_post( $id );
-  if ( is_object( $p ) && 'chapter' == get_post_type( $p ) ) {
-    $parent_id = get_field( 'parent_book' );
-    $parent_post = get_post( $parent_id );
-    if( $parent_post ) {
-      $post_link = str_replace("%book%", $parent_post->post_name, $post_link );
-    }  
+  function woocom_customize_preview_init() {
+   wp_enqueue_script( 'woocom-customizer-script', get_theme_file_uri( '/js/woocom-customizer.js' ), array( 'jquery', 'customize-preview' ), time(), true );
   }
+
+  add_action( 'customize_preview_init', 'woocom_customize_preview_init' );
+
+  /**
+   * Parent Child Relationship with two different CPT
+   * One is 'book', Another is 'chapter'
+   *
+   * the previous link was:
+   * @link http://wp.local/book/%book%/chapter/chapter-two/
+   *
+   * the current link is:
+   * @link http://wp.local/book/the-great-gatsby/chapter/chapter-two/
+   *
+   * Here is the true expectation:: combine two post types
+   *
+   * @param string $post_link
+   * @param object $id
+   * @return $post_link
+   */
+  function woocom_book_post_type_link( $post_link, $id ) {
+   $p = get_post( $id );
+   if ( is_object( $p ) && 'chapter' == get_post_type( $p ) ) {
+    $parent_id   = get_field( 'parent_book' );
+    $parent_post = get_post( $parent_id );
+    if ( $parent_post ) {
+     $post_link = str_replace( "%book%", $parent_post->post_name, $post_link );
+    }
+   }
+
+   return $post_link;
+
+  }
+
+  add_filter( 'post_type_link', 'woocom_book_post_type_link', 1, 2 );
+
+  // Book CPT based tags show
+  function woocom_footer_tags_title( $title ) {
+   if ( is_post_type_archive( 'book' ) || is_tax( 'language' ) ) {
+    wp_die( "Hello" );
+    $title = __( 'Books Tags', 'woocom' );
+   }
+
+   return $title;
+  }
+
+  add_filter( 'woocom_footer_tags_title', 'woocom_footer_tags_title' );
+
+  function woocom_footer_tags_items( $tags ) {
+   if ( is_post_type_archive( 'book' ) || is_tax( 'language' ) ) {
+    $tags = get_terms( [
+     'taxonomy' => 'language',
+    ] );
+   }
+
+   return $tags;
+
+  }
+
+ add_filter( 'woocom_footer_tags_items', 'woocom_footer_tags_items' );
+ 
+
+function wdc_word_count_heading( $heading ) {
+  $heading = __('Al total words are', 'woocom' );
   
-  return $post_link;
-    
+  return $heading;
+} 
+add_filter( 'wdc_word_count_heading', 'wdc_word_count_heading' );
+
+function wdc_word_count_tag( $tag ) {
+  return 'p';
 }
-add_filter( 'post_type_link', 'woocom_book_post_type_link', 1, 2 );
+add_filter( 'wdc_word_count_tag', 'wdc_word_count_tag' );
