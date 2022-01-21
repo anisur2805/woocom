@@ -127,15 +127,15 @@
 											
 										// 	if( !$has_children) { ?>
 											
-											<!-- <li id="menu-item-<?php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?php echo esc_attr($v->post_type); ?> menu-item-object-<?php echo esc_attr($v->object); ?> menu-item-<?php esc_attr($v->post_name) ?> menu-item-<?php echo esc_attr( $v->ID ) ?>">
-												<a href="<?php echo esc_url($v->url); ?>"><?php echo esc_html($v->title) ?></a> 
+											<!-- <li id="menu-item-<?//php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?//php echo esc_attr($v->post_type); ?> menu-item-object-<?//php echo esc_attr($v->object); ?> menu-item-<?//php esc_attr($v->post_name) ?> menu-item-<?//php echo esc_attr( $v->ID ) ?>">
+												<a href="<?//php echo esc_url($v->url); ?>"><?//php echo esc_html($v->title) ?></a> 
 											</li> -->
 											
 											<?//php } else { ?>
-												<!-- <li id="menu-item-<?php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?php echo esc_attr($v->post_type); ?> menu-item-object-<?php echo esc_attr($v->object); ?> menu-item-<?php esc_attr($v->post_name) ?> menu-item-<?php echo esc_attr( $v->ID ) ?>">
-												<a href="<?php echo esc_url($v->url); ?>"><?php echo esc_html($v->title) ?></a>
+												<!-- <li id="menu-item-<?//php echo esc_attr( $v->ID ) ?>" class="menu-item menu-item-type<?//php echo esc_attr($v->post_type); ?> menu-item-object-<?//php echo esc_attr($v->object); ?> menu-item-<?//php esc_attr($v->post_name) ?> menu-item-<?//php echo esc_attr( $v->ID ) ?>">
+												<a href="<?//php echo esc_url($v->url); ?>"><?//php echo esc_html($v->title) ?></a>
 													<ul class="sub-menu">
-														<li id="menu-item-<?php echo $v; ?>" class="menu-item menu-item-type-<?php echo esc_attr($v->post_type); ?> menu-item-object-custom menu-item-"><a href="/shop/?wc_nc=2"><?php echo $v; ?></a></li>
+														<li id="menu-item-<?//php echo $v; ?>" class="menu-item menu-item-type-<?//php echo esc_attr($v->post_type); ?> menu-item-object-custom menu-item-"><a href="/shop/?wc_nc=2"><?//php echo $v; ?></a></li>
 													</ul>
 											</li> -->
 												
