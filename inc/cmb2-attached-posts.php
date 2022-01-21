@@ -21,7 +21,7 @@ function woocom_cmb2_attached_posts() {
 		'object_types' => array( 'book' ), // Post type
 		'context'      => 'normal',
 		'priority'     => 'high',
-		'show_names'   => false, // Show field names on the left
+		'show_names'   => true, // Show field names on the left
 	) );
 
 	$example_meta->add_field( array(
