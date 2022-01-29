@@ -211,6 +211,10 @@ EOD;
    wp_enqueue_script( 'woocom-popper', get_template_directory_uri() . '/js/popper.min.js', array(), time(), true );
    wp_enqueue_script( 'woocom-bootstrap-script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), time(), true );
 
+   // Enqueue _ JS && WP UTIL
+   wp_enqueue_script( 'underscore' );
+   wp_enqueue_script( 'wp-util' );
+
    /*
     * Swiper Slider
     */
@@ -218,6 +222,7 @@ EOD;
    wp_enqueue_script( 'swiper-script', get_template_directory_uri() . '/css/swiper/swiper-min.js', array(), time(), true );
    wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'swiper-script' ), time(), true );
   }
+
  }
 
  add_action( 'wp_enqueue_scripts', 'woocom_scripts' );
@@ -432,17 +437,150 @@ EOD;
 
   }
 
- add_filter( 'woocom_footer_tags_items', 'woocom_footer_tags_items' );
- 
+  add_filter( 'woocom_footer_tags_items', 'woocom_footer_tags_items' );
 
-function wdc_word_count_heading( $heading ) {
-  $heading = __('Al total words are', 'woocom' );
-  
-  return $heading;
-} 
-add_filter( 'wdc_word_count_heading', 'wdc_word_count_heading' );
+  function wdc_word_count_heading( $heading ) {
+   $heading .= __( 'Al total words are', 'woocom' );
 
-function wdc_word_count_tag( $tag ) {
-  return 'p';
-}
-add_filter( 'wdc_word_count_tag', 'wdc_word_count_tag' );
+   return $heading;
+  }
+
+  add_filter( 'wdc_word_count_heading', 'wdc_word_count_heading' );
+
+  function wdc_word_count_tag( $tag ) {
+   return 'p';
+  }
+
+  add_filter( 'wdc_word_count_tag', 'wdc_word_count_tag' );
+
+  function woocom_pqrcode_qrcode_image_attr( $image_attr ) {
+   return $image_attr = 'test';
+  }
+
+  add_filter( 'pqrcode_qrcode_image_attr', 'woocom_pqrcode_qrcode_image_attr' );
+
+  function woocom_pqrcode_qrcode_dimension( $dimension ) {
+   return $dimension = "100x100";
+  }
+
+  // add_filter('pqrcode_qrcode_dimension', 'woocom_pqrcode_qrcode_dimension' );
+
+  function woocom_pqrcode_exclude_post_types( $exc_post_types ) {
+   $exc_post_types[] = "page";
+   return $exc_post_types;
+  }
+
+  add_filter( 'pqrcode_exclude_post_types', 'woocom_pqrcode_exclude_post_types' );
+
+  function woocom_qrc_countries( $countries ) {
+   array_push( $countries, 'Test C' );
+   $countries = array_diff( $countries, array( 'India', 'pakistan' ) );
+   return $countries;
+  }
+
+  add_filter( 'qrc_countries', 'woocom_qrc_countries' );
+
+  // add class to body
+  add_filter( 'body_class', function ( $classes ) {
+   $site_title = sanitize_title_with_dashes( get_the_title() );
+   $classes[]  = 'prefix-' . $site_title;
+   return $classes;
+  } );
+
+  // Add custom text/textarea attachment field
+  function add_custom_text_field_to_attachment_fields_to_edit( $form_fields, $post ) {
+   $text_field                = get_post_meta( $post->ID, 'text_field', true );
+   $form_fields['text_field'] = array(
+    'label' => 'Custom text field',
+    'input' => 'text', // you may also use 'textarea' field
+    'value' => $text_field,
+    'helps' => 'This is help text',
+   );
+   return $form_fields;
+  }
+
+  add_filter( 'attachment_fields_to_edit', 'add_custom_text_field_to_attachment_fields_to_edit', null, 2 );
+
+  // Save custom text/textarea attachment field
+  function save_custom_text_attachment_field( $post, $attachment ) {
+   if ( isset( $attachment['text_field'] ) ) {
+    update_post_meta( $post['ID'], 'text_field', sanitize_text_field( $attachment['text_field'] ) );
+   } else {
+    delete_post_meta( $post['ID'], 'text_field' );
+   }
+   return $post;
+  }
+
+  add_filter( 'attachment_fields_to_save', 'save_custom_text_attachment_field', null, 2 );
+
+  /**
+   * Added bunch of fields to to attachment edit screen
+   *
+   * @param [type] $form_fields
+   * @param [type] $post
+   * @return void
+   */
+  // Add custom checkbox attachment field
+  function add_custom_checkbox_field_to_attachment_fields_to_edit( $form_fields, $post ) {
+   $checkbox_field                = (bool) get_post_meta( $post->ID, 'checkbox_field', true );
+   $form_fields['checkbox_field'] = array(
+    'label' => 'Checkbox',
+    'input' => 'html',
+    'html'  => '<input type="checkbox" id="attachments-' . $post->ID . '-checkbox_field" name="attachments[' . $post->ID . '][checkbox_field]" value="1"' . ( $checkbox_field ? ' checked="checked"' : '' ) . ' /> ',
+    'value' => $checkbox_field,
+    'helps' => '',
+   );
+   return $form_fields;
+  }
+
+  add_filter( 'attachment_fields_to_edit', 'add_custom_checkbox_field_to_attachment_fields_to_edit', null, 2 );
+
+  // Save custom checkbox attachment field
+  function save_custom_checkbox_attachment_field( $post, $attachment ) {
+   if ( isset( $attachment['checkbox_field'] ) ) {
+    update_post_meta( $post['ID'], 'checkbox_field', sanitize_text_field( $attachment['checkbox_field'] ) );
+   } else {
+    delete_post_meta( $post['ID'], 'checkbox_field' );
+   }
+   return $post;
+  }
+
+  add_filter( 'attachment_fields_to_save', 'save_custom_checkbox_attachment_field', null, 2 );
+
+  function woocom_attachment_location_field( $form_fields, $post ) {
+   $field_value                               = get_post_meta( $post->ID, 'woocom_attachment_location', true );
+   $form_fields['woocom_attachment_location'] = array(
+    'value' => $field_value ? $field_value : '',
+    'label' => __( 'Location', 'woocom' ),
+    'helps' => __( 'Set a location', 'woocom' ),
+   );
+
+   return $form_fields;
+
+  }
+
+  add_filter( 'attachment_fields_to_edit', 'woocom_attachment_location_field', 10, 2 );
+
+  function woocom_edit_location_attachment( $attachment_id ) {
+   if ( isset( $_REQUEST['attachments'][$attachment_id]['woocom_attachment_location'] ) ) {
+    $location = $_REQUEST['attachments'][$attachment_id]['woocom_attachment_location'];
+    update_post_meta( $attachment_id, 'woocom_attachment_location', $location );
+   }
+  }
+
+  add_action( 'edit_attachment', 'woocom_edit_location_attachment' );
+
+  add_action( 'wp_footer', 'myFunction' );
+
+ function myFunction() {?>
+   <script type="text/html" id="myFunction">
+   <li class="list-item <%= className %>">
+    <div class="details">
+      <h3><%= title %></h3>
+      <p><%= description %></p>
+    </div>
+   </li>
+   </script>
+
+   <?php
+   };
