@@ -7,22 +7,27 @@
 		<div class="container">
 			<div class="row">
 			
-				<?php foreach( $woocom_support_items as $woocom_support_item): ?>
-					<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>">
-						<div class="support-wrap mb-30">
-							<div class="support-icon">
-								<?php 
-									$woocom_support_icon = $woocom_support_item['woocom_support_item_icon'];
-									echo wp_get_attachment_image( $woocom_support_icon );
-								?>
-							</div>
-							<div class="support-content">
-								<h5><?php echo $woocom_support_item['woocom_support_item_title'] ?></h5>
-								<p><?php echo $woocom_support_item['woocom_support_item_subtitle'] ?></p>
+				<?php 
+				if( is_array( $woocom_support_items ) ){
+					foreach( $woocom_support_items as $woocom_support_item): ?>
+						<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>">
+							<div class="support-wrap mb-30">
+								<div class="support-icon">
+									<?php 
+										$woocom_support_icon = $woocom_support_item['woocom_support_item_icon'];
+										echo wp_get_attachment_image( $woocom_support_icon );
+									?>
+								</div>
+								<div class="support-content">
+									<h5><?php echo $woocom_support_item['woocom_support_item_title'] ?></h5>
+									<p><?php echo $woocom_support_item['woocom_support_item_subtitle'] ?></p>
+								</div>
 							</div>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php 
+					endforeach; 
+				}
+				?>
 				
 			</div>
 		</div>
