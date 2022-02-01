@@ -1,16 +1,5 @@
 <?php
 
- require_once get_template_directory() . '/lib/cs/codestar-framework.php';
- require_once get_template_directory() . '/inc/cs.php';
-
- locate_template( '/lib/kirki/kirki.php', true, true );
- require_once get_template_directory() . '/inc/kirki-customizer.php';
-
- require_once get_theme_file_path( '/inc/tgmpa.php' );
- require_once get_template_directory() . '/inc/cmb2-attached-posts.php';
-
- define( 'CS_ACTIVE_LIGHT_THEME', true ); // default false
-
  /**
   * woocom functions and definitions
   *
@@ -23,6 +12,22 @@
   // Replace the version number of the theme on each release.
   define( '_S_VERSION', '1.0.0' );
  }
+
+ /** @define "WOOCOM_THEME_DIR" "./" */// phpcs:ignore Generic.Commenting.DocComment.MissingShort
+ define( 'WOOCOM_THEME_DIR', untrailingslashit( get_template_directory() ) . '/' );
+ define( 'WOOCOM_THEME_URI', untrailingslashit( get_template_directory_uri() ) . '/' );
+
+ require WOOCOM_THEME_DIR . 'inc/woocom-includes.php';
+
+ /**
+  * Content width based on the theme's design and stylesheet.
+  */
+ if ( !isset( $content_width ) ) {
+  /* pixels */
+  $content_width = 1170; // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
+ }
+
+ define( 'CS_ACTIVE_LIGHT_THEME', true ); // default false
 
  if ( !function_exists( 'woocom_setup' ) ):
   /**
@@ -39,7 +44,7 @@
     * If you're building a theme based on woocom, use a find and replace
     * to change 'woocom' to the name of your theme in all the template files.
     */
-   load_theme_textdomain( 'woocom', get_template_directory() . '/languages' );
+   load_theme_textdomain( 'woocom', WOOCOM_THEME_URI . '/languages' );
 
    // Add default posts and comments RSS feed links to head.
    add_theme_support( 'automatic-feed-links' );
