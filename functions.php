@@ -589,3 +589,39 @@ EOD;
 
    <?php
    };
+   
+   
+   /* 
+   * check if Yoast is active 
+   * if yes than execute the following code
+   * generate custom meta tag based on yoast 
+   * urls: [http://i.imgur.com/OPepoUD.png]
+   */
+  if( in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+    
+    /**
+     * useable variable tag is %%WPWC%%
+     * 
+     */
+    add_action('wpseo_register_extra_replacements', function(){
+      if( function_exists('wpseo_register_var_replacement')) {
+        wpseo_register_var_replacement("%%WPWC%%", function() {
+          return __('WooCom - WordPress Custom Meta Tag based on Yoast SEO.', 'woocom');
+        }, 'advanced', 'WPWC Replacement');
+      }
+    });
+    
+    /**
+     * Modify default title tag 
+     */
+    add_filter('wpseo_replacements', function($replacements) {
+      if( isset($replacements['%%title%%'])) {
+        $replacements['%%title%%'] .= ' | Test Title After Title';
+      }
+      
+      return $replacements;
+    });
+    
+  } else {
+    echo "Alas, please activate the plugin!";
+  }
