@@ -44,7 +44,6 @@ mobileIcon.addEventListener("click", function () {
 	this.closest("li").classList.toggle("active");
 });
 
-console.log("_version is ", _.VERSION);
 
 // _.map([1,2,3,], function(num) {
 // 	return num * 3;

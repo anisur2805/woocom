@@ -12782,7 +12782,7 @@ p {
 }
 
 h1, .h1 {
-  font-size: 36px;
+  font-size: 45px;
   line-height: 42px;
 }
 
@@ -17357,4 +17357,8 @@ button#place_order:hover {
 /* Instagram/ Ig Feed */
 #sb_instagram {
     height: auto !important;
+}
+
+h1, .h1 {
+  font-size: 100px !important;
 }
