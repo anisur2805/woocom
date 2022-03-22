@@ -89,8 +89,7 @@ function woocom_woocommerce_before_single_product() {
 add_action( 'wp_enqueue_scripts', 'woocom_woo_enqueue_scripts' );
 function woocom_woo_enqueue_scripts() {
 	wp_enqueue_style( 'slick-style', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
-	wp_enqueue_style( 'josefin-fonts', '//fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap' );
+	wp_enqueue_style( 'josefin-fonts', '//fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap' );
 	wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
 }
 
