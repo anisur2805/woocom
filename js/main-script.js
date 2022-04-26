@@ -43,19 +43,3 @@ const mobileIcon = document.querySelector(".offcanvas-wrapper .menu-item-has-chi
 mobileIcon.addEventListener("click", function () {
 	this.closest("li").classList.toggle("active");
 });
-
-
-// _.map([1,2,3,], function(num) {
-// 	return num * 3;
-// });
-
-let template = jQuery("#myFunction").html();
-let templateFuc = _.template(template);
-
-jQuery("body").append(
-	templateFuc({
-		title: "Anisur",
-		description: "Another wordpress website.",
-		className: "some-class-name",
-	})
-);
