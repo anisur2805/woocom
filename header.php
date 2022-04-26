@@ -212,9 +212,9 @@
 								</div> -->
 
 								<div class="same-style cart-wrap d-block d -lg-none">
-									<a class="icon-cart" href="<?php echo wc_get_cart_url(); ?>" >
+									<a class="icon-cart" href="<?php if ( class_exists( 'woocommerce' ) ) { echo wc_get_cart_url(); } ?>" >
 										<i class="bi-basket"></i>
-										<span class="count-style cart_count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+										<span class="count-style cart_count"><?php if ( class_exists( 'woocommerce' ) ){ echo WC()->cart->get_cart_contents_count(); }?></span>
 									</a>
 								</div>
 

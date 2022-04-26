@@ -1,3 +1,4 @@
+<?php if ( class_exists( 'woocommerce' ) ): ?>
 <div class="featured_cat_slider">
 	<div class="container">
 		<div class="row swiper mySwiper">
@@ -50,3 +51,4 @@
 		</div>
 	</div>
 </div>
+<?php endif;

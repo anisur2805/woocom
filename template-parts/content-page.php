@@ -12,8 +12,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 		<?php 
+		if ( class_exists( 'woocommerce' ) ):
 		if( !is_shop() ):
 			 echo get_template_part( '/template-parts/breadcrumb' );
+		endif;
 		endif;
 		?>
 

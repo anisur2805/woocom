@@ -622,8 +622,6 @@ EOD;
       return $replacements;
     });
     
-  } else {
-    echo "Alas, please activate the plugin!";
   }
 
   

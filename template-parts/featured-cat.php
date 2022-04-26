@@ -1,3 +1,6 @@
+<?php 
+	if ( class_exists( 'woocommerce' ) ):
+?>
 <div class="featured_cat">
 	<div class="container">
 		<div class="row">
@@ -46,3 +49,5 @@
 		</div>
 	</div>
 </div>
+<?php
+	endif;

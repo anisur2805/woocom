@@ -10,11 +10,13 @@ if (!function_exists('woocom_render_ig_feed')) {
 	 * @return void
 	 */
 	function woocom_render_ig_feed() {
+		if( is_plugin_active( 'instagram-feed/instagram-feed.php' ) ):
 	?>
 		<section class="ig_feed">
 			<?php echo do_shortcode('[instagram-feed]'); ?>
 		</section>
 	<?php
+	endif;
 	}
 }
 

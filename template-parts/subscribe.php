@@ -1,3 +1,6 @@
+<?php
+if ( is_plugin_active( 'wpforms-lite/wpforms.php' ) ) :
+?>
 <div class="subscribe_wrapper">
 	<div class="container">
 		<div class="row">
@@ -11,3 +14,4 @@
 		</div>
 	</div>
 </div>
+<?php endif;
