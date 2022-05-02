@@ -40,6 +40,9 @@ closeIcon.addEventListener("click", (e) => {
 });
 
 const mobileIcon = document.querySelector(".offcanvas-wrapper .menu-item-has-children a i");
-mobileIcon.addEventListener("click", function () {
-	this.closest("li").classList.toggle("active");
-});
+console.log( mobileIcon );
+if ( mobileIcon !== null ) {
+	mobileIcon.addEventListener("click", function () {
+		this.closest("li").classList.toggle("active");
+	});
+}
