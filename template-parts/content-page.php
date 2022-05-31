@@ -21,17 +21,21 @@
 
 	<?php woocom_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php
-		the_content();
+	<div class="container">
+		<div class="row">
+			<div class="entry-content">
+				<?php
+				the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'woocom' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'woocom' ),
+						'after'  => '</div>',
+					)
+				);
+				?>
+			</div><!-- .entry-content -->
+		</div><!-- .entry-content -->
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
