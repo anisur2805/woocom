@@ -1,7 +1,6 @@
 <?php 
 	$content_alignment = get_theme_mod('woocom_about_align', 'center');
  ?>
-
 <section class="about-services py-5 bg-gray text-<?php echo $content_alignment; ?>">
 	<div class="container">
 		<div class="row">
