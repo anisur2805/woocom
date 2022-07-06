@@ -680,30 +680,57 @@ function admin_page_html() {
   <?php
 }
 
-
-function filter_projects() {
+// post display with ajax
+function filter_custom_posts() {
     $catSlug = $_POST['category'];
     $post_type = $_POST['post_type'];
-    
+
     $ajaxposts = new WP_Query([
-      'post_type' => $post_type,
-      'posts_per_page' => -1,
-      'category_name' => $catSlug,
-      'orderby' => 'menu_order', 
-      'order' => 'desc',
+        'post_type' => $post_type,
+        'posts_per_page' => -1,
+        'category_name' => $catSlug,
+        'orderby' => 'menu_order',
+        'order' => 'desc',
     ]);
     $response = '';
 
-    if($ajaxposts->have_posts()) {
-      while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-        $response .= get_template_part('template-parts/books-archive');
-      endwhile;
+    if ($ajaxposts->have_posts()) {
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            $response .= get_template_part('template-parts/books-archive');
+        endwhile;
     } else {
-      $response = 'empty';
+        $response = 'empty';
     }
 
     echo $response;
     exit;
-  }
-  add_action('wp_ajax_filter_projects', 'filter_projects');
-  add_action('wp_ajax_nopriv_filter_projects', 'filter_projects');
+}
+add_action('wp_ajax_filter_custom_posts', 'filter_custom_posts');
+add_action('wp_ajax_nopriv_filter_custom_posts', 'filter_custom_posts');
+
+// Ajax load more
+function display_ajax_post() {
+    $paged = $_POST['paged'];
+
+    $ajaxposts = new WP_Query([
+        'post_type' => 'post',
+        'posts_per_page' => 3, 
+        'orderby' => 'menu_order',
+        'order' => 'desc',
+        'paged' => $paged,
+    ]);
+    $response = '';
+
+    if ($ajaxposts->have_posts()) {
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            $response .= get_template_part('template-parts/ajax-load-more-post');
+        endwhile;
+    } else {
+        $response = 'empty';
+    }
+
+    echo $response;
+    exit;
+}
+add_action('wp_ajax_display_ajax_post', 'display_ajax_post');
+add_action('wp_ajax_nopriv_display_ajax_post', 'display_ajax_post');

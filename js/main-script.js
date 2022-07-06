@@ -48,26 +48,44 @@ if ( mobileIcon !== null ) {
 }
 
 jQuery('document').ready(function($) {
-    
-$('.cat-list_item').on('click', function() {
-    $('.cat-list_item').removeClass('active');
-    $(this).addClass('active');
-  
+  // display post with ajax
+  $(".cat-list_item").on("click", function () {
+    $(".cat-list_item").removeClass("active")
+    $(this).addClass("active")
+
     $.ajax({
-      type: 'POST',
-      url: '/wp-admin/admin-ajax.php',
-      dataType: 'html',
+      type: "POST",
+      url: "/wp-admin/admin-ajax.php",
+      dataType: "html",
       data: {
-        action: 'filter_projects',
-        category: $(this).data('slug'),
-        post_type: $(this).data('post'),
+        action: "filter_custom_posts",
+        category: $(this).data("slug"),
+        post_type: $(this).data("post"),
       },
-      success: function(res) {
-        console.log( res )
-        $('.project-tiles').html(res);
-      }
+      success: function (res) {
+        console.log(res)
+        $(".project-tiles").html(res)
+      },
     })
   });
 
+  // Ajax load more post
+  let currentPage = 2;
+  $("#wc_load_more_btn").on("click", function (e) {
+    e.preventDefault()
+    console.log(e.target)
+    currentPage++;
 
+    $.ajax({
+      type: "POST",
+      url: "/wp-admin/admin-ajax.php",
+      data: {
+        action: "display_ajax_post",
+        paged: currentPage,
+      },
+      success: function (res) {
+        $(".ajax-load-post").append(res)
+      },
+    });
+  });
 })

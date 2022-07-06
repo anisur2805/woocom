@@ -17361,3 +17361,20 @@ button#place_order:hover {
 #sb_instagram {
     height: auto !important;
 }
+
+/* Ajax Load Post */
+.btn_wrapper {
+    text-align: center;
+    margin: 20px auto 0;
+}
+#wc_load_more_btn {
+    background: #f8f8f8;
+    border-radius: 4px;
+    margin: 0 auto;
+    border: 0;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-weight: 600;
+}
