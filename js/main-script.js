@@ -46,3 +46,28 @@ if ( mobileIcon !== null ) {
 		this.closest("li").classList.toggle("active");
 	});
 }
+
+jQuery('document').ready(function($) {
+    
+$('.cat-list_item').on('click', function() {
+    $('.cat-list_item').removeClass('active');
+    $(this).addClass('active');
+  
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'html',
+      data: {
+        action: 'filter_projects',
+        category: $(this).data('slug'),
+        post_type: $(this).data('post'),
+      },
+      success: function(res) {
+        console.log( res )
+        $('.project-tiles').html(res);
+      }
+    })
+  });
+
+
+})
