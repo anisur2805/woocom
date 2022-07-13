@@ -266,6 +266,7 @@ EOD;
   * Customizer additions.
   */
  require get_template_directory() . '/inc/customizer.php';
+ require get_template_directory() . '/inc/pl-customizer.php';
 
  /**
   * Load Jetpack compatibility file.
@@ -715,21 +716,34 @@ function display_ajax_post() {
     $ajaxposts = new WP_Query([
         'post_type' => 'post',
         'posts_per_page' => 3, 
-        'orderby' => 'menu_order',
-        'order' => 'desc',
+        // 'orderby' => 'menu_order',
+        // 'order' => 'desc',
         'paged' => $paged,
     ]);
     $response = '';
 
+    $max_pages = $ajaxposts->max_num_pages;
+
     if ($ajaxposts->have_posts()) {
+        ob_start();
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
             $response .= get_template_part('template-parts/ajax-load-more-post');
         endwhile;
+        $output = ob_get_contents();
+        ob_end_clean();
     } else {
         $response = 'empty';
     }
 
-    echo $response;
+    $result = [
+        'max' => $max_pages,
+        'json' => $output,
+    ];
+
+    // print_r( $result );
+    echo json_encode( $result );
+
+    // echo $response;
     exit;
 }
 add_action('wp_ajax_display_ajax_post', 'display_ajax_post');
