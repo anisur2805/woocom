@@ -17378,3 +17378,26 @@ button#place_order:hover {
     text-decoration: none;
     font-weight: 600;
 }
+
+
+/* Partners Logo */
+section.partners-logo {
+  padding: 60px 0;
+  background: #e3e3e3;
+}
+section.partners-logo h2 {
+  margin-top: 0;
+}
+.partner-logo {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+}
+.marginTop40px {
+  margin-top: 40px;
+}
