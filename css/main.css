@@ -15578,7 +15578,7 @@ a.default-btn {
 .header-top-area {
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .lang-car-dropdown {
   position: absolute;
@@ -15602,9 +15602,32 @@ a.default-btn {
 
 }
 /* Header Menu */
+.logo-wrapper {
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.logo-wrapper .custom-logo-link {
+  margin-right: 10px;
+}
+.logo-wrapper .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper .logo div a {
+  font-size: 18px;
+  font-weight: 800;
+  color: #f3b632;
+}
+.logo-wrapper .logo .site-title {
+  margin: 0;
+}
+
 .main-menu nav ul {
   display: block;
-  margin-top: -5px;
+  margin: 0;
   text-align: center;
 }
 
@@ -17400,4 +17423,21 @@ section.partners-logo h2 {
 }
 .marginTop40px {
   margin-top: 40px;
+}
+
+/* Ajax Post */
+.ajax-load-more-post-category {
+  background: #eeeeff;
+}
+.ajax-post-section-title {
+  font-size: 40px;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.ajax-load-post article {
+  padding: 15px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 1.5em;
 }

@@ -1,9 +1,8 @@
 <?php
-
+/**
+ * Customizer support for Partners Logo
+ */
 function woocom_pl_customize( $wp_customizer ) {
-	/*
-	 * Partners Logo
-	 */
 	$pl_section_id = 'woocom_pl_section';
 	$wp_customizer->add_section( 
 		$pl_section_id, 
@@ -37,16 +36,6 @@ function woocom_pl_customize( $wp_customizer ) {
 			]
 		) );
 	}
-
-	// $wp_customizer->add_setting( 'woocom_pl', array(
-	// 	'sanitize_callback' => 'wp_filter_nohtml_kses', //removes all HTML from content
-	// 	'type'              => 'theme_mod',
-	// 	'default'           => '',
-	// 	'transport'         => 'refresh',
-	// ) );
-
-
-
 }
 
 add_action( 'customize_register', 'woocom_pl_customize' );

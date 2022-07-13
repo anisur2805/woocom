@@ -58,12 +58,12 @@
 		<button class="scroll-top show"><i class="bi-arrow-up"></i></button>
 	<?php do_action( 'woocom_after_footer_container' );?>
 	</footer>
+	
 	<?php do_action( 'woocom_after_footer' );?>
 
-<?php
-
+	<?php
 	do_action( 'woocom_after_page' );
-
-wp_footer();?>
+	wp_footer();
+	?>
 </body>
 </html>

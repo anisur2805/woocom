@@ -21,6 +21,7 @@
 	<body <?php body_class();?>><?php wp_body_open();?>
 		<div id="page" class="site">
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'woocom' );?></a>
+
 			<div class="announced-top d-none">
 				<div class="container">
 					<div class="row">
@@ -42,7 +43,7 @@
 				</div>
 			</div>
 			
-			<div class=" d-none d-lg-block header-top-area">
+			<div class="d-none d-lg-block header-top-area">
 				<div class="container">
 					<div class="header-top-wap d-flex align-items-center justify-content-between">
 						<div class="language-currency-wrap d-flex align-items-center">
@@ -75,40 +76,48 @@
 				<div class="container-fluid">
 					<div class="row">
 
-						<div class="col-xl-2 col-lg-2 col-md-6 col-4">
-							<div class="logo">
-								<a href="/">
-									<img alt="" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>">
-								</a>
-							</div>
+						<div class="col-xl-2 col-lg-3 col-md-6 col-4 logo-wrapper">
+							<div class="logo site-branding">
+								<?php 
+								if( get_theme_mod('custom_logo') ):
+									the_custom_logo(); 
+								else :
+								?>
+									<a href="<?php echo esc_url( site_url() ); ?>">
+										<img alt="WooCom Logo" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>">
+									</a>
+								<?php endif; ?>
+								<div>
+								<h2 class="site-title"><a href="<?php echo esc_url( site_url('/') ); ?>" title="<?php bloginfo( 'name' ); ?>" itemprop="url"><?php echo get_bloginfo('name'); ?></a></h2>
+								<?php
+								$description = get_bloginfo( 'description' );
+								if( $description ) {
+									echo sprintf('<p class="site-description">%s</p>', esc_html( $description ));
+								}
+								?>
+								</div>
+							</div><!-- .site-branding -->
 						</div>
 
-						<div class="col-xl-6 col-lg-6 d-none d-lg-block">
+						<div class="col-xl-6 col-lg-5 d-none d-lg-block">
 							<div class="main-menu">
 								<?php
-									wp_nav_menu(
-										array(
-											'theme_location' => 'primary-menu',
-											'menu_id'        => 'main-menu',
-											'container'      => 'nav',
-										) 
-									);
+								wp_nav_menu(
+									array(
+										'theme_location' => 'primary-menu',
+										'menu_id'        => 'main-menu',
+										'container'      => 'nav',
+									) 
+								);
 								?>
 							</div>
 							
 							<?php 
-							    $menu_name = 'primary-menu';
-								$locations = get_nav_menu_locations();
-								$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-								$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-
-								// echo "<pre>";
-								// print_r($menuitems);
-								// wp_die();
-								
-								
-							
-							 ?>
+							$menu_name = 'primary-menu';
+							$locations = get_nav_menu_locations();
+							$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+							$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+							?>
 							<div class="main-menu d-none">
 								<nav class="menu-woocom-primary-menu-container">
 								

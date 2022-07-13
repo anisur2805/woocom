@@ -697,7 +697,7 @@ function filter_custom_posts() {
 
     if ($ajaxposts->have_posts()) {
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= get_template_part('template-parts/books-archive');
+            $response .= get_template_part('template-parts/content', get_post_format() );
         endwhile;
     } else {
         $response = 'empty';
@@ -715,36 +715,25 @@ function display_ajax_post() {
 
     $ajaxposts = new WP_Query([
         'post_type' => 'post',
-        'posts_per_page' => 3, 
-        // 'orderby' => 'menu_order',
-        // 'order' => 'desc',
+        'posts_per_page' => 3,
         'paged' => $paged,
     ]);
-    $response = '';
 
     $max_pages = $ajaxposts->max_num_pages;
 
     if ($ajaxposts->have_posts()) {
-        ob_start();
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= get_template_part('template-parts/ajax-load-more-post');
+            get_template_part('template-parts/content', get_post_format() );
         endwhile;
-        $output = ob_get_contents();
-        ob_end_clean();
-    } else {
-        $response = 'empty';
     }
-
     $result = [
-        'max' => $max_pages,
-        'json' => $output,
+      'max' => $max_pages
     ];
-
-    // print_r( $result );
-    echo json_encode( $result );
-
-    // echo $response;
+    echo json_encode($result);
+    
+    wp_reset_query();
     exit;
 }
+
 add_action('wp_ajax_display_ajax_post', 'display_ajax_post');
 add_action('wp_ajax_nopriv_display_ajax_post', 'display_ajax_post');

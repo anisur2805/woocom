@@ -79,16 +79,21 @@ if (mobileIcon !== null) {
             $.ajax({
                 type: "POST",
                 url: "/wp-admin/admin-ajax.php",
-                dataType: 'json',
                 data: {
                     action: "display_ajax_post",
                     paged: currentPage,
                 },
+                error: function (error) {
+                    console.log( error )
+                },
                 success: function (res) {
-                    if (paged >= res.max) {
-                        $("#wc_load_more_btn").hide();
+                    console.log( res.max )
+                    if ( currentPage >= res.max) {
+                        $(".hide_me").hide();
                     }
-                    $(".ajax-load-post").append(res);
+
+
+                    $(".ajax-load-post-append").append( res );
                 },
             });
         });
