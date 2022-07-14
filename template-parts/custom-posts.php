@@ -1,7 +1,7 @@
 <section class="ajax-load-more-post-category py-5 bg-gray ajax-load-post">
     <div class="container">
         <?php 
-        printf( '<h2 class="ajax-post-section-title">%s</h2>', __( 'Load Ajax Posts Based on Category', 'woocom' ) );
+        printf( '<h2 class="woocom-section-title">%s</h2>', __( 'Load Ajax Posts Based on Category', 'woocom' ) );
 
         $categories = get_categories(); 
         $post_types = get_post_types();

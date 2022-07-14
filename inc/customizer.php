@@ -74,8 +74,8 @@ function woocom_customize( $wp_customizer ) {
 	 *   Footer Copyright
 	 */
 	$wp_customizer->add_section( 'woocom_footer_copyright_section', array(
-		'title'       => __( 'Footer Copyright Text', 'woocom' ),
-		'description' => __( 'Footer Copyright Text', 'woocom' ),
+		'title'       => __( 'Copyright Text', 'woocom' ),
+		'description' => __( 'Copyright Text', 'woocom' ),
 		'priority'    => 30,
 	) );
 

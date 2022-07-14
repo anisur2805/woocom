@@ -122,6 +122,8 @@
     )
    );
 
+   add_theme_support('post-formats', array('aside', 'audio', 'video', 'gallery', 'link', 'chat', 'quote', 'status' ) );
+
   }
 
  endif;
@@ -737,3 +739,15 @@ function display_ajax_post() {
 
 add_action('wp_ajax_display_ajax_post', 'display_ajax_post');
 add_action('wp_ajax_nopriv_display_ajax_post', 'display_ajax_post');
+
+// add_filter('posts_where', 'woocom_posts_where', 10, 2);
+$latest_post_ids = new WP_Query( $args );
+// remove_filter('posts_where', 'woocom_posts_where');
+
+function woocom_posts_where( $where, &$wp_query ) {
+  global $wpdb;
+
+  if( $search_term = $wp_query->get('search_post_title' ) ) {
+    $where .= ' AND ' . $wpdb->posts . 'post_title LIKE \'%' . $wpdb;
+  }
+}

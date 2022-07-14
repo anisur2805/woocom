@@ -20,6 +20,7 @@
 					foreach( $logo_names as $logo_label => $logo_name ) {
 						$setting_id = sprintf('woocom_%s', $logo_name );
 						$logo_url = get_theme_mod( $setting_id );
+						if( $logo_url ):
 						?>
 							<div class="col-md-3 col-xs-6 mb-4">
 								<div class="partner-logo">
@@ -27,6 +28,7 @@
 								</div>
 							</div>
 						<?php
+						endif;
 					}
 				?>
 

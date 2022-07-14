@@ -6,8 +6,9 @@
 	<div class="support-area pt-100 pb-60">
 		<div class="container">
 			<div class="row">
-			
 				<?php 
+				printf( '<h2 class="woocom-section-title">%s</h2>', __('Our Support Area', 'woocom' ) );
+
 				if( is_array( $woocom_support_items ) ){
 					foreach( $woocom_support_items as $woocom_support_item): ?>
 						<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>">

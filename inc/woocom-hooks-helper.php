@@ -38,9 +38,15 @@ if (!function_exists('woocom_render_footer_main')) {
 				<div class="col-lg-2 col-sm-4">
 					<div class="copyright mb-30 ">
 						<div class="footer-logo">
-							<a href="/">
-								<img alt="Logo" src="<?php echo get_template_directory_uri() . "/assets/images/logo-2.1.png" ?>">
+						<?php 
+						if( get_theme_mod('custom_logo') ):
+							the_custom_logo(); 
+						else :
+						?>
+							<a href="<?php echo esc_url( site_url() ); ?>">
+								<img alt="WooCom Logo" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>">
 							</a>
+						<?php endif; ?>
 						</div>
 						<div class="app-store-google">
 							<a><img src="<?php echo get_template_directory_uri() . "/assets/images/apps-google.png" ?>"></a>

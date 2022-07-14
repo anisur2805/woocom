@@ -110,5 +110,40 @@
 	) );
 
 	echo '<hr/>';
+	echo '<h2>New WP Query - Post Format</h2>';
+	// WP_Query #4 - Post Format
+	$post_format_query = new WP_Query( array(
+		'posts_per_page' => $posts_per_page,
+		'paged'          => $paged,
+		'tax_query' 	 => array(
+			'relation' => 'OR',
+			array(
+				'taxonomy' => 'post_format',
+				'field' => 'slug',
+				'terms' => array( 'post-format-audio', 'post-format-video' ),
+			),
+		)
+	));
+
+	while ( $post_format_query->have_posts() ) {
+		$post_format_query->the_post();
+		?>
+		<h4>
+			<a href="<?php the_permalink() ?>">
+				<?php the_title() ?>
+			</a>
+		</h4>
+		<?php
+	}
+	wp_reset_query();
+
+	echo paginate_links( array(
+		'total' => $post_format_query->max_num_pages,
+		'current' => $paged,
+		'prev_text' => __('<< Old Post', 'woocom'),
+		'next_text' => __('New Post >>', 'woocom'),
+	) );
+
+	echo '<hr/>';
 
 	get_footer();
