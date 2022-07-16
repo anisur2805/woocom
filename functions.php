@@ -18,6 +18,8 @@
  define( 'WOOCOM_THEME_URI', untrailingslashit( get_template_directory_uri() ) . '/' );
 
  require WOOCOM_THEME_DIR . 'inc/woocom-includes.php';
+ require WOOCOM_THEME_DIR . 'inc/test.php';
+ require WOOCOM_THEME_DIR . 'inc/shortcode-embed-post-inside.php';
 
  /**
   * Content width based on the theme's design and stylesheet.
@@ -209,6 +211,7 @@ EOD;
   wp_style_add_data( 'woocom-style', 'rtl', 'replace' );
 
   wp_enqueue_script( 'woocom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+  wp_enqueue_script( 'woocom-mb', get_template_directory_uri() . '/js/woocom-metabox.js', array('jquery'), _S_VERSION, true );
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
    wp_enqueue_script( 'comment-reply' );
@@ -741,6 +744,10 @@ add_action('wp_ajax_display_ajax_post', 'display_ajax_post');
 add_action('wp_ajax_nopriv_display_ajax_post', 'display_ajax_post');
 
 // add_filter('posts_where', 'woocom_posts_where', 10, 2);
+$args = array(
+  'post_type'      => 'post',
+  'posts_per_page' => -1,
+);
 $latest_post_ids = new WP_Query( $args );
 // remove_filter('posts_where', 'woocom_posts_where');
 
@@ -751,3 +758,11 @@ function woocom_posts_where( $where, &$wp_query ) {
     $where .= ' AND ' . $wpdb->posts . 'post_title LIKE \'%' . $wpdb;
   }
 }
+
+// remove specific post from display
+function remove_4350_post_from_query( $query ) {
+  if( $query->is_home() && $query->is_main_query() ) {
+    $query->set( 'post__not_in', array(4350));
+  }
+}
+add_action( 'pre_get_posts', 'remove_4350_post_from_query');

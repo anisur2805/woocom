@@ -1,4 +1,3 @@
-/*! * Bootstrap v5.1.3 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) */
 @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,500,600,700|Poppins:300,400,500,600,700,800,900|Josefin+Sans:wght@300;400;500;600;700|Abril+Fatface|Great+Vibe|Lobster&display=swap");
 
 :root {
@@ -16261,6 +16260,13 @@ aside .woocom-search-form button.search-submit {
 aside .widget {
     margin: 35px 0 0;
 }
+
+aside#secondary {
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+  height: calc( 100% - 50px );
+}
+
 /* WooCommerce Pagination */
 nav.woocommerce-pagination {
   clear: both;
@@ -17103,23 +17109,38 @@ button#place_order:hover {
 }
 
 /* Hero Slier 2 */
+.featured_cat_slider {
+  padding: 40px 0;
+  background: #f7f7f7;
+}
+
+.featured_cat_slider h2 {
+  margin-bottom: 15px;
+}
+.featured_cat_slider .custom_container {
+  background: #f1f1f1;
+}
+
 .featured_cat_slider .swiper-pagination{
   text-align: left;
 }
 .featured_cat_slider_content {
-      font-size: 48px;
+    font-size: 48px;
     line-height: 1.2;
     color: #111;
     margin: 0;
     font-weight: 700;
+    padding: 40px;
 }
-.featured_cat_slider .swiper-slide {
-    background: #f1f1f1;
-}
+
 .featured_cat_slider_content span {
-      background-color: #111;
-    color: #fff;
-    padding: 12px 18px 2px;
+  background-color: #111;
+  color: #fff;
+  padding: 6px 8px;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 22px;
 }
 
 .featured_cat_slider_subtitle {
@@ -17440,4 +17461,29 @@ section.partners-logo h2 {
   background: #fff;
   border-radius: 6px;
   margin-bottom: 1.5em;
+}
+
+/* Recent Posts */
+.woocom__related_posts {
+  background: #f3b632a8;
+  padding: 40px 0;
+  margin-top: 20px;
+}
+
+.woocom__related_posts .woocom__related_posts_title {
+  margin-bottom: 15px;
+}
+
+/* Embedded Post */
+.woocom__embedded-post {
+  background: #f1f1f1c7;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+
+/* Single Post  */
+.single .post-thumbnail {
+  margin: 30px 0 15px;
 }

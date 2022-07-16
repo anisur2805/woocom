@@ -44,6 +44,41 @@ get_header();
 			</div>
 		</div>
 		
+		<div class="woocom__related_posts">
+			<div class="container">
+				<div>
+					<?php
+					printf('<h3 class="woocom__related_posts_title">%s</h3>', esc_html('You may like') );
+					$current_post_id = get_the_ID();
+					$current_post_cat = get_the_category();
+					// echo '<pre>';
+					// print_r( $current_post_cat );
+					$current_post_first_cat_id = $current_post_cat[0]->term_id;
+					
+					$args = array(
+						'cat' => $current_post_first_cat_id,
+						'post__not_in' => array( $current_post_id )
+					);
+					
+					
+					$cat_current_post = new WP_Query( $args );
+
+					if( $cat_current_post->have_posts() ):
+						while ( $cat_current_post->have_posts() ) :
+							$cat_current_post->the_post();
+							printf('<h5 class="post-title"><a href="%s" rel="bookmark">%s</a></h5>', esc_url( get_the_permalink() ), esc_html( get_the_title() ) );
+						endwhile;
+						wp_reset_query();
+					else:
+						echo 'No posts found.';
+					endif;
+					?>
+				</div>
+			</div>
+		</div>
+		<?php 
+		
+		?>
 
 	</main><!-- #main -->
 

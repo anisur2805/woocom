@@ -1,11 +1,12 @@
-<?php if ( class_exists( 'woocommerce' ) ): ?>
+<?php if ( class_exists( 'WooCommerce' ) ): ?>
 <div class="featured_cat_slider">
 	<div class="container">
-		<div class="row swiper mySwiper">
+		<h2><?php esc_html_e('Featured Product', 'woocom'); ?></h2>
+	</div>
+	<div class="container custom_container">
+		<div class="swiper mySwiper">
 			<div class="col-md-8 swiper-wrapper">
-
 				<?php
-				
 					$taxonomyName = "product_cat";
 					$prod_categories = get_terms($taxonomyName, array(
 						'orderby'=> 'name',
@@ -26,7 +27,8 @@
 						$term_link = get_term_link( $prod_cat, 'product_cat' );
 						
 					?>
-						<div class="row align-items-center swiper-slide">
+					<div class="align-items-center swiper-slide">
+						<div class="row">
 							<div class="col-md-6">
 								<div class="featured_cat_slider_content"> 
 									<h3 class="featured_cat_slider_title" href="<?php echo esc_url($term_link); ?>"> 
@@ -42,7 +44,8 @@
 								<div class="featured_cat_img" style="background-image: url(<?php echo $cat_thumb_url; ?>)">
 								</div>
 							</div>
-						</div> 
+						</div>
+					</div> 
 						
 					<?php endforeach; wp_reset_query(); 
 				?>

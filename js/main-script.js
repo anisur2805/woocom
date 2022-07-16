@@ -47,8 +47,11 @@ if (mobileIcon !== null) {
     });
 }
 
+
 ;(function ($) {
     $('document').ready(function ($) {
+        
+
         // display post with ajax
         $(".cat-list_item").on("click", function () {
             $(".cat-list_item").removeClass("active");
