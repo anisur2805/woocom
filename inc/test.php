@@ -52,16 +52,16 @@
 
 		public static function html( $post ) {
 			$value = get_post_meta( $post->ID, '_woocom_filed_key', true );
-		?>
-		<label for="woocom_filed">Description: </label>
-		<select name="woocom_filed" id="woocom_filed">
-			<option value="">-Select Option-</option>
-			<option value="something"			                          <?php selected( $value, 'something' )?>>Something</option>
-			<option value="else"			                     <?php selected( $value, 'else' )?>>Else</option>
-		</select>
-		<?php
-			}
-			}
+			?>
+			<label for="woocom_filed">Description: </label>
+			<select name="woocom_filed" id="woocom_filed">
+				<option value="">-Select Option-</option>
+				<option value="something" <?php selected( $value, 'something' )?>>Something</option>
+				<option value="else" <?php selected( $value, 'else' )?>>Else</option>
+			</select>
+			<?php
+		}
+	}
 
-			add_action( 'add_meta_boxes', ['WooCom_Meta_Box', 'add'] );
-			add_action( 'save_post', ['WooCom_Meta_Box', 'save'] );
+add_action( 'add_meta_boxes', ['WooCom_Meta_Box', 'add'] );
+add_action( 'save_post', ['WooCom_Meta_Box', 'save'] );

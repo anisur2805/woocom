@@ -212,7 +212,9 @@ EOD;
 
   wp_enqueue_script( 'woocom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
   wp_enqueue_script( 'woocom-mb', get_template_directory_uri() . '/js/woocom-metabox.js', array('jquery'), _S_VERSION, true );
-
+  wp_localize_script('woocom-mb', 'woocom_meta_box_obj', array(
+    'url' => admin_url('admin-ajax.php')
+  ));
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
    wp_enqueue_script( 'comment-reply' );
   }
@@ -766,3 +768,22 @@ function remove_4350_post_from_query( $query ) {
   }
 }
 add_action( 'pre_get_posts', 'remove_4350_post_from_query');
+
+add_action( 'wp_ajax_woocom_meta_box_action', 'woocom_meta_box_action');
+add_action( 'wp_ajax_nopriv_woocom_meta_box_action', 'woocom_meta_box_action');
+function woocom_meta_box_action() {
+  echo '<pre>';
+  print_r($_POST);
+  echo '</pre>';
+	if(array_key_exists('woocom_meta_box_value', $_POST)) {
+		$post_id = (int) $_POST['post_ID'];
+		if(current_user_can('edit_post', $post_id)){
+			
+			// wp_send_json_success( 
+				update_post_meta($post_id, '_woocom_filed_key', $_POST['woocom_meta_box_value']);
+			//  );
+		}
+		// $value = $_POST['woocom_meta_box_value'];
+	}
+	wp_die();
+}
