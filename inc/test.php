@@ -36,32 +36,86 @@
 	}
 
 	//
-	abstract class WooCom_Meta_Box {
+	abstract class WPOrg_Meta_Box {
+ 
+ 
+		/**
+		 * Set up and add the meta box.
+		 */
 		public static function add() {
-			$screens = ['post'];
+			$screens = [ 'post', 'wporg_cpt' ];
 			foreach ( $screens as $screen ) {
-				add_meta_box( 'woocom_mb_id', 'WooCom Metabox', [self::class, 'html'], $screen );
+				add_meta_box(
+					'wporg_box_id',
+					'Custom Meta Box AJAX Handler',
+					[ self::class, 'html' ],
+					$screen
+				);
 			}
 		}
-
+	 
+	 
+		/**
+		 * Save the meta box selections.
+		 *
+		 * @param int $post_id  The post ID.
+		 */
 		public static function save( int $post_id ) {
-			if ( array_key_exists( 'woocom_filed', $_POST ) ) {
-				update_post_meta( $post_id, '_woocom_filed_key', $_POST['woocom_filed'] );
+			if( !isset( $_POST['woocom_post_field_nonce'])) return;
+			if( !wp_verify_nonce($_POST['woocom_post_field_nonce'])) return;
+			if( defined( 'DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+			if ( array_key_exists( 'wporg_field', $_POST ) ) {
+				$wporg_field = sanitize_title( $_POST['wporg_field']);
+				update_post_meta(
+					$post_id,
+					'wporg_field',
+					$wporg_field
+				);
 			}
 		}
-
+	 
+	 
+		/**
+		 * Display the meta box HTML to the user.
+		 *
+		 * @param \WP_Post $post   Post object.
+		 */
 		public static function html( $post ) {
-			$value = get_post_meta( $post->ID, '_woocom_filed_key', true );
+			wp_nonce_field( 'woocom_post_field_nonce', 'woocom_post_field_nonce' );
+			$value = get_post_meta( $post->ID, 'wporg_field', true );
 			?>
-			<label for="woocom_filed">Description: </label>
-			<select name="woocom_filed" id="woocom_filed">
-				<option value="">-Select Option-</option>
-				<option value="something" <?php selected( $value, 'something' )?>>Something</option>
-				<option value="else" <?php selected( $value, 'else' )?>>Else</option>
+			<label for="wporg_field">Description for this field</label>
+			<select name="wporg_field" id="wporg_field" class="postbox">
+				<option value="">Select something...</option>
+				<option value="something" <?php selected( $value, 'something' ); ?>>Something</option>
+				<option value="else" <?php selected( $value, 'else' ); ?>>Else</option>
 			</select>
 			<?php
 		}
 	}
+	 
+	add_action( 'add_meta_boxes', [ 'WPOrg_Meta_Box', 'add' ] );
+	add_action( 'save_post', [ 'WPOrg_Meta_Box', 'save' ] );
 
-add_action( 'add_meta_boxes', ['WooCom_Meta_Box', 'add'] );
-add_action( 'save_post', ['WooCom_Meta_Box', 'save'] );
+	  // The piece after `wp_ajax_`  matches the action argument being sent in the POST request.
+add_action( 'wp_ajax_wporg_ajax_change', 'my_ajax_handler' );
+  
+/**
+ * Handles my AJAX request.
+ */
+function my_ajax_handler() {
+    // Handle the ajax request here
+    if ( array_key_exists( 'wporg_field_value', $_POST ) ) {
+        $post_id = (int) $_POST['post_ID'];
+        if ( current_user_can( 'edit_post', $post_id ) ) {
+            update_post_meta(
+                $post_id,
+                'wporg_field',
+                $_POST['wporg_field_value']
+            );
+        }
+    }
+  
+    wp_die(); 
+  }
