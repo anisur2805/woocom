@@ -1,0 +1,9 @@
+node_modules/
+logs/
+vendor/
+.DS_Store
+composer.lock
+.directory
+.idea
+.idea/*
+.DS_store
