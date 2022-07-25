@@ -3,6 +3,15 @@
  * Default Hooks.
  */
 
+ /**
+  * Header Hooks
+  */
+
+add_action('woocom_header', 'woocom_header_site_branding', 0);
+add_action('woocom_header', 'woocom_header_menu', 5);
+add_action('woocom_header', 'woocom_header_menu_right', 10);
+
+
 /**
  * ----------------------------------------------------------------------
  * Declaration of all footer hooks
