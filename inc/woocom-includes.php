@@ -1,4 +1,5 @@
 <?php
+
 require WOOCOM_THEME_DIR . 'inc/woocom-hooks.php';
 require WOOCOM_THEME_DIR . 'inc/woocom-hooks-helper.php';
 require_once WOOCOM_THEME_DIR . '/lib/cs/codestar-framework.php';

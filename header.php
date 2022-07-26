@@ -73,9 +73,11 @@
 					/**
 					 * Functions hooked into woocom_header action
 					 *
-					 * @hooked woocom_header_site_branding                 - 0
-					 * @hooked woocom_header_menu                 - 5
-					 * @hooked woocom_header_menu_right                 - 10
+					 * @hooked woocom_header_wrapper_start                 - 0
+					 * @hooked woocom_header_site_branding                 - 5
+					 * @hooked woocom_header_menu                 - 10
+					 * @hooked woocom_header_menu_right                 - 15
+					 * @hooked woocom_header_wrapper_end                 - 20
 					 */
 					do_action( 'woocom_header' );
 				?>
