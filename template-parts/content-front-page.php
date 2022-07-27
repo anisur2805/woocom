@@ -29,6 +29,8 @@
 	<?php get_template_part('/template-parts/inspirational', 'post'); ?>
 	
 	<?php get_template_part('/template-parts/subscribe'); ?>
+
+	<?php get_template_part('/template-parts/subscribe2'); ?>
 	
 	<?php get_template_part('/template-parts/new', 'arrival'); ?>
 	

@@ -17487,3 +17487,62 @@ section.partners-logo h2 {
 .single .post-thumbnail {
   margin: 30px 0 15px;
 }
+
+/* Newsletter 2 */
+.bg-white {
+  background: #fff;
+}
+.bg-gray-200 {
+  background: #FBF1E9;
+}
+.wc__newsletter_inner {
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3.wc__newsletter_title {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.wc__newsletter_inner.bg-gray-200 {
+  border-radius: 0.5rem;
+}
+
+.wc__newsletter_inner .wpforms-form {
+  display: flex;
+  align-items: center;
+}
+
+.wc__newsletter_inner .wpforms-container .wpforms-form input {
+  padding: 15px 20px !important;
+  height: unset !important;
+  border: 2px solid #000 !important;
+  font-size: 16px !important;
+  font-family: inherit;
+  max-width: 100% !important;
+  border-radius: 0.5rem !important;
+}
+
+.wc__newsletter_inner .wpforms-submit-container {
+  margin-left: 20px !important;
+  padding: 0 !important;
+}
+
+.wc__newsletter_inner .wpforms-submit-container .wpforms-submit{
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 0.5rem !important;
+  padding: 15px 30px !important;
+  font-size: 20px !important;
+  text-transform: capitalize !important;
+  font-weight: 500;
+}
+
+.wc__newsletter_inner .wpforms-submit-container .wpforms-submit:hover{
+  opacity: 0.80;
+}
