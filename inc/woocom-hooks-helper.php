@@ -4,6 +4,18 @@
 		exit( 'Direct script access denied.' );
 	}
 
+	if ( !function_exists( 'woocom_header_topbar' ) ) {
+		/**
+		 * woocom_header_topbar
+		 *
+		 * @return void
+		 */
+		function woocom_header_topbar() {
+			$template = 'template-parts/header/site-topbar';
+			get_template_part( $template );
+		}
+	}
+
 	if ( !function_exists( 'woocom_header_wrapper_start' ) ) {
 		/**
 		 * woocom_header_wrapper_start

@@ -7,3 +7,5 @@ composer.lock
 .idea
 .idea/*
 .DS_store
+package-lock.json
+composer.lock
