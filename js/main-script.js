@@ -18,7 +18,13 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // Product Cats carousel
-new Swiper(".wc__shop_by_cat_wrapper");
+var swiper = new Swiper(".wc__shop_by_cat_content", {
+    slidesPerView: 10,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 
 var swiper = new Swiper(".mySwiper", {
     navigation: {
@@ -41,13 +47,13 @@ const hamburgerIcon = document.querySelector(".mobile-off-canvas");
 const closeIcon = document.querySelector(".offcanvas-menu-close");
 const mobileMenu = document.querySelector(".offcanvas-mobile-menu");
 
-hamburgerIcon.addEventListener("click", (e) => {
-    mobileMenu.classList.add("active");
-});
+// hamburgerIcon.addEventListener("click", (e) => {
+//     mobileMenu.classList.add("active");
+// });
 
-closeIcon.addEventListener("click", (e) => {
-    mobileMenu.classList.remove("active");
-});
+// closeIcon.addEventListener("click", (e) => {
+//     mobileMenu.classList.remove("active");
+// });
 
 const mobileIcon = document.querySelector(".offcanvas-wrapper .menu-item-has-children a i");
 if (mobileIcon !== null) {
