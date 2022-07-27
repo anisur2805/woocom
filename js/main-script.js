@@ -17,6 +17,16 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
+// Product Cats carousel
+new Swiper(".wc__shop_by_cat_wrapper");
+
+var swiper = new Swiper(".mySwiper", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
 var swiper = new Swiper(".mySwiper", {
     pagination: {
         el: ".swiper-pagination",
@@ -40,7 +50,6 @@ closeIcon.addEventListener("click", (e) => {
 });
 
 const mobileIcon = document.querySelector(".offcanvas-wrapper .menu-item-has-children a i");
-console.log(mobileIcon);
 if (mobileIcon !== null) {
     mobileIcon.addEventListener("click", function () {
         this.closest("li").classList.toggle("active");

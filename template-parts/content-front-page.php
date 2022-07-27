@@ -11,6 +11,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <header class="entry-header">
 
 	<?php echo get_template_part('/template-parts/hero', 'slider'); ?>
+
+	<?php echo get_template_part('/template-parts/shop-by', 'category'); ?>
 	
 	<?php echo get_template_part('/template-parts/about' ); ?>
 	
@@ -37,6 +39,8 @@
 	<?php get_template_part('/template-parts/hero', 'slider2'); ?>
 	
 	<?php get_template_part('/template-parts/product', 'gallery'); ?>
+
+	<?php get_template_part('/template-parts/discount'); ?>
 
 	<?php get_template_part('/template-parts/partners-logo', 'gallery'); ?>
 	

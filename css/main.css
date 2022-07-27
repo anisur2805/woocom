@@ -17546,3 +17546,85 @@ h3.wc__newsletter_title {
 .wc__newsletter_inner .wpforms-submit-container .wpforms-submit:hover{
   opacity: 0.80;
 }
+
+/* Discount Section */
+.wc__discount_wrapper {
+  margin: 2rem 4rem;
+}
+.wc__discount_wrapper .wc__discount_inner {
+  position: relative;
+}
+.wc__discount_wrapper .wc__discount_inner a {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  flex-direction: column;
+  z-index: 1;
+}
+.wc__discount_wrapper .wc__discount_inner .wc__discount_content {
+  padding: 30px;
+  position: absolute;
+}
+
+.wc__discount_wrapper .wc__discount_content .wc__discount_title{
+  font-size: 48px;
+  line-height: 1.625;
+  font-weight: 500;
+}
+
+.wc__discount_wrapper .wc__discount_inner  img {
+  border-radius: 0.5rem;
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.wc__discount_overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background: rgba(255,255,255,.55);
+  border-radius: 0.5rem;
+}
+
+/* Shop by Category */
+section.wc__shop_by_cat_wrapper {
+  padding: 2rem 4rem;
+  background: #e1e1e1;
+}
+.wc__shop_by_cat_item {
+  text-align: center;
+  position: relative;
+}
+.wc__shop_by_cat_item h4 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+.wc__shop_by_cat_item .wc__shop_by_cat_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 2px 3px -2px rgba(0,0,0,.7);
+  transition: all 0.3s;
+}
+.wc__shop_by_cat_item:hover .wc__shop_by_cat_image {
+  opacity: 0.5;
+}
+.wc__shop_by_cat_item img:not(.wc__shop_by_cat_image) {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -25px;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.wc__shop_by_cat_item:hover img:not(.wc__shop_by_cat_image) {
+  opacity: 1;
+  transform: scale(1.5);
+}
