@@ -17596,6 +17596,9 @@ section.wc__shop_by_cat_wrapper {
   padding: 2rem 4rem;
   background: #e1e1e1;
 }
+.wc__shop_by_cat_inner {
+  position: relative;
+}
 .wc__shop_by_cat_item {
   text-align: center;
   position: relative;
@@ -17626,5 +17629,5 @@ section.wc__shop_by_cat_wrapper {
 
 .wc__shop_by_cat_item:hover img:not(.wc__shop_by_cat_image) {
   opacity: 1;
-  transform: scale(1.5);
+  transform: translate(-50%, -50%) scale(1.7);
 }

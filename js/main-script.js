@@ -1,4 +1,5 @@
-var swiper = new Swiper(".slider-area", {
+// eslint-disable-next-line no-unused-vars
+const swiperSliderArea = new Swiper('.slider-area', {
     // navigation: {
     // 	nextEl: ".swiper-button-next",
     // 	prevEl: ".swiper-button-prev",
@@ -18,8 +19,9 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // Product Cats carousel
-var swiper = new Swiper(".wc__shop_by_cat_inner", {
-    slidesPerView: 2,
+// eslint-disable-next-line no-unused-vars
+const swiperShopByCat = new Swiper(".wc__shop_by_cat_inner", {
+    slidesPerView: 6,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
