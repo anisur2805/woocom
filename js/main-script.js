@@ -18,11 +18,15 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // Product Cats carousel
-var swiper = new Swiper(".wc__shop_by_cat_content", {
-    slidesPerView: 10,
+var swiper = new Swiper(".wc__shop_by_cat_inner", {
+    slidesPerView: 2,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 

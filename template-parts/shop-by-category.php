@@ -39,6 +39,8 @@ $woo_product_cats = get_categories( $woocom_products_cats_args );
 					</div>
 					</a>
 				</div>
+				<div class="swiper-button-next"></div>
+      			<div class="swiper-button-prev"></div>
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
