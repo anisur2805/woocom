@@ -17547,6 +17547,29 @@ h3.wc__newsletter_title {
   opacity: 0.80;
 }
 
+@media (max-width: 1024px) {
+  .wc__newsletter_inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  } 
+
+  p.wc__newsletter_subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .wc__newsletter_form_wrapper .wpforms-container-full {
+    margin-bottom: 0;
+  }
+
+  .wc__newsletter_title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+
 /* Discount Section */
 .wc__discount_wrapper {
   margin: 2rem 4rem;
@@ -17595,9 +17618,14 @@ h3.wc__newsletter_title {
 section.wc__shop_by_cat_wrapper {
   padding: 2rem 4rem;
   background: #e1e1e1;
+  position: relative;
 }
 .wc__shop_by_cat_inner {
   position: relative;
+}
+
+.wc__shop_by_cat_title {
+  margin-bottom: 30px;
 }
 .wc__shop_by_cat_item {
   text-align: center;
@@ -17630,6 +17658,40 @@ section.wc__shop_by_cat_wrapper {
 .wc__shop_by_cat_item:hover img:not(.wc__shop_by_cat_image) {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.7);
+}
+@media (max-width: 1024px) {
+  section.wc__shop_by_cat_wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .subscribe_content {
+    flex-direction: column;
+}
+
+.subscribe_content .subscribe_title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.subscribe_wrapper form.wpforms-form {
+  flex-direction: column;
+}
+.subscribe_wrapper .wpforms-container .wpforms-form .wpforms-field input[type="email"] {
+  margin: 0 0 15px !important;
+}
+.subscribe_wrapper form.wpforms-form .wpforms-field-container:first-child {
+  width: 100% !important;
+}
+.subscribe_wrapper .wpforms-field-container {
+  margin-bottom: 15px !important;
+}
+
+.subscribe_wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 }
 
 /* Pre-loader */
