@@ -88,9 +88,11 @@ if (mobileIcon !== null) {
 
 
 ;(function ($) {
-    "use strict";
     $('document').ready(function ($) {
         
+        // Init easy waypoint animation
+        // InitWaypointAnimations();
+
         // display post with ajax
         $(".cat-list_item").on("click", function () {
             $(".cat-list_item").removeClass("active");
@@ -146,5 +148,12 @@ if (mobileIcon !== null) {
         $(".woocom-preloader").fadeOut();
     });
 
+    $(".wc__shop_by_cat_title_2").waypoint(function () {
+        $('.wc__shop_by_cat_title_2').css('opacity', 0);
+        $('.wc__shop_by_cat_title_2').addClass('animate__fadeInLeft');
+    }, { offset: '100' });
+
 // @ts-ignore
 })(jQuery);
+
+

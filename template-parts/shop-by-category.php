@@ -14,7 +14,9 @@ $woo_product_cats = get_categories( $woocom_products_cats_args );
 	<section class="wc__shop_by_cat_wrapper">
 		<div class="container-fluid">
 			<div class="row">
-				<?php printf( '<h2 class="wc__shop_by_cat_title">%s</h2>', esc_html( 'Shop By Category', 'woocom' ) );?>
+			<h2 class="wc__shop_by_cat_title wc__shop_by_cat_title_2 animated">Hello world</h2>
+				<?php // printf( '<h2 class="wc__shop_by_cat_title ez-animate" data-animation="fadeInUp" data-animation-delay="0.5s" data-animation-offset="60%">%s</h2>', esc_html( 'Shop By Category', 'woocom' ) );?>
+				<!-- <h2 class="wc__shop_by_cat_title ez-animate" data-animation="fadeInUp" data-animation-delay="0.5s" data-animation-offset="60%"><?php esc_html( 'Shop By Category', 'woocom' ); ?></h2> -->
 				<div class="wc__shop_by_cat_inner swiper">
 					<div class="wc__shop_by_cat_content swiper-wrapper">
 						<?php 
