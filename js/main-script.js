@@ -70,9 +70,9 @@ if (mobileIcon !== null) {
 
 
 ;(function ($) {
+    "use strict";
     $('document').ready(function ($) {
         
-
         // display post with ajax
         $(".cat-list_item").on("click", function () {
             $(".cat-list_item").removeClass("active");
@@ -115,12 +115,18 @@ if (mobileIcon !== null) {
                     if ( currentPage >= res.max) {
                         $(".hide_me").hide();
                     }
-
-
                     $(".ajax-load-post-append").append( res );
                 },
             });
         });
     });
+
+    $(window).on('load', function () { 
+        /*--------------------------
+            PRE LOADER
+        ----------------------------*/
+        $(".woocom-preloader").fadeOut();
+    });
+
 // @ts-ignore
 })(jQuery);

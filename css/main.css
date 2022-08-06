@@ -17631,3 +17631,15 @@ section.wc__shop_by_cat_wrapper {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.7);
 }
+
+/* Pre-loader */
+.woocom-preloader {
+    background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

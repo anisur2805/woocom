@@ -23,6 +23,11 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+
+		<div class="woocom-preloader">
+			<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/grid.svg'; ?>" alt="<?php esc_attr__( bloginfo('name') ); ?>"/>
+		</div>
+
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'woocom'); ?></a>
 		
 		<?php 
