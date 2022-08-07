@@ -233,6 +233,7 @@ EOD;
    wp_enqueue_script( 'swiper-script', get_template_directory_uri() . '/css/swiper/swiper-min.js', array(), time(), true );
 
    wp_enqueue_script( 'jquery-waypoints-script', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array(), time(), true );
+   wp_enqueue_script( 'wow-script', get_template_directory_uri() . '/js/wow.min.js', array(), '1.3.0', true );
 
    wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'jquery' ), time(), true );
   }

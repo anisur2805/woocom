@@ -6,6 +6,7 @@
 	<div class="support-area pt-100 pb-60">
 		<div class="container">
 			<div class="row">
+				<h2 class="wow slideInLeft our-support-title" data-wow-duration="5s" data-wow-delay="15s">Our Support Area</h2>
 				<?php 
 				printf( '<h2 class="woocom-section-title">%s</h2>', __('Our Support Area', 'woocom' ) );
 

@@ -148,10 +148,14 @@ if (mobileIcon !== null) {
         $(".woocom-preloader").fadeOut();
     });
 
-    $(".wc__shop_by_cat_title_2").waypoint(function () {
-        $('.wc__shop_by_cat_title_2').css('opacity', 0);
-        $('.wc__shop_by_cat_title_2').addClass('animate__fadeInLeft');
-    }, { offset: '100' });
+    wow = new WOW({
+        boxClass:     'wow',      // default
+        animateClass: 'animated', // default
+        offset:       0,          // default
+        mobile:       true,       // default
+        live:         true        // default
+    } )
+    wow.init();
 
 // @ts-ignore
 })(jQuery);

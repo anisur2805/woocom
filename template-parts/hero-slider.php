@@ -40,7 +40,7 @@
 										<?php endif;?>
 
 									<?php if ( !empty( $woocom_hero_title[$j] ) ): ?>
-										<h1 class="animate ez-animate" data-animation="fadeInUp" data-animation-offset=250><?php echo $woocom_hero_title[$j]; ?></h1>
+										<h1 class="animate__animated animate__bounce" data-animation="fadeInUp" data-animation-offset=250><?php echo $woocom_hero_title[$j]; ?></h1>
 									<?php endif;?>
 
 								<?php if ( !empty( $woocom_slider_button_text[$j] ) ): ?>
