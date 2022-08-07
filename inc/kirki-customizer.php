@@ -9,7 +9,7 @@ Kirki::add_config( 'woocom_config_id', [
 add_filter( 'kirki_telemetry', '__return_false' );
 
 
-//Typography panel + sections
+// Support Area sections
 Kirki::add_section( 'woocom_section_id', [
     'priority'    => 4,
     'title'       => esc_html__( 'Support Area', 'woocom' ),
@@ -124,4 +124,102 @@ Kirki::add_field( 'woocom_config_id', [
 			'element' => '.support-area',
 		],
     ],
+] );
+
+// Discount section
+Kirki::add_section( 'woocom_discount_section_id', [
+    'priority'    => 4,
+    'title'       => esc_html__( 'Discount section', 'woocom' ),
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'switch',
+	'settings'    => 'wc_show_discount',
+	'label'       => __( 'Toggle Discount Section', 'woocom' ),
+	'section'     => 'woocom_discount_section_id',
+	'default'     => 'on',
+	'transport' => 'auto',
+	'choices'       => [
+		'on'  => esc_html__( 'Enable', 'kirki' ),
+		'off' => esc_html__( 'Disable', 'kirki' )
+	],
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'image',
+	'settings'    => 'wc_discount_image',
+	'label'       => __( 'Set Discount Image', 'woocom' ),
+	'section'     => 'woocom_discount_section_id',
+	'default'     => get_template_directory_uri() . '/assets/images/sell-banner-2.png',
+	'transport' => 'auto',
+	'active_callback' => [
+		[
+			'setting'  => 'wc_show_discount',
+			'operator' => '===',
+			'value'    => true,
+		]
+	],
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'color',
+	'settings'    => 'wc_discount_overlay_color',
+	'label'       => __( 'Banner Overlay', 'woocom' ),
+	'section'     => 'woocom_discount_section_id',
+	'default'     => '#fff',
+	'transport' => 'auto',
+	'output' => [
+		[
+			'element' => '.wc__discount_overlay',
+			'property' => 'background-color',
+		],
+	],
+	'active_callback' => [
+		[
+			'setting'  => 'wc_show_discount',
+			'operator' => '==',
+			'value'    => true,
+		]
+	],
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'background',
+	'settings'    => 'wc_discount_bg_image',
+	'label'       => __( 'Set Background Image', 'woocom' ),
+	'section'     => 'woocom_discount_section_id',
+	'default'     => [
+		'background-color'      => 'transparent',
+		'background-image'      => get_template_directory_uri() . '/assets/images/sell-banner-2.png',
+		'background-repeat'     => 'no-repeat',
+		'background-position'   => 'center center',
+		'background-size'       => 'cover',
+		'background-attachment' => 'scroll',
+	],
+	'transport' => 'auto',
+	'output' => [
+		//['element' => '.wc__discount_wrapper .wc__discount_inner']
+	],
+	'active_callback' => [
+		[
+			'setting'  => 'wc_show_discount',
+			'operator' => '==',
+			'value'    => true,
+		]
+	],
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'text',
+	'settings'    => 'wc_discount_title',
+	'label'       => __( 'Discount Title', 'woocom' ),
+	'section'     => 'woocom_discount_section_id',
+    'default'     => __('Up To 60% Off Holiday Bit', 'woocom'),
+	'active_callback' => [
+		[
+			'setting'  => 'wc_show_discount',
+			'operator' => '==',
+			'value'    => true,
+		]
+	],
 ] );

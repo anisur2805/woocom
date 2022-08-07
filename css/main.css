@@ -17487,3 +17487,221 @@ section.partners-logo h2 {
 .single .post-thumbnail {
   margin: 30px 0 15px;
 }
+
+/* Newsletter 2 */
+.bg-white {
+  background: #fff;
+}
+.bg-gray-200 {
+  background: #FBF1E9;
+}
+.wc__newsletter_inner {
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3.wc__newsletter_title {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.wc__newsletter_inner.bg-gray-200 {
+  border-radius: 0.5rem;
+}
+
+.wc__newsletter_inner .wpforms-form {
+  display: flex;
+  align-items: center;
+}
+
+.wc__newsletter_inner .wpforms-container .wpforms-form input {
+  padding: 15px 20px !important;
+  height: unset !important;
+  border: 2px solid #000 !important;
+  font-size: 16px !important;
+  font-family: inherit;
+  max-width: 100% !important;
+  border-radius: 0.5rem !important;
+}
+
+.wc__newsletter_inner .wpforms-submit-container {
+  margin-left: 20px !important;
+  padding: 0 !important;
+}
+
+.wc__newsletter_inner .wpforms-submit-container .wpforms-submit{
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 0.5rem !important;
+  padding: 15px 30px !important;
+  font-size: 20px !important;
+  text-transform: capitalize !important;
+  font-weight: 500;
+}
+
+.wc__newsletter_inner .wpforms-submit-container .wpforms-submit:hover{
+  opacity: 0.80;
+}
+
+@media (max-width: 1024px) {
+  .wc__newsletter_inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  } 
+
+  p.wc__newsletter_subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .wc__newsletter_form_wrapper .wpforms-container-full {
+    margin-bottom: 0;
+  }
+
+  .wc__newsletter_title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+
+/* Discount Section */
+.wc__discount_wrapper {
+  margin: 2rem 4rem;
+}
+.wc__discount_wrapper .wc__discount_inner {
+  position: relative;
+}
+.wc__discount_wrapper .wc__discount_inner a {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  flex-direction: column;
+  z-index: 1;
+}
+.wc__discount_wrapper .wc__discount_inner .wc__discount_content {
+  padding: 30px;
+  position: absolute;
+}
+
+.wc__discount_wrapper .wc__discount_content .wc__discount_title{
+  font-size: 48px;
+  line-height: 1.625;
+  font-weight: 500;
+}
+
+.wc__discount_wrapper .wc__discount_inner  img {
+  border-radius: 0.5rem;
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.wc__discount_overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  background: rgba(255,255,255,.55);
+  border-radius: 0.5rem;
+}
+
+/* Shop by Category */
+section.wc__shop_by_cat_wrapper {
+  padding: 2rem 4rem;
+  background: #e1e1e1;
+  position: relative;
+}
+.wc__shop_by_cat_inner {
+  position: relative;
+}
+
+.wc__shop_by_cat_title {
+  margin-bottom: 30px;
+}
+.wc__shop_by_cat_item {
+  text-align: center;
+  position: relative;
+}
+.wc__shop_by_cat_item h4 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+.wc__shop_by_cat_item .wc__shop_by_cat_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 2px 3px -2px rgba(0,0,0,.7);
+  transition: all 0.3s;
+}
+.wc__shop_by_cat_item:hover .wc__shop_by_cat_image {
+  opacity: 0.5;
+}
+.wc__shop_by_cat_item img:not(.wc__shop_by_cat_image) {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -25px;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.wc__shop_by_cat_item:hover img:not(.wc__shop_by_cat_image) {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.7);
+}
+@media (max-width: 1024px) {
+  section.wc__shop_by_cat_wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .subscribe_content {
+    flex-direction: column;
+}
+
+.subscribe_content .subscribe_title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.subscribe_wrapper form.wpforms-form {
+  flex-direction: column;
+}
+.subscribe_wrapper .wpforms-container .wpforms-form .wpforms-field input[type="email"] {
+  margin: 0 0 15px !important;
+}
+.subscribe_wrapper form.wpforms-form .wpforms-field-container:first-child {
+  width: 100% !important;
+}
+.subscribe_wrapper .wpforms-field-container {
+  margin-bottom: 15px !important;
+}
+
+.subscribe_wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+}
+
+/* Pre-loader */
+.woocom-preloader {
+    background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
