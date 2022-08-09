@@ -15486,7 +15486,9 @@ a.default-btn {
 .support-wrap {
   display: flex;
 }
-
+.support-area {
+  padding: 60px 0 30px;
+}
 .mb-30 {
   margin-bottom: 30px;
 }
@@ -15517,6 +15519,8 @@ a.default-btn {
 }
 .slider-area .swiper-slide {
   background: #f5e5d7;
+  align-items: center;
+  display: flex;
 }
 .slider-area img.woocom_hero_logo {
   width: 120px;
@@ -15560,7 +15564,7 @@ a.default-btn {
 }
 
 .swiper-slide .slider-content {
-  padding: 50px 0 0;
+  /* padding: 50px 0 0; */
 }
 
 .swiper-slider {
@@ -15999,11 +16003,11 @@ a.default-btn {
 
 @media(min-width: 992px) {
   .swiper-slide .slider-single-img {
-    margin: 0 -80px;
+    /* margin: 0 -80px; */
   }
 
   .swiper-slide .slider-content {
-    padding: 183px 0 0;
+    /* padding: 183px 0 0; */
   }
 }
 
@@ -17451,8 +17455,8 @@ section.partners-logo h2 {
   background: #eeeeff;
 }
 .woocom-section-title {
-  font-size: 40px;
-  margin-bottom: 15px;
+  /* font-size: 40px; */
+  margin-bottom: 30px;
   margin-top: 0;
 }
 
@@ -17494,6 +17498,9 @@ section.partners-logo h2 {
 }
 .bg-gray-200 {
   background: #FBF1E9;
+}
+.wc__newsletter_wrapper {
+  margin-bottom: 30px;
 }
 .wc__newsletter_inner {
   padding: 40px 60px;

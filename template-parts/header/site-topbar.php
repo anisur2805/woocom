@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="header-offer">
-				<p><strong>E-mail:</strong><a href="mailto:wonderstech@gmail.com">wonderstech@gmail.com</a></p>
+				<p><strong>E-mail:</strong><a href="mailto:woocom@gmail.com">woocom@gmail.com</a></p>
 			</div>
 		</div>
 	</div>

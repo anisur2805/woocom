@@ -217,7 +217,8 @@ EOD;
   }
 
   if ( !is_admin() ) {
-  wp_enqueue_style( 'animate-css', get_template_directory_uri() . '/css/animate.min.css' );
+  // wp_enqueue_style( 'animate-css', get_template_directory_uri() . '/css/animate.min.css' );
+  wp_enqueue_style( 'aos-css', get_template_directory_uri() . '/css/aos.css' );
   
    wp_enqueue_script( 'woocom-popper', get_template_directory_uri() . '/js/popper.min.js', array(), time(), true );
    wp_enqueue_script( 'woocom-bootstrap-script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), time(), true );
@@ -232,8 +233,9 @@ EOD;
    wp_enqueue_style( 'swiper-css', get_template_directory_uri() . '/css/swiper/swiper-min.css' );
    wp_enqueue_script( 'swiper-script', get_template_directory_uri() . '/css/swiper/swiper-min.js', array(), time(), true );
 
-   wp_enqueue_script( 'jquery-waypoints-script', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array(), time(), true );
-   wp_enqueue_script( 'wow-script', get_template_directory_uri() . '/js/wow.min.js', array(), '1.3.0', true );
+  //  wp_enqueue_script( 'jquery-waypoints-script', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array(), time(), true );
+  //  wp_enqueue_script( 'wow-script', get_template_directory_uri() . '/js/wow.min.js', array(), '1.3.0', true );
+   wp_enqueue_script( 'aos-script', get_template_directory_uri() . '/js/aos.js', array(), '1.0', true );
 
    wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'jquery' ), time(), true );
   }

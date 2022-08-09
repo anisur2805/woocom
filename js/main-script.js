@@ -148,14 +148,7 @@ if (mobileIcon !== null) {
         $(".woocom-preloader").fadeOut();
     });
 
-    wow = new WOW({
-        boxClass:     'wow',      // default
-        animateClass: 'animated', // default
-        offset:       0,          // default
-        mobile:       true,       // default
-        live:         true        // default
-    } )
-    wow.init();
+    AOS.init();
 
 // @ts-ignore
 })(jQuery);

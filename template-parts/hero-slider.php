@@ -28,24 +28,24 @@
 					?>
 					<div class="swiper-slide slider-height-1">
 						<div class="container">
-							<div class="row">
-								<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6 mb-5">
+							<div class="row align-items-center">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
 									<div class="slider-content slider-animated-1">
 
 										<!-- <p><?php the_title();?></p> -->
 										<!-- <h3 class="animated">Wonders Tech SmartShop</h3> -->
 
 										<?php if ( !empty( $woocom_hero_logo[$j] ) ): ?>
-											<img class="woocom_hero_logo" src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
+											<img data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="300" class="woocom_hero_logo" src="<?php echo wp_get_attachment_image_url( $woocom_hero_logo[$j] ); ?>" />
 										<?php endif;?>
 
 									<?php if ( !empty( $woocom_hero_title[$j] ) ): ?>
-										<h1 class="animate__animated animate__bounce" data-animation="fadeInUp" data-animation-offset=250><?php echo $woocom_hero_title[$j]; ?></h1>
+										<h1 data-aos="fade-up" data-aos-delay="300"><?php echo $woocom_hero_title[$j]; ?></h1>
 									<?php endif;?>
 
 								<?php if ( !empty( $woocom_slider_button_text[$j] ) ): ?>
 									<div class="slider-btn btn-hover">
-										<a class="animated" href="<?php echo esc_url( $woocom_slider_button_url[$j] ); ?>">
+										<a data-aos="fade-up" data-aos-delay="450" href="<?php echo esc_url( $woocom_slider_button_url[$j] ); ?>">
 											<?php echo $woocom_slider_button_text[$j]; ?>
 										</a>
 									</div>
@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
 							<div class="slider-single-img slider-animated-1">
-								<img src="<?php echo wp_get_attachment_image_url( $woocom_hero_feature_img[$j], 'full' ); ?>" />
+								<img  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500" src="<?php echo wp_get_attachment_image_url( $woocom_hero_feature_img[$j], 'full' ); ?>" />
 							</div>
 						</div>
 					</div>

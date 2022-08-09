@@ -3,16 +3,16 @@
 	$woocom_support_items_per_row = get_theme_mod( 'woocom_support_items_per_row' );
 ?>
 
-	<div class="support-area pt-100 pb-60">
+	<div class="support-area">
 		<div class="container">
 			<div class="row">
-				<h2 class="wow slideInLeft our-support-title" data-wow-duration="5s" data-wow-delay="15s">Our Support Area</h2>
+				<!-- <h2 class="wow slideInLeft our-support-title" data-wow-duration="5s" data-wow-delay="15s">Our Support Area</h2> -->
 				<?php 
-				printf( '<h2 class="woocom-section-title">%s</h2>', __('Our Support Area', 'woocom' ) );
-
+				// printf( '<h2 class="woocom-section-title">%s</h2>', __('Our Support Area', 'woocom' ) );
+				$aos_duration = 0;
 				if( is_array( $woocom_support_items ) ){
-					foreach( $woocom_support_items as $woocom_support_item): ?>
-						<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>">
+					foreach( $woocom_support_items as $woocom_support_item): $aos_duration += '500'; ?>
+						<div class="col-sm-<?php echo $woocom_support_items_per_row; ?>" data-aos="fade-right" data-aos-duration="<?php echo '200' + $aos_duration; ?>">
 							<div class="support-wrap mb-30">
 								<div class="support-icon">
 									<?php 
