@@ -1,4 +1,9 @@
 http://i.imgur.com/wqxztus.png
 https://i.imgur.com/EAYP5NS.png
+http://i.imgur.com/11YQMqc.png
+http://i.imgur.com/nKBAgnn.png
+http://i.imgur.com/jdLTv1d.png
+http://i.imgur.com/I54pb0U.png
+http://i.imgur.com/VmUMTVd.png
 
 Add customizer control for shop star rating toggle 
