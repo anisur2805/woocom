@@ -55,7 +55,7 @@
 			 */
 			do_action( 'woocom_footer_copyright' );
 		?>
-		<button class="scroll-top show"><i class="bi-arrow-up"></i></button>
+		<button class="scroll-top"><i class="bi-arrow-up"></i></button>
 	<?php do_action( 'woocom_after_footer_container' );?>
 	</footer>
 	

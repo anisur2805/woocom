@@ -150,6 +150,24 @@ if (mobileIcon !== null) {
 
     AOS.init();
 
+    /**
+     * back to top
+     */
+    var backTopBtn = $('.scroll-top');
+    $(window).scroll(function() {
+    if ($(window).scrollTop() > 450) {
+        backTopBtn.addClass('show');
+    } else {
+        backTopBtn.removeClass('show');
+    }
+    });
+
+    backTopBtn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+    });
+
+
 // @ts-ignore
 })(jQuery);
 
