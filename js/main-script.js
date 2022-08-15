@@ -4,6 +4,11 @@ const swiperSliderArea = new Swiper('.slider-area', {
     // 	nextEl: ".swiper-button-next",
     // 	prevEl: ".swiper-button-prev",
     // },
+     autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    loop: true,
     direction: "vertical",
     pagination: {
         el: ".swiper-pagination",

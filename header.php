@@ -55,6 +55,12 @@
 		</header>
 		<?php do_action('woocom_after_header'); ?>
 
-		<?php do_action('woocom_before_content'); ?>
 		<div id="page" class="site">
-			<?php do_action('woocom_content_top'); ?>
+			<?php 
+			/**
+			 * Functions hooked in to woocom_before_content
+			 *
+			 */
+			do_action('woocom_before_content');
+			do_action('woocom_content_top'); 
+			?>

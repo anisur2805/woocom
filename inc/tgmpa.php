@@ -2,7 +2,7 @@
 
 require_once get_theme_file_path('/lib/class-tgm-plugin-activation.php');
 
-function my_theme_register_required_plugins() {
+function woocom_register_required_plugins() {
 
 	$plugins = array(
 
@@ -27,7 +27,7 @@ function my_theme_register_required_plugins() {
 		array(
 			'name'      => 'Show Current Template',
 			'slug'      => 'show-current-template',
-			'required'  => true,
+			'required'  => false,
 		),
 		
 		array(
@@ -39,7 +39,7 @@ function my_theme_register_required_plugins() {
 		array(
 			'name'      => 'Classic Widgets',
 			'slug'      => 'classic-widgets',
-			'required'  => true,
+			'required'  => false,
 		),
 		
 		array(
@@ -89,4 +89,4 @@ function my_theme_register_required_plugins() {
 
 }
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'woocom_register_required_plugins' );

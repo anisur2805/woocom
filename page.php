@@ -13,9 +13,17 @@
  */
 
 get_header();
-?>
 
-	<main id="primary" class="site-main">
+$woocom_sidebar = '';
+
+if (class_exists('WooCommerce') && (is_woocommerce() || is_cart() || is_account_page() || is_checkout() || is_product())) {
+	$woocom_sidebar_name = 'shop-sidebar';
+} else {
+	$woocom_sidebar = 'sidebar-1';
+}
+?>
+<div id="primary" class="woocom-content-area">
+	<main class="site-main">
 
 		<?php
 			while ( have_posts() ) :
@@ -33,6 +41,13 @@ get_header();
 
 	</main><!-- #main -->
 
+	<?php
+	if (is_active_sidebar( $woocom_sidebar ) ) {
+		do_action('woocom_sidebar');
+	}
+	?>
+
+</div>
+
 <?php
-get_sidebar();
 get_footer();

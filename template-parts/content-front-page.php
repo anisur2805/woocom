@@ -7,6 +7,10 @@
  * @package woocom
  */
 
+if( !function_exists('is_plugin_active') ) {
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <header class="entry-header">
 
@@ -32,7 +36,11 @@
 	
 	<?php // get_template_part('/template-parts/subscribe'); ?>
 
-	<?php get_template_part('/template-parts/subscribe2'); ?>
+	<?php
+	if ( is_plugin_active( 'wpforms-lite/wpforms.php' ) ) :
+		get_template_part('/template-parts/subscribe2'); 
+	endif;
+	?>
 	
 	<?php get_template_part('/template-parts/new', 'arrival'); ?>
 	
