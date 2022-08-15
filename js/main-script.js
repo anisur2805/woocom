@@ -1,13 +1,10 @@
 // eslint-disable-next-line no-unused-vars
+
 const swiperSliderArea = new Swiper('.slider-area', {
-    // navigation: {
-    // 	nextEl: ".swiper-button-next",
-    // 	prevEl: ".swiper-button-prev",
+    //  autoplay: {
+    //     delay: 4500,
+    //     disableOnInteraction: false,
     // },
-     autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
     loop: true,
     direction: "vertical",
     pagination: {

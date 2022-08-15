@@ -33,7 +33,7 @@
 <?php
 	if( is_shop() ):
  ?>
-<header class="woocommerce-products-header breadcrumb_wrapper">
+<header class="woocommerce-products-header breadcrumb_wrapper d-none">
 	<?php
 
 	if ( apply_filters( 'woocommerce_show_page_title', true ) ): ?>

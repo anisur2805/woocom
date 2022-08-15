@@ -16278,7 +16278,13 @@ aside .widget {
     position: relative;
     background: var(--woocomBannerBGColor);
 }
-
+.woocom-main-banner-area .woocom-breadcrumb { 
+  color: var(--woocomBannerTextColor); 
+}
+.woocom-main-banner-area .woocom-breadcrumb a {
+  font-weight: 500;
+  color: inherit;
+}
 .woocom-page-title-content h1 {
 
   color: var(--woocomBannerTextColor);
@@ -16348,7 +16354,7 @@ nav.woocommerce-pagination li .page-numbers:hover {
 }
 
 .woocom-content-area aside#secondary {
-  margin-top: 40;
+  margin-top: 40px;
 }
 
 @media (min-width: 1025px) {
@@ -16367,7 +16373,7 @@ nav.woocommerce-pagination li .page-numbers:hover {
 }
 
 /* Default sidebar */
-.widget {
+.widget-area .widget {
   border: 1px solid #f3f3f3;
   border-radius: 6px;
   box-shadow: 0 3px 6px rgba(0,0,0,.08);
