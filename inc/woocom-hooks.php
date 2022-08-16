@@ -30,7 +30,7 @@ add_action('woocom_sidebar', 'woocom_get_sidebar', 10);
  * @see  woocom_page_content()
  * 
  */
-add_action('woocom_page', 'woocom_page_header', 10);
+// add_action('woocom_page', 'woocom_page_header', 10);
 add_action('woocom_page', 'woocom_page_content', 20);
 // add_action('woocom_page', 'woocom_edit_post_link', 30);
 

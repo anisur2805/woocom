@@ -336,28 +336,29 @@ EOD;
   // wc_get_template('single-product/short-description.php');
  }
 
- // Custom Breadcrumb
- function get_breadcrumb() {
-  echo '<div class="woocom-breadcrumb">';
-  echo '<a href="' . home_url() . '" rel="”nofollow”">Home</a>';
-  if ( is_category() || is_single() ) {
-   echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
-   the_category( ' . ' );
-   if ( is_single() ) {
-    echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
-    echo '<span class="current abc">'. get_the_title() .'</span>';
-   }
-  } elseif ( is_page() ) {
-    echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
-    echo '<span class="current">'. get_the_title() .'</span>';
-  } elseif ( is_search() ) {
-   echo " / Search Results for…";
-   echo '<em>';
-   echo the_search_query();
-   echo '</em>';
-  }
-  echo '</div>';
- }
+// Custom Breadcrumb
+// function get_breadcrumb() {
+//   echo '<div class="woocom-breadcrumb">';
+//   echo '<a href="' . home_url() . '" rel="”nofollow”">Home</a>';
+//   if (is_category() || is_single()) {
+//     echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
+//     the_category(' . ');
+//     if (is_single()) {
+//       echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
+//       echo '<span class="current abc">' . get_the_title() . '</span>';
+//     }
+//   } elseif (is_page()) {
+//     echo '<span class="breadcrumb_delimiter">' . " / " . '</span>';
+//     echo '<span class="current">' . get_the_title() . '</span>';
+//   } elseif (is_search()) {
+//     echo " / Search Results for…";
+//     echo '<em>';
+//     echo the_search_query();
+//     echo '</em>';
+//   }
+//   echo '</div>';
+// }
+
 
  /**
   * Show cart contents / total Ajax

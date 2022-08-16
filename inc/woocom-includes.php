@@ -10,3 +10,5 @@ require_once WOOCOM_THEME_DIR . '/inc/kirki-customizer.php';
 
 require_once get_theme_file_path( '/inc/tgmpa.php' );
 require_once WOOCOM_THEME_DIR . '/inc/cmb2-attached-posts.php';
+
+require_once WOOCOM_THEME_DIR . '/inc/breadcrumb.php';
