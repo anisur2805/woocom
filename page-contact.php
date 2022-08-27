@@ -19,7 +19,7 @@ get_header();
 	<?php
 	while (have_posts()) :
 		the_post(); ?>
-		<?php echo get_template_part('/template-parts/breadcrumb'); ?>
+		<?php // echo get_template_part('/template-parts/breadcrumb'); ?>
 
 		<div class="contact-area pt-0 pb-60">
 			<?php $page_class = is_page('contact-02') ? 'contact_two' : ''; ?>

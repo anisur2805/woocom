@@ -15612,13 +15612,17 @@ a.default-btn {
 }
 
 .logo-wrapper .custom-logo-link {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .logo-wrapper .logo {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
 }
-
+.logo-wrapper .logo img {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+}
 .logo-wrapper .logo div a {
   font-size: 18px;
   font-weight: 800;
@@ -15728,7 +15732,7 @@ a.default-btn {
 .header-right-wrap {
   display: flex;
   justify-content: flex-end;
-  margin-top: 32px;
+  margin-top: 0;
 }
 
 .header-right-wrap .mt-8 {
@@ -16265,11 +16269,32 @@ aside .widget {
     margin: 35px 0 0;
 }
 
-aside#secondary {
+.woocom-main-banner-area { 
+    align-items: center; 
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+    padding: 80px 60px;
+    position: relative;
+    background: var(--woocomBannerBGColor);
+}
+.woocom-main-banner-area .woocom-breadcrumb { 
+  color: var(--woocomBannerTextColor); 
+}
+.woocom-main-banner-area .woocom-breadcrumb a {
+  font-weight: 500;
+  color: inherit;
+}
+.woocom-page-title-content h1 {
+
+  color: var(--woocomBannerTextColor);
+}
+
+/* aside#secondary {
   padding-left: 20px;
   border-left: 1px solid #ddd;
   height: calc( 100% - 50px );
-}
+} */
 
 /* WooCommerce Pagination */
 nav.woocommerce-pagination {
@@ -16313,6 +16338,47 @@ nav.woocommerce-pagination ul li .current {
 nav.woocommerce-pagination li .page-numbers:hover {
   background: #f3b632;
   color: #fff;
+}
+
+.woocom-content-area {
+  display: flex;
+  column-gap: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  max-width: 1420px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.woocom-content-area aside#secondary {
+  margin-top: 40px;
+}
+
+@media (min-width: 1025px) {
+  .woocom-content-area main.site-main {
+    flex-shrink: 0;
+    max-width: 73%;
+    width: 100%;
+  }
+  
+  .woocom-content-area aside#secondary {
+    flex-shrink: 0;
+    margin-top: 0;
+    max-width: 26%;
+    width: calc(26% - 16px);
+  }
+}
+
+/* Default sidebar */
+.widget-area .widget {
+  border: 1px solid #f3f3f3;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.08);
+  margin: 0 0 30px;
+  padding: 30px;
 }
 
 /* WooCommerce Shop Page Sidebar */
@@ -16399,8 +16465,6 @@ span.onsale {
 ul.products.columns-4 {
   margin-top: 25px;
 }
-
-form.woocommerce-ordering {}
 
 p.woocommerce-result-count, form.woocommerce-ordering {
   display: inline-flex;
@@ -17712,3 +17776,4 @@ section.wc__shop_by_cat_wrapper {
     align-items: center;
     justify-content: center;
 }
+

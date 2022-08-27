@@ -114,9 +114,6 @@ Kirki::add_field( 'woocom_config_id', [
 	'default'     => [
 		'background-color'      => 'rgba(20,20,20,.8)',
 	],
-	
-	
-	
 	'priority'    => 10,
 	'transport'   => 'auto',
 	'output'      => [
@@ -124,6 +121,32 @@ Kirki::add_field( 'woocom_config_id', [
 			'element' => '.support-area',
 		],
     ],
+] );
+
+// Default Banner
+Kirki::add_section( 'woocom_default_banner_section', [
+    'priority'    => 4,
+    'title'       => esc_html__( 'Default banner settings', 'woocom' ),
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'color',
+	'settings'    => 'woocom_default_banner_bg',
+	'label'       => esc_html__( 'Banner BG', 'woocom' ),
+	'section'     => 'woocom_default_banner_section',
+	'default'     => '#323232',
+	'priority'    => 10,
+	'transport'   => 'auto',
+] );
+
+Kirki::add_field( 'woocom_config_id', [
+	'type'        => 'color',
+	'settings'    => 'woocom_default_banner_text_color',
+	'label'       => esc_html__( 'Banner Text', 'woocom' ),
+	'section'     => 'woocom_default_banner_section',
+	'default'     => '#fff',
+	'priority'    => 10,
+	'transport'   => 'auto',
 ] );
 
 // Discount section

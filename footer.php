@@ -5,7 +5,7 @@
 	 *
 	 * @package woocom */
 ?>
-
+</div>
 	<div class="tags-area bg-gray py-4 mb-4">
 		<div class="container">
 			<div class="row text-center">

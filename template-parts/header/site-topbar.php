@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="header-offer">
-				<p><strong>E-mail:</strong><a href="mailto:woocom@gmail.com">woocom@gmail.com</a></p>
+				<p><strong>E-mail:</strong><a href="mailto:<?php echo sanitize_email( get_option('admin_email') ); ?>"><?php echo sanitize_email( get_option('admin_email') ); ?></a></p>
 			</div>
 		</div>
 	</div>

@@ -3,14 +3,13 @@
 		<?php
 			if ( get_theme_mod( 'custom_logo' ) ):
 				the_custom_logo();
-			else:
-		?>
+			else: ?>
 			<a href="<?php echo esc_url( site_url() ); ?>">
-				<img alt="WooCom Logo" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>" />
+				<!-- <img alt="WooCom Logo" src="<?php // echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>" /> -->
+				<h2 class="site-title"><a href="<?php echo esc_url( site_url( '/' ) ); ?>" title="<?php bloginfo( 'name' );?>" itemprop="url"><?php echo get_bloginfo( 'name' ); ?></a></h2>
 			</a>
 		<?php endif;?>
 		<div>
-			<h2 class="site-title"><a href="<?php echo esc_url( site_url( '/' ) ); ?>" title="<?php bloginfo( 'name' );?>" itemprop="url"><?php echo get_bloginfo( 'name' ); ?></a></h2>
 			<?php
 				$description = get_bloginfo( 'description' );
 				if ( $description ) {
