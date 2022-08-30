@@ -642,7 +642,7 @@ EOD;
 
   
   //Add admin page to the menu
-add_action( 'admin_menu', 'add_admin_page');
+// add_action( 'admin_menu', 'add_admin_page');
 function add_admin_page() {
   // add top level menu page
   add_menu_page(
