@@ -1,8 +1,14 @@
 <?php
+if( !function_exists('is_plugin_active') ) {
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+}
 
-require WOOCOM_THEME_DIR . 'inc/woocom-hooks.php';
-require WOOCOM_THEME_DIR . 'inc/woocom-hooks-helper.php';
-require_once WOOCOM_THEME_DIR . '/lib/cs/codestar-framework.php';
+// if ( class_exists( 'WooCommerce' ) ) {
+	require WOOCOM_THEME_DIR . 'inc/woocom-hooks.php';
+	require WOOCOM_THEME_DIR . 'inc/woocom-hooks-helper.php';
+// }
+
+// require_once WOOCOM_THEME_DIR . '/lib/cs/codestar-framework.php';
 // require_once WOOCOM_THEME_DIR . '/inc/cs.php';
 
 locate_template( '/lib/kirki/kirki.php', true, true );
