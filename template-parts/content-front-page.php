@@ -51,5 +51,7 @@ if( !function_exists('is_plugin_active') ) {
 	<?php get_template_part('/template-parts/discount'); ?>
 
 	<?php get_template_part('/template-parts/partners-logo', 'gallery'); ?>
+
+	<?php get_template_part('/template-parts/on-selling', 'products'); ?>
 	
 </article> 
