@@ -23,37 +23,28 @@
 
 							$product    = wc_get_product( $query->post->ID );
 							$short_desc = $product->get_short_description();
-							$price      = $product->get_price_html();		
-							
-							if($query->post_count === 1 ) {
-								echo "Hello world";
-							} else {
-								echo "die";
-							}
+							$price      = $product->get_price_html();
 
-							if( $query->post_count === 1 ):
-							
-							?>
+							if( $query->current_post === 0 ): ?>
 
-							<li <?php post_class(); ?>>
-								<a href="http://wp.local/product/hoodie-with-zipper/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+							<li <?php post_class("first-product"); ?>>
+								<a href="<?php echo esc_url(get_the_permalink()); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 									<img width="150" height="150" src="<?php echo get_the_post_thumbnail_url(); ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" loading="lazy" />
+									<div class="on-selling-contents">
+										<h2 class="woocommerce-loop-product__title"><?php echo __('SALE OFFER!', 'woocom') ?></h2>
+										<a href="#" class="on-selling-discount">50%</a>
+										<br/>
+										<p><?php echo __('LIMITED TIME VALID', 'woocom'); ?></p>
+									</div>
 								</a>  
-
-								<div class="on-selling-contents">
-									<h2 class="woocommerce-loop-product__title"><?php echo esc_attr( get_the_title() ); ?></h2>
-									<p><?php echo get_the_excerpt(); ?></p>
-									<?php echo $price; ?>
-									<a href="#" class="on-selling-discount">50%</a>
-								</div>
 
 							</li>
 						<?php
 							else: 
 							 ?>
 
-							<li <?php post_class(); ?>>
-								<a href="http://wp.local/product/hoodie-with-zipper/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+							<li <?php post_class("not-first-product"); ?>>
+								<a href="<?php echo esc_url(get_the_permalink()); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 									<img width="150" height="150" src="<?php echo get_the_post_thumbnail_url(); ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" loading="lazy" />
 								</a>  
 
