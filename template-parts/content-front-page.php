@@ -56,6 +56,8 @@ if( !function_exists('is_plugin_active') ) {
 
 	<?php get_template_part('/template-parts/discount', 'category'); ?>
 
+	<?php get_template_part('/template-parts/service', 'section'); ?>
+
 	<?php get_template_part('/template-parts/on-selling', 'products'); ?>
 	
 </article> 

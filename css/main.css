@@ -18218,3 +18218,44 @@ section.wc__shop_by_cat_wrapper {
   }
 
 }
+
+/* Service Section */
+.woocom-service-wrapper {}
+.woocom-service-wrapper .woocom-service-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.woocom-service-wrapper .woocom-service-content img {
+  max-width: 870px;
+}
+
+.woocom-service-wrapper h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.woocom-service-wrapper p.woocom-service-subtitle {
+  font-size: 16px;
+  word-break: break-word;
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+  max-width: 448px;
+}
+
+.woocom-service-wrapper a {
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  display: inline-block;
+  background-color: var(--headingColor,#212121);
+  color: #fff;
+  border-radius: 0.375rem;
+  padding: 18px;
+}
+
+.woocom-service-wrapper a:hover {
+  opacity: .85;
+}
