@@ -24,6 +24,7 @@
 						$cat_thumb_id = get_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
 						$cat_desc = get_term_meta( $prod_cat->term_id, 'description', true );
 						$cat_thumb_url = wp_get_attachment_image_url( $cat_thumb_id, 'large' );
+						$cat_thumb_url = $cat_thumb_url ? $cat_thumb_url : get_template_directory_uri() . '/assets/images/sale-banner-3.png';
 						$term_link = get_term_link( $prod_cat, 'product_cat' );
 						
 					?>

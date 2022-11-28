@@ -69,6 +69,35 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
+// Discount Swiper Slider
+new Swiper(".woocom-discount-swiper", {
+    loop: true,
+    speed: 1000,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    autoplay: {
+       delay: 3000,
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+// new Swiper(".woocom-discount-swiper", {
+//     pagination: {
+//         el: ".woocom-swiper-pagination",
+//         clickable: true,
+//         renderBullet: function (index, className) {
+//             return '<span class="' + className + '">' + (index + 1) + "</span>";
+//         },
+//     },
+// });
+
 const hamburgerIcon = document.querySelector(".mobile-off-canvas");
 const closeIcon = document.querySelector(".offcanvas-menu-close");
 const mobileMenu = document.querySelector(".offcanvas-mobile-menu");
