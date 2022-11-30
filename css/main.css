@@ -18259,3 +18259,23 @@ section.wc__shop_by_cat_wrapper {
 .woocom-service-wrapper a:hover {
   opacity: .85;
 }
+
+/* Reservation Forms */
+.woocom-reservation-wrapper select,
+.woocom-reservation-wrapper input:not([type="submit"]), .woocom-reservation-wrapper input:not([type="radio"]), .woocom-reservation-wrapper input:not([type="checkbox"]) {
+    padding: 15px;
+    margin-bottom: 12px;
+    background: transparent;
+    border-radius: 0.35rem;
+}
+.woocom-reservation-wrapper select {
+    height: 45px;
+    border: 1px solid #ccc;
+    padding-top: 10px;
+    color: #666;
+     
+ }
+.woocom-reservation-wrapper input[type="submit"] {
+    background: #000;
+    color: #fff;
+}

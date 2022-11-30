@@ -36,6 +36,8 @@ if( !function_exists('is_plugin_active') ) {
 	
 	<?php get_template_part('/template-parts/subscribe'); ?>
 
+	<?php echo get_template_part( '/template-parts/reservation' ); ?>
+
 	<?php
 	if ( is_plugin_active( 'wpforms-lite/wpforms.php' ) ) :
 		get_template_part('/template-parts/subscribe2'); 
