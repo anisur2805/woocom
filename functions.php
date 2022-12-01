@@ -238,6 +238,18 @@ EOD;
    wp_enqueue_script( 'aos-script', get_template_directory_uri() . '/js/aos.js', array(), '1.0', true );
 
    wp_enqueue_script( 'main-script', get_template_directory_uri() . '/js/main-script.js', array( 'jquery' ), time(), true );
+
+   // Reservation Form
+   wp_enqueue_script( 'reservation-js', get_template_directory_uri() . '/js/reservation.js', array( 'jquery' ), time(), true );
+   $siteUrl = admin_url('admin-ajax.php');
+  wp_localize_script( 'reservation-js', 'reserveObj', 
+    array( 
+    'siteUrl' => $siteUrl,
+    'duplicate_msg' => __('No need to reserved again', 'woocom'),
+    'success_msg' => __('Reservation Successful', 'woocom'),
+    'err_msg' => __('Something went wrong', 'woocom'),
+    )
+  );
   }
 
  }
@@ -792,3 +804,87 @@ function woocom_admin_enqueue_scripts() {
   }
   add_action('admin_enqueue_scripts', 'woocom_admin_enqueue_scripts');
 
+// Reservation Ajax handler
+function reservation_callback(){
+  if(check_ajax_referer( 'reservation', 'rn' )) {
+    $name = sanitize_text_field( $_POST['name']);
+    $email = sanitize_email( $_POST['email']);
+    $phone = sanitize_text_field( $_POST['phone']);
+    $persons = sanitize_text_field( $_POST['persons']);
+    $date = sanitize_text_field( $_POST['date']);
+    $time = sanitize_text_field( $_POST['time']);
+
+    $data = array(
+      'name' => $name,
+      'email' => $email,
+      'phone' => $phone,
+      'persons' => $persons,
+      'date' => $date,
+      'time' => $time,
+    );
+
+    $reservation_args = array(
+      'post_type' => 'reservation',
+      'post_status' => 'publish',
+      'post_author' => 1,
+      'post_date' => date('Y-m-d H:i:s'),
+      'post_title' => sprintf('%s reserved %s persons sit on - %s %s', $name, $persons, $date . " : " . $time, $email ),
+      'meta_input' => $data,
+    );
+
+    // reservation duplicate insert prevent
+    $reservation_posts = new WP_Query(array(
+      'post_type' => 'reservation',
+      'post_status' => 'publish',
+      'meta_query' => array(
+        'relation' => 'AND',
+        'email_check' => array(
+          'key' => 'email',
+          'value' => $email 
+        ),
+        'date_check' => array(
+          'key' => 'date',
+          'value' => $date 
+        ),
+        'time_check' => array(
+          'key' => 'time',
+          'value' => $time 
+        ),
+      )
+    ));
+
+    if( $reservation_posts->found_posts > 0 ) {
+      echo __('Duplicate', 'woocom');
+    } else {
+      $wp_error = '';
+      wp_insert_post( $reservation_args, $wp_error );
+      if( ! $wp_error ) {
+        echo __('Successful', 'woocom');
+      } else {
+        echo __('Error', 'woocom');
+      }
+    }
+
+
+  } else {
+    die("Not allowed");
+  }
+
+
+  die();
+}
+
+add_action('wp_ajax_reservation_callback', 'reservation_callback');
+add_action('wp_ajax_nopriv_reservation_callback', 'reservation_callback');
+
+/**
+ * Register a reservation post type.
+ */
+function woocom_register_reservation_post_type() {
+	$args = array(
+		'public' => true,
+		'label'  => __( 'Reservations', 'textdomain' ),
+	);
+	register_post_type( 'reservation', $args );
+}
+add_action( 'init', 'woocom_register_reservation_post_type' );
