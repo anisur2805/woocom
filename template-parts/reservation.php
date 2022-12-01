@@ -1,6 +1,8 @@
 <section class="woocom-reservation-wrapper section-fluid"> 
 	<div class="woocom-reservation-inner"> 
-		<?php printf('<h3 class="wc__shop_by_cat_title wc__shop_by_cat_title_2 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">%s</h3>', __('Reservation Form', 'woocom')); ?>
+		<?php 
+		echo "Reservation id: " .get_transient('woocom-res'); 
+		printf('<h3 class="wc__shop_by_cat_title wc__shop_by_cat_title_2 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">%s</h3>', __('Reservation Form', 'woocom')); ?>
 		<form>
 			<?php wp_nonce_field('reservation', 'rn'); ?>
 			<input name="name" type="text" id="name" placeholder="Name" />
