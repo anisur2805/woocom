@@ -853,12 +853,17 @@ function reservation_callback(){
       )
     ));
 
+    $woocom_res_trans = get_transient('woocom-res') ? get_transient('woocom-res') : 0;
     if( $reservation_posts->found_posts > 0 ) {
       echo __('Duplicate', 'woocom');
     } else {
       $wp_error = '';
       wp_insert_post( $reservation_args, $wp_error );
       if( ! $wp_error ) {
+        $woocom_res_trans++;
+        if( $woocom_res_trans > 0 ) {
+          set_transient('woocom-res', $woocom_res_trans, 0);
+        }
         echo __('Successful', 'woocom');
       } else {
         echo __('Error', 'woocom');
@@ -869,7 +874,6 @@ function reservation_callback(){
   } else {
     die("Not allowed");
   }
-
 
   die();
 }
@@ -888,3 +892,33 @@ function woocom_register_reservation_post_type() {
 	register_post_type( 'reservation', $args );
 }
 add_action( 'init', 'woocom_register_reservation_post_type' );
+
+// Show new reservation insert in menu with bubble
+add_filter('add_menu_classes', 'woocom_reservation_menu');
+
+function woocom_reservation_menu($menus) {
+
+  foreach ($menus as $menu_id => $menu_name) {
+    if( in_array('Reservations',$menu_name)) {
+      $woocom_res_trans = get_transient('woocom-res') ? get_transient('woocom-res') : '';
+      if( $woocom_res_trans > 0 ) {
+        $menu_name = "Reservations <span class='awaiting-mod'>{$woocom_res_trans}</span>";
+        $menus[$menu_id][0] = $menu_name;
+      }
+    }
+  }
+
+  return $menus;
+}
+
+// Remove reservation menu bubble
+add_action('admin_enqueue_scripts', 'woocom_reservation_bubble_remove');
+
+function woocom_reservation_bubble_remove( $hooks ) {
+
+  $screen = get_current_screen();
+  if( 'edit.php' == $hooks && 'reservation' == $screen->post_type ) {
+      delete_transient( 'woocom-res' );
+     
+  }
+}
