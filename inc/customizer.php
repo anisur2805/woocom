@@ -73,25 +73,25 @@ function woocom_customize( $wp_customizer ) {
 	/*
 	 *   Footer Copyright
 	 */
-	$wp_customizer->add_section( 'woocom_footer_copyright_section', array(
-		'title'       => __( 'Copyright Text', 'woocom' ),
-		'description' => __( 'Copyright Text', 'woocom' ),
-		'priority'    => 30,
-	) );
+	// $wp_customizer->add_section( 'woocom_footer_copyright_section', array(
+	// 	'title'       => __( 'Copyright Text', 'woocom' ),
+	// 	'description' => __( 'Copyright Text', 'woocom' ),
+	// 	'priority'    => 30,
+	// ) );
 
-	$wp_customizer->add_setting( 'woocom_copyright', array(
-		'sanitize_callback' => 'wp_filter_nohtml_kses', //removes all HTML from content
-		'type'              => 'theme_mod',
-		'default'           => '',
-		'transport'         => 'refresh',
-	) );
+	// $wp_customizer->add_setting( 'woocom_copyright', array(
+	// 	'sanitize_callback' => 'wp_filter_nohtml_kses',
+	// 	'type'              => 'theme_mod',
+	// 	'default'           => '',
+	// 	'transport'         => 'refresh',
+	// ) );
 
-	$wp_customizer->add_control( 'woocom_copyright', array(
-		'label'    => __( 'Copyright Text', 'woocom' ),
-		'section'  => 'woocom_footer_copyright_section',
-		'settings' => 'woocom_copyright',
-		'type'     => 'textarea',
-	) );
+	// $wp_customizer->add_control( 'woocom_copyright', array(
+	// 	'label'    => __( 'Copyright Text', 'woocom' ),
+	// 	'section'  => 'woocom_footer_copyright_section',
+	// 	'settings' => 'woocom_copyright',
+	// 	'type'     => 'textarea',
+	// ) );
 
 	/**
 	 * Hero Slider

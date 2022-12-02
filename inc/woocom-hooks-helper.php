@@ -115,16 +115,23 @@
 						<div class="copyright mb-30 ">
 							<div class="footer-logo">
 							<?php
+								$footer_logo_fallback     = get_template_directory_uri() . '/assets/images/logo-2.1.png';
+								$woocom_footer_logo 	  = get_theme_mod( 'woocom_footer_logo_url', $footer_logo_fallback );
+								$woocom_footer1_title 	  = get_theme_mod( 'woocom_menu1_title' );
+								$woocom_footer2_title 	  = get_theme_mod( 'woocom_menu2_title' );
+								$woocom_footer3_title 	  = get_theme_mod( 'woocom_menu3_title' );
+								$woocom_store_url 	 	  = get_theme_mod( 'woocom_store_url' );
+
 								if ( get_theme_mod( 'custom_logo' ) ):
 									the_custom_logo();
 								else: ?>
 								<a href="<?php echo esc_url( site_url() ); ?>">
-									<img alt="WooCom Logo" src="<?php echo get_template_directory_uri() . "/assets/images/logo-for-website-2.png" ?>">
+									<img alt="WooCom Logo" src="<?php echo esc_url( $woocom_footer_logo ) ; ?>">
 								</a>
 							<?php endif;?>
 							</div>
 							<div class="app-store-google">
-								<a><img src="<?php echo get_template_directory_uri() . "/assets/images/apps-google.png" ?>"></a>
+								<a><img src="<?php echo esc_url( $woocom_store_url ); ?>"></a>
 							</div>
 						</div>
 					</div>
@@ -132,7 +139,7 @@
 					<div class="col-lg-2 col-sm-4">
 						<div class="footer-widget mb-30 ml-30">
 							<div class="footer-title">
-								<h3><?php _e( 'ABOUT US', 'woocom' );?></h3>
+								<h3><?php echo $woocom_footer1_title;?></h3>
 							</div>
 
 							<?php
@@ -150,7 +157,7 @@
 					<div class="col-lg-2 col-sm-4">
 						<div class="footer-widget mb-30 ml-50">
 							<div class="footer-title">
-								<h3><?php _e( 'USEFUL LINKS', 'woocom' );?></h3>
+							<h3><?php echo $woocom_footer2_title;?></h3>
 							</div>
 							<?php
 								wp_nav_menu(
@@ -167,7 +174,7 @@
 					<div class="col-lg-2 col-sm-6">
 						<div class="footer-widget mb-30 ml-75">
 							<div class="footer-title">
-								<h3><?php _e( 'FOLLOW US', 'woocom' );?></h3>
+							<h3><?php echo $woocom_footer3_title;?></h3>
 							</div>
 							<?php
 								wp_nav_menu(
@@ -205,7 +212,30 @@
 		function woocom_render_social_icons() { ?>
 			<div class="footer-social">
 				<ul>
-					<li>
+				<?php		
+				$defaults = [
+					[
+						'link_text' => esc_html__( 'Facebook', 'kirki' ),
+						'link_url'  => 'https://facebook.com/',
+					],
+					[
+						'link_text' => esc_html__( 'Github', 'kirki' ),
+						'link_url'  => 'https://github.com/',
+					],
+				];
+				$socials = get_theme_mod( 'woocom_socials', $defaults );
+
+				foreach ( $socials as $social ) :  ?>
+				<li>
+						<a class="facebook" target="_blank" rel="noopener noreferrer" href="<?php echo $social['link_url']; ?>">
+							<i class="bi-facebook"></i>
+						</a>
+					</li>
+					<!-- <a href="<?php //echo $social['link_url']; ?>">
+						<?php // echo $social['link_text']; ?>
+					</a> -->
+				<?php endforeach; ?>
+					<!-- <li>
 						<a class="facebook" target="_blank" rel="noopener noreferrer" href="/">
 							<i class="bi-facebook"></i>
 						</a>
@@ -224,7 +254,7 @@
 						<a class="youtube" target="_blank" rel="noopener noreferrer" href="/">
 							<i class="bi-youtube"></i>
 						</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		<?php }

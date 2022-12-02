@@ -18260,6 +18260,12 @@ section.wc__shop_by_cat_wrapper {
   opacity: .85;
 }
 
+@media (max-width: 1024px) {
+  .woocom-service-wrapper .woocom-service-content img {
+    max-width: 90%;
+  }
+}
+
 /* Reservation Forms */
 .woocom-reservation-wrapper select,
 .woocom-reservation-wrapper input:not([type="submit"]), .woocom-reservation-wrapper input:not([type="radio"]), .woocom-reservation-wrapper input:not([type="checkbox"]) {
@@ -18278,4 +18284,111 @@ section.wc__shop_by_cat_wrapper {
 .woocom-reservation-wrapper input[type="submit"] {
     background: #000;
     color: #fff;
+}
+
+
+/* Footer 2 Layout */
+.footer-layout-2 .main-footer, 
+.footer-layout-2 .main-footer ul li {
+  font-size: 15px;
+}
+
+.footer-layout-2 .main-footer {
+  padding: 80px 0 50px;
+  background-color: #1c1d20;
+  color: #91939d;
+}
+
+.footer-layout-2 .main-footer .widget {
+  margin-bottom: 30px;
+}
+
+.footer-layout-2 .widget {
+  color: #91939d;
+}
+
+.footer-layout-2 .widget a {
+  color: #91939d;
+}
+
+.footer-layout-2 .widget.widget_woocom_about .woocom-img {
+  margin-bottom: 20px;
+}
+.footer-layout-2 .widget.widget_woocom_about .woocom-des {
+  margin-bottom: 20px;
+  padding-right: 10px;
+  color: inherit;
+}
+
+.footer-layout-2 .main-footer .widget>h3 {
+  color: #ffffff;
+  font-size: 18px;
+  padding-bottom: 0;
+}
+.footer-layout-2 .widget h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  position: relative;
+}
+
+.footer-layout-2 .widget li {
+  margin-bottom: 8px;
+}
+
+.footer-layout-2 .footer-bottom {
+  background-color: #1c1d20;
+  color: #91939d;
+  padding: 40px 0;
+  border-top: 1px solid #2e2e2e;
+}
+
+.footer-layout-2 .footer-bottom .footer-copyright {
+  margin-bottom: 0;
+  color: inherit;
+}
+
+.footer-layout-2 .footer-bottom .woocom-app-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-layout-2 .widget.widget_woocom_about ul li {
+  display: inline-block;
+  margin: 0 7px 5px 0;
+  padding: 0;
+}
+
+.footer-layout-2 .widget.widget_woocom_about ul li a {
+  background-color: #2d2e33;
+  color: #ffffff;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 44px;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.footer-layout-2 .widget.widget_woocom_about ul li a:hover {
+  background-color: var(--rtcl-primary-color);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 767px){
+.footer-layout-2 .footer-bottom {
+    text-align: center;
+}
+.footer-layout-2 .footer-bottom .row {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-layout-2 .footer-bottom .footer-copyright-area {
+  order: 2;
+}
 }

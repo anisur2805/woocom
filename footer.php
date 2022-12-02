@@ -4,6 +4,9 @@
 	 * * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
 	 *
 	 * @package woocom */
+
+	$woocom_footer_layout 	  = get_theme_mod( 'woocom_footer_layout', 'footer-1' );
+
 ?>
 </div>
 	<div class="tags-area bg-gray py-4 mb-4">
@@ -35,31 +38,15 @@
 	
 	<?php do_action( 'woocom_ig_feed' ); ?>
 
-	<?php do_action( 'woocom_before_footer' );?>
-
-	<footer id="colophon" class="footer-area bg-gray pt-100 pb-70 d -none  ">
-		<?php do_action( 'woocom_before_footer_container' );?>
-
-		<?php
-			/**
-			 * Render Footer Widgets.
-			 *
-			 * @hooked woocom_render_footer_top 30
-			 * @hooked woocom_render_footer_main 50
-			 * @hooked woocom_render_footer_copyright 210
-			 */
-			do_action( 'woocom_footer_contents' );
-
-			/**
-			 * Render Footer Copyright Section.
-			 */
-			do_action( 'woocom_footer_copyright' );
-		?>
-		<button class="scroll-top"><i class="bi-arrow-up"></i></button>
-	<?php do_action( 'woocom_after_footer_container' );?>
-	</footer>
+	<?php do_action( 'woocom_before_footer' );
 	
-	<?php do_action( 'woocom_after_footer' );?>
+	if( 1 == $woocom_footer_layout ) {
+		get_template_part( 'template-parts/footer/footer-1' );
+	} else {
+		get_template_part( 'template-parts/footer/footer', '2' );
+	}
+	
+	do_action( 'woocom_after_footer' );?>
 
 	<?php
 	do_action( 'woocom_after_page' );
