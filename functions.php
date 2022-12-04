@@ -807,20 +807,20 @@ function woocom_admin_enqueue_scripts() {
 // Reservation Ajax handler
 function reservation_callback(){
   if(check_ajax_referer( 'reservation', 'rn' )) {
-    $name = sanitize_text_field( $_POST['name']);
-    $email = sanitize_email( $_POST['email']);
-    $phone = sanitize_text_field( $_POST['phone']);
+    $name    = sanitize_text_field( $_POST['name']);
+    $email   = sanitize_email( $_POST['email']);
+    $phone   = sanitize_text_field( $_POST['phone']);
     $persons = sanitize_text_field( $_POST['persons']);
-    $date = sanitize_text_field( $_POST['date']);
-    $time = sanitize_text_field( $_POST['time']);
+    $date    = sanitize_text_field( $_POST['date']);
+    $time    = sanitize_text_field( $_POST['time']);
 
     $data = array(
-      'name' => $name,
-      'email' => $email,
-      'phone' => $phone,
+      'name'    => $name,
+      'email'   => $email,
+      'phone'   => $phone,
       'persons' => $persons,
-      'date' => $date,
-      'time' => $time,
+      'date'    => $date,
+      'time'    => $time,
     );
 
     $reservation_args = array(
@@ -858,19 +858,31 @@ function reservation_callback(){
       echo __('Duplicate', 'woocom');
     } else {
       $wp_error = '';
-      wp_insert_post( $reservation_args, $wp_error );
+      $reservation_id = wp_insert_post( $reservation_args, $wp_error );
       if( ! $wp_error ) {
         $woocom_res_trans++;
         if( $woocom_res_trans > 0 ) {
           set_transient('woocom-res', $woocom_res_trans, 0);
         }
-        echo __('Successful', 'woocom');
+
+        $_name = explode( " ", $name );
+        $order_data    = array(
+          'first_name' => $_name[0],
+          'last_name'  => isset( $_name[1] ) ? $_name[1] : '',
+          'email'      => $email,
+          'phone'      => $phone
+        );
+
+        $order = wc_create_order();
+        $order->set_address( $order_data );
+        $order->add_product( wc_get_product(149), 1);
+        $order->set_customer_note( $reservation_id );
+        $order->calculate_totals();
+        echo $order->get_checkout_payment_url();
       } else {
         echo __('Error', 'woocom');
       }
     }
-
-
   } else {
     die("Not allowed");
   }
@@ -887,7 +899,7 @@ add_action('wp_ajax_nopriv_reservation_callback', 'reservation_callback');
 function woocom_register_reservation_post_type() {
 	$args = array(
 		'public' => true,
-		'label'  => __( 'Reservations', 'textdomain' ),
+		'label'  => __( 'Reservations', 'woocom' ),
 	);
 	register_post_type( 'reservation', $args );
 }
@@ -922,3 +934,51 @@ function woocom_reservation_bubble_remove( $hooks ) {
      
   }
 }
+
+// Remove woocommerce default checkout fields
+add_filter( 'woocommerce_checkout_fields', 'woocom_remove_default_checkout_fields' );
+function woocom_remove_default_checkout_fields( $fields ){
+  unset($fields['billing']['billing_company']);
+  unset($fields['billing']['billing_address_1']);
+  unset($fields['billing']['billing_address_2']);
+  unset($fields['billing']['billing_city']);
+  unset($fields['billing']['billing_postcode']);
+  unset($fields['billing']['billing_country']);
+  unset($fields['billing']['billing_state']);
+
+  unset($fields['shipping']['shipping_company']);
+  unset($fields['shipping']['shipping_address_1']);
+  unset($fields['shipping']['shipping_address_2']);
+  unset($fields['shipping']['shipping_city']);
+  unset($fields['shipping']['shipping_postcode']);
+  unset($fields['shipping']['shipping_country']);
+  unset($fields['shipping']['shipping_state']);
+
+  unset($fields['order']['order_comments']);
+
+  return $fields;
+}
+
+
+// Process Reservation 
+add_filter( 'woocommerce_order_status_processing', 'woocom_order_status_processing' );
+function woocom_order_status_processing( $order_id ) {
+
+  $order          = wc_get_order( $order_id );
+  $reservation_id = $order->get_customer_note();
+
+  if( $reservation_id ) {
+
+    $reservation = get_post( $reservation_id );
+    wp_update_post( array(
+      'ID'         => $reservation_id,
+      'post_title' => '[Paid] - ' . $reservation->post_title
+    ));
+
+    add_post_meta( $reservation_id, 'paid', 1 );
+  }
+
+}
+
+
+

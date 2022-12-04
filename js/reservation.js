@@ -13,9 +13,12 @@
             }, function ( data ) {
                 if ( 'Duplicate' == data ) {
                     alert( reserveObj.duplicate_msg )
-                } else if ( 'Successful' == data ) {
-                    alert( reserveObj.success_msg )
-                    $(".woocom-reservation-wrapper form")[0].reset()
+                } else {
+                    console.log( data )
+                    $("#paynow").attr('href', data);
+                    $("#submitNow").hide();
+                    $("#paynow").show();
+                    $(".woocom-reservation-wrapper form")[0].reset();
                 }
             } )
             return false;

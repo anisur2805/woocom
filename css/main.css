@@ -18285,7 +18285,19 @@ section.wc__shop_by_cat_wrapper {
     background: #000;
     color: #fff;
 }
-
+.woocom-reservation-wrapper #paynow {
+  display: none;
+  border: 1px solid #212121;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  width: 100%;
+  height: 45px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 0.3em;
+  text-align: center;
+}
 
 /* Footer 2 Layout */
 .footer-layout-2 .main-footer, 

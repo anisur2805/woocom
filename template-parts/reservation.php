@@ -15,6 +15,7 @@
 			<input name="date" type="date" id="date" placeholder="Date" />
 			<input name="time" type="time" id="time" placeholder="Time" />
 			<input type="submit" id="submitNow" value="Reserve Now"/>
+			<a href="#" id="paynow"><?php _e('Confirm Payment', 'woocom'); ?></a>
 		</form>
 	</div>
 </section>
