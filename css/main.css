@@ -18404,3 +18404,9 @@ section.wc__shop_by_cat_wrapper {
   order: 2;
 }
 }
+
+
+/* Justified Gallery */
+.woocom-justified-gallery {
+  margin-bottom: 40px;
+}
