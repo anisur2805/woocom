@@ -14,10 +14,17 @@ if( !function_exists('is_plugin_active') ) {
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <header class="entry-header">
 
-	<?php echo get_template_part('/template-parts/hero', 'slider'); ?>
+	<?php 
+		echo get_template_part('/template-parts/hero', 'slider'); 
+		get_template_part('/template-parts/hero', 'slider2');
+	?>
 
-	<?php echo get_template_part('/template-parts/shop-by', 'category'); ?>
-	
+	<?php 
+		if(class_exists('WooCommerce')){
+			echo get_template_part('/template-parts/shop-by', 'category'); 
+		}
+	?>
+
 	<?php echo get_template_part('/template-parts/about' ); ?>
 	
 	<?php get_template_part('/template-parts/support', 'area'); ?>
@@ -26,7 +33,11 @@ if( !function_exists('is_plugin_active') ) {
 	
 	<?php //echo get_template_part('/template-parts/custom-posts' ); ?>
 
-	<?php get_template_part('/template-parts/product', 'area'); ?>
+	<?php 
+		if(class_exists('WooCommerce')){
+			get_template_part('/template-parts/product', 'area'); 
+		}
+	?>
 	
 	<?php //get_template_part('/template-parts/promotion'); ?>
 	
@@ -44,22 +55,35 @@ if( !function_exists('is_plugin_active') ) {
 	endif;
 	?>
 	
-	<?php get_template_part('/template-parts/new', 'arrival'); ?>
+	<?php
+		if(class_exists('WooCommerce')){
+			get_template_part('/template-parts/new', 'arrival'); 
+		}
+	?>
 	
-	<?php get_template_part('/template-parts/hero', 'slider2'); ?>
-	
-	<?php get_template_part('/template-parts/product', 'gallery'); ?>
-
-	<?php get_template_part('/template-parts/discount'); ?>
+	<?php 
+		if(class_exists('WooCommerce')){
+			get_template_part('/template-parts/product', 'gallery');
+			get_template_part('/template-parts/discount'); 
+		}
+	?>
 
 	<?php get_template_part('/template-parts/partners-logo', 'gallery'); ?>
 
 	<?php get_template_part('/template-parts/woocom', 'app'); ?>
 
-	<?php get_template_part('/template-parts/discount', 'category'); ?>
+	<?php 
+		if(class_exists('WooCommerce')){	
+			get_template_part('/template-parts/discount', 'category'); 
+		}
+	?>
 
 	<?php get_template_part('/template-parts/service', 'section'); ?>
 
-	<?php get_template_part('/template-parts/on-selling', 'products'); ?>
+	<?php
+		if(class_exists('WooCommerce')){
+			get_template_part('/template-parts/on-selling', 'products');
+		}
+	 ?>
 	
 </article> 
