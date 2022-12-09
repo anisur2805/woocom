@@ -336,9 +336,9 @@
 			// } else {
 				$name = 'banner';
 			// }
-	
-			$template = woocom_get_banner_template_slug() . '/' . $name;
-	
+
+			$template = woocom_get_banner_template_slug() . '/' . $name . '.php';
+
 			get_template_part($template);
 		}
 	}

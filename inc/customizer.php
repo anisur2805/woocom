@@ -266,7 +266,7 @@ function woocom_customize( $wp_customizer ) {
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customizer->add_control( new WP_Customize_Media_Control( $wp_customizer, 'woocom_hero_logo3', array(
-		'label'           => __( 'Home Page Hero Logo 0001', 'woocom' ),
+		'label'           => __( 'Home Page Hero Logo', 'woocom' ),
 		'section'         => 'woocom_hero_slider',
 		'mime_type'       => 'image',
 		'active_callback' => 'is_front_page',
